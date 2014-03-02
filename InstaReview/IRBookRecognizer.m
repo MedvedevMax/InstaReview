@@ -15,10 +15,12 @@
 - (NSString*)getBookNameForUpploadedImage:(NSString *)url
 {
     NSURL *apiUrl = [NSURL URLWithString:[NSString stringWithFormat:GOOGLE_IMAGE_RECOGNITION_API_URL, [self encodeURL:url]]];
+    NSLog(@"Accessing image recognition at: %@", apiUrl);
     
     NSError *error;
     NSString *resultPageContent = [NSString stringWithContentsOfURL:apiUrl encoding:NSUTF8StringEncoding error:&error];
     if (error) {
+        NSLog(@"Error getting API-page content");
         return nil;
     }
     
@@ -33,10 +35,12 @@
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\style=\"font-style:italic\">[^<]*<\\/a>"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
+    NSLog(@"Parsing page content...");
     NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:content options:0 range:NSMakeRange(0, [content length])];
     if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
         fetchedResult = [content substringWithRange:rangeOfFirstMatch];
     }
+    NSLog(@"Fetched string: %@", fetchedResult);
     
     return fetchedResult;
 }

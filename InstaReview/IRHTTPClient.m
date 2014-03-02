@@ -17,8 +17,10 @@
 {
     __block NSString *resultUrl = nil;
     
+    NSLog(@"Start uploading image");
     NSData *imgData = UIImageJPEGRepresentation(image, 1.0f);
     [MLIMGURUploader uploadPhoto:imgData title:@"Book cover" description:@"cover of some book" imgurClientID:IMGUR_CLIENT_ID completionBlock:^(NSString *result) {
+        NSLog(@"Successfuly uploaded to: %@", result);
         resultUrl = result;
     } failureBlock:nil];
     
