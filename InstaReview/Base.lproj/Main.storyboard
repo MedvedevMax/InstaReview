@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller - InstaReview-->
+        <!--Main View Controller - InstaReview-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="IRWelcomeViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="IRMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bbZ-NR-dk0"/>
                         <viewControllerLayoutGuide type="bottom" id="Khe-e7-a3a"/>
@@ -30,7 +30,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="snapTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8j6-SD-p7L"/>
+                                    <action selector="snapTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qR0-FG-IVT"/>
                                 </connections>
                             </button>
                         </subviews>
