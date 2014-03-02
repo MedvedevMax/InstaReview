@@ -14,7 +14,7 @@
 		A276A87818C3D5FF006865F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A87718C3D5FF006865F2 /* main.m */; };
 		A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A87B18C3D5FF006865F2 /* IRAppDelegate.m */; };
 		A276A87F18C3D5FF006865F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A276A87D18C3D5FF006865F2 /* Main.storyboard */; };
-		A276A88218C3D5FF006865F2 /* IRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A88118C3D5FF006865F2 /* IRViewController.m */; };
+		A276A88218C3D5FF006865F2 /* IRWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A88118C3D5FF006865F2 /* IRWelcomeViewController.m */; };
 		A276A88418C3D5FF006865F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A276A88318C3D5FF006865F2 /* Images.xcassets */; };
 		A276A88B18C3D5FF006865F2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A88A18C3D5FF006865F2 /* XCTest.framework */; };
 		A276A88C18C3D5FF006865F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86B18C3D5FF006865F2 /* Foundation.framework */; };
@@ -45,8 +45,8 @@
 		A276A87A18C3D5FF006865F2 /* IRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRAppDelegate.h; sourceTree = "<group>"; };
 		A276A87B18C3D5FF006865F2 /* IRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRAppDelegate.m; sourceTree = "<group>"; };
 		A276A87E18C3D5FF006865F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A276A88018C3D5FF006865F2 /* IRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRViewController.h; sourceTree = "<group>"; };
-		A276A88118C3D5FF006865F2 /* IRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRViewController.m; sourceTree = "<group>"; };
+		A276A88018C3D5FF006865F2 /* IRWelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRWelcomeViewController.h; sourceTree = "<group>"; };
+		A276A88118C3D5FF006865F2 /* IRWelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRWelcomeViewController.m; sourceTree = "<group>"; };
 		A276A88318C3D5FF006865F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A276A88918C3D5FF006865F2 /* InstaReviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaReviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A276A88A18C3D5FF006865F2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -179,8 +179,8 @@
 		A276A8A418C3D718006865F2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A276A88018C3D5FF006865F2 /* IRViewController.h */,
-				A276A88118C3D5FF006865F2 /* IRViewController.m */,
+				A276A88018C3D5FF006865F2 /* IRWelcomeViewController.h */,
+				A276A88118C3D5FF006865F2 /* IRWelcomeViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -295,7 +295,7 @@
 			files = (
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
-				A276A88218C3D5FF006865F2 /* IRViewController.m in Sources */,
+				A276A88218C3D5FF006865F2 /* IRWelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

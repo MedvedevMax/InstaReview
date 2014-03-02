@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IlN-74-uzi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller - InstaReview-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="IRViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="IRWelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bbZ-NR-dk0"/>
                         <viewControllerLayoutGuide type="bottom" id="Khe-e7-a3a"/>
@@ -15,11 +15,59 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap a book cover to find reviews of it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="03u-ip-kaq">
+                                <rect key="frame" x="57" y="263" width="207" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUq-NZ-PsV">
+                                <rect key="frame" x="57" y="463" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Snap to review">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="snapTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8j6-SD-p7L"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="03u-ip-kaq" secondAttribute="trailing" constant="56" id="Kho-yC-uc4"/>
+                            <constraint firstItem="QUq-NZ-PsV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="57" id="PJW-cb-ODu"/>
+                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="QUq-NZ-PsV" secondAttribute="bottom" constant="75" id="Use-25-6Fb"/>
+                            <constraint firstItem="03u-ip-kaq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="57" id="VGe-Vk-LvN"/>
+                            <constraint firstAttribute="trailing" secondItem="QUq-NZ-PsV" secondAttribute="trailing" constant="56" id="e5O-cK-aj3"/>
+                            <constraint firstItem="03u-ip-kaq" firstAttribute="top" secondItem="bbZ-NR-dk0" secondAttribute="bottom" constant="199" id="nl6-8q-0U1"/>
+                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="03u-ip-kaq" secondAttribute="bottom" constant="264" id="ySm-Gb-4qp"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="InstaReview" id="wM8-Zn-mF2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="470" y="297"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ulo-rp-W6J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IlN-74-uzi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ak0-y6-tNK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="gho-f5-brE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="20c-kF-yh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="297"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

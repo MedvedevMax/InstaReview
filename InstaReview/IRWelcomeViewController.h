@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IRViewController : UIViewController
+@interface IRWelcomeViewController : UIViewController
 
 @end
