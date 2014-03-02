@@ -112,12 +112,12 @@
 		A276A87118C3D5FF006865F2 /* InstaReview */ = {
 			isa = PBXGroup;
 			children = (
-				A276A87A18C3D5FF006865F2 /* IRAppDelegate.h */,
-				A276A87B18C3D5FF006865F2 /* IRAppDelegate.m */,
 				A276A87D18C3D5FF006865F2 /* Main.storyboard */,
-				A276A88018C3D5FF006865F2 /* IRViewController.h */,
-				A276A88118C3D5FF006865F2 /* IRViewController.m */,
-				A276A88318C3D5FF006865F2 /* Images.xcassets */,
+				A276A8A518C3D720006865F2 /* View */,
+				A276A8A418C3D718006865F2 /* ViewController */,
+				A276A8A218C3D706006865F2 /* Model */,
+				A276A8A318C3D710006865F2 /* API */,
+				A276A8A018C3D6F0006865F2 /* Resources */,
 				A276A87218C3D5FF006865F2 /* Supporting Files */,
 			);
 			path = InstaReview;
@@ -126,6 +126,8 @@
 		A276A87218C3D5FF006865F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A276A87A18C3D5FF006865F2 /* IRAppDelegate.h */,
+				A276A87B18C3D5FF006865F2 /* IRAppDelegate.m */,
 				A276A87318C3D5FF006865F2 /* InstaReview-Info.plist */,
 				A276A87418C3D5FF006865F2 /* InfoPlist.strings */,
 				A276A87718C3D5FF006865F2 /* main.m */,
@@ -150,6 +152,44 @@
 				A276A89318C3D5FF006865F2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A276A8A018C3D6F0006865F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A276A88318C3D5FF006865F2 /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A276A8A218C3D706006865F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A276A8A318C3D710006865F2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		A276A8A418C3D718006865F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A276A88018C3D5FF006865F2 /* IRViewController.h */,
+				A276A88118C3D5FF006865F2 /* IRViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A276A8A518C3D720006865F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +240,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Max Medvedev";
 				TargetAttributes = {
+					A276A86718C3D5FF006865F2 = {
+						DevelopmentTeam = WAZ4HJ5VNJ;
+					};
 					A276A88818C3D5FF006865F2 = {
 						TestTargetID = A276A86718C3D5FF006865F2;
 					};
@@ -379,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstaReview/InstaReview-Prefix.pch";
 				INFOPLIST_FILE = "InstaReview/InstaReview-Info.plist";
@@ -392,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstaReview/InstaReview-Prefix.pch";
 				INFOPLIST_FILE = "InstaReview/InstaReview-Info.plist";
