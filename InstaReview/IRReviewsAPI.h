@@ -1,5 +1,5 @@
 //
-//  IRBookRecognizer.h
+//  IRReviewsAPI.h
 //  InstaReview
 //
 //  Created by Max Medvedev on 3/3/14.
@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IRBookRecognizer : NSObject
+@interface IRReviewsAPI : NSObject
 
-- (NSString*)getBookNameForUploadedImage:(NSString *)url;
++ (id)sharedInstance;
+
+- (NSString*)getNameForCover:(UIImage *)coverImage;
 
 @end

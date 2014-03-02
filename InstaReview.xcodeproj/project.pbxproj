@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A276A86C18C3D5FF006865F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86B18C3D5FF006865F2 /* Foundation.framework */; };
 		A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */; };
 		A276A87018C3D5FF006865F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86F18C3D5FF006865F2 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
+		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
 		A276A86818C3D5FF006865F2 /* InstaReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A276A86B18C3D5FF006865F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,12 +188,14 @@
 		A276A8A318C3D710006865F2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */,
+				A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */,
+				A276A8B018C3F224006865F2 /* IRBookRecognizer.h */,
+				A276A8B118C3F224006865F2 /* IRBookRecognizer.m */,
 				A276A8AA18C3EDB0006865F2 /* IRHTTPClient.h */,
 				A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */,
 				A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */,
 				A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */,
-				A276A8B018C3F224006865F2 /* IRBookRecognizer.h */,
-				A276A8B118C3F224006865F2 /* IRBookRecognizer.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
 				A276A88218C3D5FF006865F2 /* IRMainViewController.m in Sources */,
 				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
+				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
 				A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +534,7 @@
 				A276A89C18C3D5FF006865F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A276A89D18C3D5FF006865F2 /* Build configuration list for PBXNativeTarget "InstaReviewTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +543,7 @@
 				A276A89F18C3D5FF006865F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

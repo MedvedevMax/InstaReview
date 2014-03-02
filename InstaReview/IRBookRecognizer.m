@@ -12,7 +12,7 @@
 
 #define GOOGLE_IMAGE_RECOGNITION_API_URL @"http://images.google.com/searchbyimage?image_url=%@"
 
-- (NSString*)getBookNameForUpploadedImage:(NSString *)url
+- (NSString*)getBookNameForUploadedImage:(NSString *)url
 {
     NSURL *apiUrl = [NSURL URLWithString:[NSString stringWithFormat:GOOGLE_IMAGE_RECOGNITION_API_URL, [self encodeURL:url]]];
     NSLog(@"Accessing image recognition at: %@", apiUrl);
