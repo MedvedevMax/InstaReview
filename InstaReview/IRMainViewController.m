@@ -40,13 +40,22 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-
-    // checking for picked image
-    UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
-    [self.view addSubview:imgView];
+    UIImage *snap = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self asynchronouslyRecognizeImage:snap];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)asynchronouslyRecognizeImage:(UIImage *)image
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *bookName = @"Name";
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Recognized" message:bookName delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        });
+    });
 }
 
 @end

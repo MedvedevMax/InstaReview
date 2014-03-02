@@ -22,6 +22,9 @@
 		A276A89518C3D5FF006865F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A276A89318C3D5FF006865F2 /* InfoPlist.strings */; };
 		A276A89718C3D5FF006865F2 /* InstaReviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A89618C3D5FF006865F2 /* InstaReviewTests.m */; };
 		A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A8A818C3E090006865F2 /* MobileCoreServices.framework */; };
+		A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */; };
+		A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */; };
+		A276A8B218C3F224006865F2 /* IRBookRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8B118C3F224006865F2 /* IRBookRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,12 @@
 		A276A89418C3D5FF006865F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A276A89618C3D5FF006865F2 /* InstaReviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaReviewTests.m; sourceTree = "<group>"; };
 		A276A8A818C3E090006865F2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A276A8AA18C3EDB0006865F2 /* IRHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRHTTPClient.h; sourceTree = "<group>"; };
+		A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRHTTPClient.m; sourceTree = "<group>"; };
+		A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLIMGURUploader.h; sourceTree = "<group>"; };
+		A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLIMGURUploader.m; sourceTree = "<group>"; };
+		A276A8B018C3F224006865F2 /* IRBookRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookRecognizer.h; sourceTree = "<group>"; };
+		A276A8B118C3F224006865F2 /* IRBookRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +185,12 @@
 		A276A8A318C3D710006865F2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A276A8AA18C3EDB0006865F2 /* IRHTTPClient.h */,
+				A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */,
+				A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */,
+				A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */,
+				A276A8B018C3F224006865F2 /* IRBookRecognizer.h */,
+				A276A8B118C3F224006865F2 /* IRBookRecognizer.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -298,8 +313,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
+				A276A8B218C3F224006865F2 /* IRBookRecognizer.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
 				A276A88218C3D5FF006865F2 /* IRMainViewController.m in Sources */,
+				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
+				A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
