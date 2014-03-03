@@ -12,6 +12,6 @@
 
 + (id)sharedInstance;
 
-- (NSString*)getNameForCover:(UIImage *)coverImage;
+- (NSString*)getBookNameForCover:(UIImage *)coverImage;
 
 @end

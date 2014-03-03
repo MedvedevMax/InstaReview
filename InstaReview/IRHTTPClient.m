@@ -18,12 +18,16 @@
     __block NSString *resultUrl = nil;
     
     NSLog(@"Start uploading image");
-    NSData *imgData = UIImageJPEGRepresentation(image, 1.0f);
+    NSData *imgData = UIImageJPEGRepresentation(image, 0.2f);
+    
+    dispatch_semaphore_t upload_sema = dispatch_semaphore_create(0);
     [MLIMGURUploader uploadPhoto:imgData title:@"Book cover" description:@"cover of some book" imgurClientID:IMGUR_CLIENT_ID completionBlock:^(NSString *result) {
         NSLog(@"Successfuly uploaded to: %@", result);
         resultUrl = result;
+        dispatch_semaphore_signal(upload_sema);
     } failureBlock:nil];
     
+    dispatch_semaphore_wait(upload_sema, DISPATCH_TIME_FOREVER);
     return resultUrl;
 }
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IRBookRecognizer : NSObject
+@interface IRBookRecognizer : NSObject <NSURLConnectionDataDelegate>
 
 - (NSString*)getBookNameForUploadedImage:(NSString *)url;
 

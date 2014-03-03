@@ -9,6 +9,8 @@
 #import "IRMainViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#import "IRReviewsAPI.h"
+
 @interface IRMainViewController ()
 
 @end
@@ -49,7 +51,7 @@
 - (void)asynchronouslyRecognizeImage:(UIImage *)image
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *bookName = @"Name";
+        NSString *bookName = [[IRReviewsAPI sharedInstance] getBookNameForCover:image];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Recognized" message:bookName delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

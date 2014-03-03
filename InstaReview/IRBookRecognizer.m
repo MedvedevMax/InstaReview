@@ -16,9 +16,19 @@
 {
     NSURL *apiUrl = [NSURL URLWithString:[NSString stringWithFormat:GOOGLE_IMAGE_RECOGNITION_API_URL, [self encodeURL:url]]];
     NSLog(@"Accessing image recognition at: %@", apiUrl);
+   
+    [[UIApplication sharedApplication] openURL:apiUrl];
+    return nil;
     
     NSError *error;
-    NSString *resultPageContent = [NSString stringWithContentsOfURL:apiUrl encoding:NSUTF8StringEncoding error:&error];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:apiUrl]
+                                                                  delegate:self
+                                                          startImmediately:NO];
+    [connection scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                          forMode:NSDefaultRunLoopMode];
+    [connection start];
+    
+    NSString *resultPageContent = [NSString stringWithContentsOfURL:apiUrl encoding:NSASCIIStringEncoding error:&error];
     if (error) {
         NSLog(@"Error getting API-page content");
         return nil;
@@ -36,7 +46,10 @@
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     NSLog(@"Parsing page content...");
-    NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:content options:0 range:NSMakeRange(0, [content length])];
+    NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:content
+                                                         options:0
+                                                           range:NSMakeRange(0, [content length])];
+    
     if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
         fetchedResult = [content substringWithRange:rangeOfFirstMatch];
     }
@@ -50,6 +63,19 @@
     NSString *charactersToEscape = @"!*'();:@&=+$,/?%#[]\" ";
     NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
     return [unescaped stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+}
+
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
+{
+    NSLog(@"Redirection catched: %@", request.URL);
+    
+    return request;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSLog(@"received data: %@", string);
 }
 
 @end
