@@ -36,7 +36,7 @@
     CGSize size = CGSizeMake(240, 320);
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     [coverImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *smallerCover = [self cropImage:UIGraphicsGetImageFromCurrentImageContext() toRect:CGRectMake(48, 64, 384, 512)];
+    UIImage *smallerCover = [self cropImage:UIGraphicsGetImageFromCurrentImageContext() toRect:CGRectMake(24, 32, 408, 544)];
     UIGraphicsEndImageContext();
     
     // Posting to imgur
