@@ -27,6 +27,8 @@
 		A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */; };
 		A276A8B218C3F224006865F2 /* IRBookRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8B118C3F224006865F2 /* IRBookRecognizer.m */; };
 		A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B310A718CA60FF00868DEA /* UIImage+Resize.m */; };
+		A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */; };
+		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		A276A8B118C3F224006865F2 /* IRBookRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookRecognizer.m; sourceTree = "<group>"; };
 		A2B310A618CA60FF00868DEA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		A2B310A718CA60FF00868DEA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		A2E1A60F18CA679D00CD1E28 /* IRBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetails.h; sourceTree = "<group>"; };
+		A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetails.m; sourceTree = "<group>"; };
+		A2E1A61218CA67A600CD1E28 /* IRBookReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookReview.h; sourceTree = "<group>"; };
+		A2E1A61318CA67A600CD1E28 /* IRBookReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookReview.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 		A276A8A218C3D706006865F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2E1A60F18CA679D00CD1E28 /* IRBookDetails.h */,
+				A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */,
+				A2E1A61218CA67A600CD1E28 /* IRBookReview.h */,
+				A2E1A61318CA67A600CD1E28 /* IRBookReview.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,8 +341,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
+				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,
 				A276A8B218C3F224006865F2 /* IRBookRecognizer.m in Sources */,
+				A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
 				A276A88218C3D5FF006865F2 /* IRMainViewController.m in Sources */,
 				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
