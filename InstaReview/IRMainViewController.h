@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRBooksContainerDelegate.h"
 
-@interface IRMainViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface IRMainViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, IRBooksContainerDelegate>
 
 @end

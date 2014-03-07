@@ -25,10 +25,11 @@
 		A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A8A818C3E090006865F2 /* MobileCoreServices.framework */; };
 		A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */; };
 		A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */; };
-		A276A8B218C3F224006865F2 /* IRBookRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8B118C3F224006865F2 /* IRBookRecognizer.m */; };
 		A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B310A718CA60FF00868DEA /* UIImage+Resize.m */; };
 		A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */; };
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
+		A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */; };
+		A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,14 +69,17 @@
 		A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRHTTPClient.m; sourceTree = "<group>"; };
 		A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLIMGURUploader.h; sourceTree = "<group>"; };
 		A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLIMGURUploader.m; sourceTree = "<group>"; };
-		A276A8B018C3F224006865F2 /* IRBookRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookRecognizer.h; sourceTree = "<group>"; };
-		A276A8B118C3F224006865F2 /* IRBookRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookRecognizer.m; sourceTree = "<group>"; };
 		A2B310A618CA60FF00868DEA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		A2B310A718CA60FF00868DEA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		A2E1A60F18CA679D00CD1E28 /* IRBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetails.h; sourceTree = "<group>"; };
 		A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetails.m; sourceTree = "<group>"; };
 		A2E1A61218CA67A600CD1E28 /* IRBookReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookReview.h; sourceTree = "<group>"; };
 		A2E1A61318CA67A600CD1E28 /* IRBookReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookReview.m; sourceTree = "<group>"; };
+		A2E1A61518CA6E3400CD1E28 /* IRReviewsFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsFetcher.h; sourceTree = "<group>"; };
+		A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsFetcher.m; sourceTree = "<group>"; };
+		A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRChoosingBookViewController.h; sourceTree = "<group>"; };
+		A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRChoosingBookViewController.m; sourceTree = "<group>"; };
+		A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRBooksContainerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +207,8 @@
 			children = (
 				A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */,
 				A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */,
-				A276A8B018C3F224006865F2 /* IRBookRecognizer.h */,
-				A276A8B118C3F224006865F2 /* IRBookRecognizer.m */,
+				A2E1A61518CA6E3400CD1E28 /* IRReviewsFetcher.h */,
+				A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */,
 				A276A8AA18C3EDB0006865F2 /* IRHTTPClient.h */,
 				A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */,
 				A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */,
@@ -218,6 +222,9 @@
 			children = (
 				A276A88018C3D5FF006865F2 /* IRMainViewController.h */,
 				A276A88118C3D5FF006865F2 /* IRMainViewController.m */,
+				A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */,
+				A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */,
+				A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -343,11 +350,12 @@
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
 				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,
-				A276A8B218C3F224006865F2 /* IRBookRecognizer.m in Sources */,
 				A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
+				A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */,
 				A276A88218C3D5FF006865F2 /* IRMainViewController.m in Sources */,
 				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
+				A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
 				A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */,
 			);

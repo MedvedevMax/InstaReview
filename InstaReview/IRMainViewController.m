@@ -10,8 +10,12 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 #import "IRReviewsAPI.h"
+#import "IRChoosingBookViewController.h"
 
 @interface IRMainViewController ()
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) NSArray *currentBooks;
 
 @end
 
@@ -48,16 +52,57 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Recognize and show books list
+
 - (void)asynchronouslyRecognizeImage:(UIImage *)image
 {
+    [self.activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        unsigned long booksCount = [[[IRReviewsAPI sharedInstance] getBooksForCover:image] count];
+        self.currentBooks = [[IRReviewsAPI sharedInstance] getBooksForCover:image];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Recognized" message:[NSString stringWithFormat:@"%lu", booksCount] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alertView show];
+            [self.activityIndicator stopAnimating];
+            [self showCurrentBooksDetails];
         });
     });
+}
+
+- (void)showCurrentBooksDetails
+{
+    if (!self.currentBooks) {
+        // TODO: show "connection error"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InstaReview" message:@"Sorry, connection error :(" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }
+    else if (self.currentBooks.count == 0) {
+        // TODO: show "nothing found"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InstaReview" message:@"No books found :(" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        [alert show];
+    }
+    else if (self.currentBooks.count == 1) {
+        // TODO: show "one book details"
+    }
+    else {
+        [self performSegueWithIdentifier:@"Ask To Specify Book" sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
+        IRChoosingBookViewController *chooseVC = segue.destinationViewController;
+        chooseVC.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"Show Book Details"]) {
+        
+    }
+}
+
+#pragma mark - IRBooksContainerDelegate
+
+- (NSArray *)books
+{
+    return self.currentBooks;
 }
 
 @end
