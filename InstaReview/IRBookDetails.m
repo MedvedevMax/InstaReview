@@ -27,6 +27,7 @@
             [reviews addObject:[[IRBookReview alloc] initWithDictionary:review]];
         }
         
+        self.reviews = [reviews copy];
     }
     
     return self;

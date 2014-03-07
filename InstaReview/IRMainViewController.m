@@ -51,13 +51,10 @@
 - (void)asynchronouslyRecognizeImage:(UIImage *)image
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *msg = [[IRReviewsAPI sharedInstance] getBookNameForCover:image];
-        if (!msg) {
-            msg = @"Couldn't recognize :(";
-        }
+        unsigned long booksCount = [[[IRReviewsAPI sharedInstance] getBooksForCover:image] count];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Recognized" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Recognized" message:[NSString stringWithFormat:@"%lu", booksCount] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alertView show];
         });
     });

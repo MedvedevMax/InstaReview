@@ -7,13 +7,14 @@
 //
 
 #import "IRReviewsAPI.h"
-#import "IRBookRecognizer.h"
+
+#import "IRReviewsFetcher.h"
 #import "IRHTTPClient.h"
 #import "UIImage+Resize.h"
 
 @interface IRReviewsAPI ()
 
-@property (nonatomic, strong) IRBookRecognizer *bookRecognizer;
+@property (nonatomic, strong) IRReviewsFetcher *reviewsFetcher;
 @property (nonatomic, strong) IRHTTPClient *httpClient;
 
 @end
@@ -31,7 +32,7 @@
     return _sharedInstance;
 }
 
-- (NSString*)getBookNameForCover:(UIImage *)coverImage
+- (NSArray*)getBooksForCover:(UIImage *)coverImage
 {
     // Posting to imgur
     NSString *coverImageUrl = [self.httpClient uploadImage:[self prepareImageForRecognition:coverImage]];
@@ -40,8 +41,8 @@
         return nil;
     }
 
-    NSString *bookName = [self.bookRecognizer getBookNameForUploadedImage:coverImageUrl];
-    return bookName;
+    NSArray *books = [self.reviewsFetcher getBooksForCoverPhotoUrl:coverImageUrl];
+    return books;
 }
 
 - (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
@@ -63,12 +64,12 @@
 
 #pragma mark - Properties lazy instantiation
 
-- (IRBookRecognizer*)bookRecognizer
+- (IRReviewsFetcher*)reviewsFetcher
 {
-    if (!_bookRecognizer)
-        _bookRecognizer = [[IRBookRecognizer alloc] init];
+    if (!_reviewsFetcher)
+        _reviewsFetcher = [[IRReviewsFetcher alloc] init];
     
-    return _bookRecognizer;
+    return _reviewsFetcher;
 }
 
 - (IRHTTPClient*)httpClient

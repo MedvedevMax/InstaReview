@@ -14,7 +14,11 @@
 {
     self = [super init];
     if (self) {
-        [self setValuesForKeysWithDictionary:dic];
+        self.url = dic[@"url"];
+        self.date = dic[@"data"];
+        self.shortDescription = dic[@"short"];
+        self.reviewer = dic[@"reviewer"];
+        self.likes = dic[@"likes"];
     }
     
     return self;
