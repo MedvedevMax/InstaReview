@@ -10,11 +10,13 @@
 
 @implementation IRBookRecognizer
 
-#define IR_SERVER_RECOGNITION_API_URL @"http://instareview-medvedev.rhcloud.com/recognize/?imgurl=%@"
+#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/mock"
 
 - (NSString*)getBookNameForUploadedImage:(NSString *)url
 {
-    NSURL *apiUrl = [NSURL URLWithString:[NSString stringWithFormat:IR_SERVER_RECOGNITION_API_URL, [self encodeURL:url]]];
+    NSURL *apiUrl = [NSURL URLWithString:
+                     [IR_API_URL stringByAppendingString:[@"/recognize/?imgurl="
+                                                          stringByAppendingString:[self encodeURL:url]]]];
     NSLog(@"Accessing image recognition at: %@", apiUrl);
     
     NSData *queryResult = [NSData dataWithContentsOfURL:apiUrl];

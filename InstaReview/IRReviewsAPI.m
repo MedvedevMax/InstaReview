@@ -9,6 +9,7 @@
 #import "IRReviewsAPI.h"
 #import "IRBookRecognizer.h"
 #import "IRHTTPClient.h"
+#import "UIImage+Resize.h"
 
 @interface IRReviewsAPI ()
 
@@ -32,15 +33,8 @@
 
 - (NSString*)getBookNameForCover:(UIImage *)coverImage
 {
-    // Resizing cover image to a smaller size
-    CGSize size = CGSizeMake(240, 320);
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-    [coverImage drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *smallerCover = [self cropImage:UIGraphicsGetImageFromCurrentImageContext() toRect:CGRectMake(24, 32, 408, 544)];
-    UIGraphicsEndImageContext();
-    
     // Posting to imgur
-    NSString *coverImageUrl = [self.httpClient uploadImage:smallerCover];
+    NSString *coverImageUrl = [self.httpClient uploadImage:[self prepareImageForRecognition:coverImage]];
     
     if (!coverImageUrl) {
         return nil;
@@ -50,15 +44,21 @@
     return bookName;
 }
 
-- (UIImage *)cropImage:(UIImage *)imageToCrop toRect:(CGRect)rect
+- (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
 {
-    //CGRect CropRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height+15);
+    #define IMG_WIDTH   480
+    #define IMG_HEIGHT  640
+    #define REMOVE_BORDER_PERCENTAGE    5
     
-    CGImageRef imageRef = CGImageCreateWithImageInRect([imageToCrop CGImage], rect);
-    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
+    UIImage *newImage = [sourceImage resizedImage:CGSizeMake(IMG_WIDTH, IMG_HEIGHT)
+                             interpolationQuality:kCGInterpolationMedium];
     
-    return cropped;
+    int borderWidth = IMG_WIDTH * REMOVE_BORDER_PERCENTAGE / 100.0;
+    int borderHeight = IMG_HEIGHT * REMOVE_BORDER_PERCENTAGE / 100.0;
+    newImage = [newImage croppedImage:CGRectMake(borderWidth, borderHeight,
+                                                 IMG_WIDTH - borderWidth, IMG_HEIGHT - borderHeight)];
+    
+    return newImage;
 }
 
 #pragma mark - Properties lazy instantiation
