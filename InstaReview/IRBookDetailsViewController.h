@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRBookDetails.h"
 
 @interface IRBookDetailsViewController : UITableViewController
+
+@property (nonatomic, weak) IRBookDetails *currentBook;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IRBooksContainerDelegate.h"
 
-@interface IRChoosingBookViewController : UITableViewController
+@interface IRChoosingBookViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) id<IRBooksContainerDelegate> delegate;
 

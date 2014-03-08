@@ -11,6 +11,7 @@
 
 #import "IRReviewsAPI.h"
 #import "IRChoosingBookViewController.h"
+#import "IRBookDetailsViewController.h"
 
 @interface IRMainViewController ()
 
@@ -80,7 +81,7 @@
         [alert show];
     }
     else if (self.currentBooks.count == 1) {
-        // TODO: show "one book details"
+        [self performSegueWithIdentifier:@"Show Book Details" sender:self];
     }
     else {
         [self performSegueWithIdentifier:@"Ask To Specify Book" sender:self];
@@ -89,14 +90,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // remove "back" button
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
         IRChoosingBookViewController *chooseVC = segue.destinationViewController;
         chooseVC.delegate = self;
-        
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
     else if ([segue.identifier isEqualToString:@"Show Book Details"]) {
-        
+        IRBookDetailsViewController *detailsVC = segue.destinationViewController;
+        detailsVC.currentBook = [self.currentBooks objectAtIndex:0];
     }
 }
 

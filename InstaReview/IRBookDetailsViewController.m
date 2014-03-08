@@ -7,6 +7,7 @@
 //
 
 #import "IRBookDetailsViewController.h"
+#import "IRBookReview.h"
 
 @interface IRBookDetailsViewController ()
 

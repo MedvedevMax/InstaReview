@@ -8,6 +8,7 @@
 
 #import "IRChoosingBookViewController.h"
 #import "IRBookDetails.h"
+#import "IRBookDetailsViewController.h"
 
 @interface IRChoosingBookViewController ()
 
@@ -18,6 +19,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // remove "back" button
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+ 
+    if ([segue.identifier isEqualToString:@"Show Book Details"]) {
+        IRBookDetailsViewController *detailsVC = segue.destinationViewController;
+        detailsVC.currentBook = [[self.delegate books] objectAtIndex:[[self.tableView indexPathForCell:sender] row]];
+    }
 }
 
 #pragma mark - Table view data source
