@@ -7,8 +7,12 @@
 //
 
 #import "IRChoosingBookViewController.h"
+
 #import "IRBookDetails.h"
 #import "IRBookDetailsViewController.h"
+#import "IRReviewsAPI.h"
+
+#import "UIImage+Resize.h"
 
 @interface IRChoosingBookViewController ()
 
@@ -19,6 +23,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    for (IRBookDetails *book in [self.delegate books]) {
+        [book addObserver:self forKeyPath:@"coverImage" options:NSKeyValueObservingOptionNew context:nil];
+        [[IRReviewsAPI sharedInstance] downloadCoverForBook:book];
+    }
+}
+
+- (void)dealloc
+{
+    for (IRBookDetails *book in [self.delegate books]) {
+        [book removeObserver:book forKeyPath:@"coverImage"];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"coverImage"]) {
+        if ([[self.delegate books] containsObject:object]) {
+            [self.tableView reloadRowsAtIndexPaths:
+                    @[[NSIndexPath indexPathForRow:[[self.delegate books] indexOfObject:object] inSection:0]]
+                                  withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+
 }
 
 #pragma mark - Table view data source
@@ -41,6 +72,10 @@
     IRBookDetails *book = [[self.delegate books] objectAtIndex:indexPath.row];
     cell.textLabel.text = book.name;
     cell.detailTextLabel.text = book.author;
+    
+    if (book.coverImage) {
+        cell.imageView.image = [book.coverImage resizedImage:CGSizeMake(30, 45) interpolationQuality:kCGInterpolationHigh];
+    }
     
     return cell;
 }

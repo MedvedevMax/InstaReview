@@ -9,6 +9,8 @@
 #import "IRBookDetails.h"
 #import "IRBookReview.h"
 
+#import "IRReviewsAPI.h"
+
 @implementation IRBookDetails
 
 - (id)initWithDictionary:(NSDictionary *)dic
@@ -19,9 +21,18 @@
         self.author = dic[@"author"];
         self.coverUrl = dic[@"coverUrl"];
         self.url = dic[@"url"];
-        self.rating = dic[@"rating"];
+
+        if (![dic[@"rating"] isKindOfClass:[NSNull class]]) {
+            self.rating = @([dic[@"rating"] doubleValue]);
+        }
+        else {
+            self.rating = 0;
+        }
+        
         self.published = dic[@"publish"];
         self.description = dic[@"description"];
+        
+        self.coverImage = nil;
         
         NSArray *reviewsDicArray = dic[@"reviews"];
         NSMutableArray *reviews = [[NSMutableArray alloc] init];

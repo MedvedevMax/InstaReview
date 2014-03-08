@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IRBookDetails.h"
 
 @interface IRReviewsAPI : NSObject
 
 + (id)sharedInstance;
 
 - (NSArray*)getBooksForCover:(UIImage *)coverImage;
+- (void)downloadCoverForBook:(IRBookDetails *)book;
 
 @end

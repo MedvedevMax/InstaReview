@@ -62,6 +62,22 @@
     return newImage;
 }
 
+- (void)downloadCoverForBook:(IRBookDetails *)book
+{
+    @synchronized(book.coverImage)
+    {
+        if (!book.coverImage && book.url.length > 0) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                UIImage *image = [self.httpClient downloadImage:book.coverUrl];
+
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    book.coverImage = image;
+                });
+            });
+        }
+    }
+}
+
 #pragma mark - Properties lazy instantiation
 
 - (IRReviewsFetcher*)reviewsFetcher

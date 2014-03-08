@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A21A6CF618CBD12900EA7776 /* blankCover.png */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
-		A255B8BF18CB166900EEC446 /* cover_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A255B8BE18CB166900EEC446 /* cover_sample.jpg */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
 		A276A86C18C3D5FF006865F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86B18C3D5FF006865F2 /* Foundation.framework */; };
 		A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */; };
@@ -45,9 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A21A6CF618CBD12900EA7776 /* blankCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankCover.png; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
-		A255B8BE18CB166900EEC446 /* cover_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_sample.jpg; sourceTree = "<group>"; };
 		A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetailsViewController.h; sourceTree = "<group>"; };
 		A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetailsViewController.m; sourceTree = "<group>"; };
 		A276A86818C3D5FF006865F2 /* InstaReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +191,7 @@
 		A276A8A018C3D6F0006865F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A255B8BE18CB166900EEC446 /* cover_sample.jpg */,
+				A21A6CF618CBD12900EA7776 /* blankCover.png */,
 				A276A88318C3D5FF006865F2 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -336,8 +336,8 @@
 			files = (
 				A276A88418C3D5FF006865F2 /* Images.xcassets in Resources */,
 				A276A87618C3D5FF006865F2 /* InfoPlist.strings in Resources */,
+				A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */,
 				A276A87F18C3D5FF006865F2 /* Main.storyboard in Resources */,
-				A255B8BF18CB166900EEC446 /* cover_sample.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
