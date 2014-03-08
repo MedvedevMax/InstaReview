@@ -92,6 +92,8 @@
     if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
         IRChoosingBookViewController *chooseVC = segue.destinationViewController;
         chooseVC.delegate = self;
+        
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
     else if ([segue.identifier isEqualToString:@"Show Book Details"]) {
         

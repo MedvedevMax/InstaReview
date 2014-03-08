@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
+		A255B8BF18CB166900EEC446 /* cover_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A255B8BE18CB166900EEC446 /* cover_sample.jpg */; };
+		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
 		A276A86C18C3D5FF006865F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86B18C3D5FF006865F2 /* Foundation.framework */; };
 		A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */; };
 		A276A87018C3D5FF006865F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86F18C3D5FF006865F2 /* UIKit.framework */; };
@@ -45,6 +47,9 @@
 /* Begin PBXFileReference section */
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
+		A255B8BE18CB166900EEC446 /* cover_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cover_sample.jpg; sourceTree = "<group>"; };
+		A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetailsViewController.h; sourceTree = "<group>"; };
+		A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetailsViewController.m; sourceTree = "<group>"; };
 		A276A86818C3D5FF006865F2 /* InstaReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A276A86B18C3D5FF006865F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +191,7 @@
 		A276A8A018C3D6F0006865F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A255B8BE18CB166900EEC446 /* cover_sample.jpg */,
 				A276A88318C3D5FF006865F2 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -225,6 +231,8 @@
 				A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */,
 				A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */,
 				A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */,
+				A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */,
+				A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -329,6 +337,7 @@
 				A276A88418C3D5FF006865F2 /* Images.xcassets in Resources */,
 				A276A87618C3D5FF006865F2 /* InfoPlist.strings in Resources */,
 				A276A87F18C3D5FF006865F2 /* Main.storyboard in Resources */,
+				A255B8BF18CB166900EEC446 /* cover_sample.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +359,7 @@
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
 				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,
+				A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */,
 				A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
 				A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */,
