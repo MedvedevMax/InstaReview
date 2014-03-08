@@ -17,6 +17,8 @@
     if (self) {
         self.name = dic[@"name"];
         self.author = dic[@"author"];
+        self.coverUrl = dic[@"coverUrl"];
+        self.url = dic[@"url"];
         self.rating = dic[@"rating"];
         self.published = dic[@"publish"];
         self.description = dic[@"description"];

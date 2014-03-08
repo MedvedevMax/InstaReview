@@ -18,6 +18,7 @@
         self.date = dic[@"data"];
         self.shortText = dic[@"short"];
         self.reviewer = dic[@"reviewer"];
+        self.reviewerUrl = dic[@"reviewerUrl"];
         self.likes = dic[@"likes"];
     }
     

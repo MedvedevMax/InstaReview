@@ -11,8 +11,9 @@
 @interface IRBookDetails : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSString *coverUrl;
+@property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSNumber *rating;
 @property (nonatomic, strong) NSString *published;
 @property (nonatomic, strong) NSString *description;

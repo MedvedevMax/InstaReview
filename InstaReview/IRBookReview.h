@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *shortText;
 @property (nonatomic, strong) NSString *reviewer;
+@property (nonatomic, strong) NSString *reviewerUrl;
 @property (nonatomic, strong) NSString *likes;
 
 - (id)initWithDictionary:(NSDictionary *)dic;
