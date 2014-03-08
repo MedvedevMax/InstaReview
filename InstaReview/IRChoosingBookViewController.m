@@ -33,7 +33,7 @@
 - (void)dealloc
 {
     for (IRBookDetails *book in [self.delegate books]) {
-        [book removeObserver:book forKeyPath:@"coverImage"];
+        [book removeObserver:self forKeyPath:@"coverImage"];
     }
 }
 

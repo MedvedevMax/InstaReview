@@ -17,10 +17,10 @@
 {
     self = [super init];
     if (self) {
-        self.name = dic[@"name"];
-        self.author = dic[@"author"];
-        self.coverUrl = dic[@"coverUrl"];
-        self.url = dic[@"url"];
+        self.name = [self emptyStringOrValue:dic[@"name"]];
+        self.author = [self emptyStringOrValue:dic[@"author"]];
+        self.coverUrl = [self emptyStringOrValue:dic[@"coverUrl"]];
+        self.url = [self emptyStringOrValue:dic[@"url"]];
 
         if (![dic[@"rating"] isKindOfClass:[NSNull class]]) {
             self.rating = @([dic[@"rating"] doubleValue]);
@@ -29,8 +29,8 @@
             self.rating = 0;
         }
         
-        self.published = dic[@"publish"];
-        self.description = dic[@"description"];
+        self.published = [self emptyStringOrValue:dic[@"publish"]];
+        self.description = [self emptyStringOrValue:dic[@"description"]];
         
         self.coverImage = nil;
         
@@ -44,6 +44,11 @@
     }
     
     return self;
+}
+
+- (NSString *)emptyStringOrValue:(id)dictionaryObject
+{
+    return [dictionaryObject isKindOfClass:[NSNull class]] ? @"" : dictionaryObject;
 }
 
 @end

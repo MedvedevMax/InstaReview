@@ -9,7 +9,8 @@
 #import "IRReviewsFetcher.h"
 #import "IRBookDetails.h"
 
-#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/mock/"
+//#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/mock/"
+#define IR_API_URL @"http://localhost:8888/1.0/"
 
 @implementation IRReviewsFetcher
 

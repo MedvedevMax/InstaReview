@@ -14,15 +14,20 @@
 {
     self = [super init];
     if (self) {
-        self.url = dic[@"url"];
-        self.date = dic[@"data"];
-        self.shortText = dic[@"short"];
-        self.reviewer = dic[@"reviewer"];
-        self.reviewerUrl = dic[@"reviewerUrl"];
-        self.likes = dic[@"likes"];
+        self.url = [self emptyStringOrValue:dic[@"url"]];
+        self.date = [self emptyStringOrValue:dic[@"data"]];
+        self.shortText = [self emptyStringOrValue:dic[@"short"]];
+        self.reviewer = [self emptyStringOrValue:dic[@"reviewer"]];
+        self.reviewerUrl = [self emptyStringOrValue:dic[@"reviewerUrl"]];
+        self.likes = [self emptyStringOrValue:dic[@"likes"]];
     }
     
     return self;
+}
+
+- (NSString *)emptyStringOrValue:(id)dictionaryObject
+{
+    return [dictionaryObject isKindOfClass:[NSNull class]] ? @"" : dictionaryObject;
 }
 
 @end

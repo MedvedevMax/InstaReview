@@ -122,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="1004" y="-90"/>
         </scene>
-        <!--Book Details View Controller - Book name-->
+        <!--Book Details View Controller - InstaReview-->
         <scene sceneID="zYI-7x-BXf">
             <objects>
                 <tableViewController id="3rV-Ow-eQ9" customClass="IRBookDetailsViewController" sceneMemberID="viewController">
@@ -221,7 +221,7 @@
                             <outlet property="delegate" destination="3rV-Ow-eQ9" id="A2q-RX-Thx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Book name" id="CWN-Zn-hgu"/>
+                    <navigationItem key="navigationItem" title="InstaReview" id="CWN-Zn-hgu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bro-lp-dWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
