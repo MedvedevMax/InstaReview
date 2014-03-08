@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) NSString *shortDescription;
+@property (nonatomic, strong) NSString *shortText;
 @property (nonatomic, strong) NSString *reviewer;
 @property (nonatomic, strong) NSString *likes;
 

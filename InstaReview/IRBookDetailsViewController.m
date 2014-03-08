@@ -9,6 +9,10 @@
 #import "IRBookDetailsViewController.h"
 #import "IRBookReview.h"
 
+#define kTableViewBookDetailsSection 0
+#define kTableViewBookDescriptionSection 1
+#define kTableViewBookReviewsSection 2
+
 @interface IRBookDetailsViewController ()
 
 @end
@@ -19,7 +23,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -27,43 +30,57 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    if (self.currentBook.reviews.count > 0)
+        return 3;
+    else
+        return 2;       // no "reviews" section
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
+    switch (section) {
+        case kTableViewBookDetailsSection:
+        case kTableViewBookDescriptionSection:
+            return 1;
+
+        case kTableViewBookReviewsSection:
+            return [[self.currentBook reviews] count];
+            
+        default:
+            break;
+    }
+    
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = NULL;
     
-    // Configure the cell...
-    
+    switch (indexPath.section) {
+        case kTableViewBookDetailsSection:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Book Info" forIndexPath:indexPath];
+            
+            
+            break;
+
+        case kTableViewBookDescriptionSection:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Book Description" forIndexPath:indexPath];
+            cell.textLabel.text = self.currentBook.description;
+            break;
+            
+        case kTableViewBookReviewsSection:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Review" forIndexPath:indexPath];
+            IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
+            cell.textLabel.text = review.shortText;
+            break;
+    }
     return cell;
 }
 

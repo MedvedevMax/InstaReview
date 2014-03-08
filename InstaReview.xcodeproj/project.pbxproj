@@ -230,9 +230,9 @@
 				A276A88118C3D5FF006865F2 /* IRMainViewController.m */,
 				A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */,
 				A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */,
-				A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */,
 				A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */,
 				A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */,
+				A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";

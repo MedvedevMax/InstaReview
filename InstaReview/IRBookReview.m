@@ -16,7 +16,7 @@
     if (self) {
         self.url = dic[@"url"];
         self.date = dic[@"data"];
-        self.shortDescription = dic[@"short"];
+        self.shortText = dic[@"short"];
         self.reviewer = dic[@"reviewer"];
         self.likes = dic[@"likes"];
     }
