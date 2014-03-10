@@ -10,6 +10,8 @@
 #import "IRBookReview.h"
 #import "IRReviewsAPI.h"
 
+#import "UIImage+Resize.h"
+
 #define kTableViewBookDetailsSection        0
 #define kTableViewBookDescriptionSection    1
 #define kTableViewBookReviewsSection        2
@@ -124,16 +126,24 @@
 
 - (void)assignCurrentBookToCell:(UITableViewCell *)cell
 {
+    #define FIVESTAR_RATING_ORIGINAL_WIDTH 129
+    
     UIImageView *coverImage = (UIImageView*)[cell viewWithTag:kTableViewTagCoverImage];
     UILabel *title = (UILabel*)[cell viewWithTag:kTableViewTagBookTitle];
     UILabel *author = (UILabel*)[cell viewWithTag:kTableViewTagAuthor];
     UILabel *year = (UILabel*)[cell viewWithTag:kTableViewTagYear];
-    UILabel *rating = (UILabel*)[cell viewWithTag:kTableViewTagRating];
+    UIImageView *rating = (UIImageView*)[cell viewWithTag:kTableViewTagRating];
     
     title.text = self.currentBook.name;
     author.text = self.currentBook.author;
     year.text = self.currentBook.published;
-    rating.text = [self.currentBook.rating stringValue];
+
+    UIImage *fiveStarImage = [UIImage imageNamed:@"5stars.png"];
+    CGRect cropFrame = CGRectMake(0, 0,
+                               fiveStarImage.size.width *
+                                  (self.currentBook.rating.doubleValue / 5.0) * 2,
+                              fiveStarImage.size.height * 2);
+    rating.image = [fiveStarImage croppedImage:cropFrame];
     
     if (self.currentBook.coverImage) {
         coverImage.image = self.currentBook.coverImage;

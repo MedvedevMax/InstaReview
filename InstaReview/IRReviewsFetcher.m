@@ -17,7 +17,7 @@
 - (NSArray*)getBooksForCoverPhotoUrl:(NSString *)imageUrl
 {
     NSURL *queryUrl = [NSURL URLWithString:
-                       [NSString stringWithFormat:@"%@?imgurl=%@",
+                       [NSString stringWithFormat:@"%@?imgurl=%@&log=1",
                         IR_API_URL, [self encodeURL:imageUrl]]];
     
     NSLog(@"Querying API at %@", queryUrl);

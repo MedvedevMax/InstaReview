@@ -64,6 +64,10 @@
     return [[self.delegate books] count];
 }
 
+#define COVER_WIDTH     40
+#define COVER_HEIGHT    60
+#define CELL_BORDER     3
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Book Cell";
@@ -74,10 +78,20 @@
     cell.detailTextLabel.text = book.author;
     
     if (book.coverImage) {
-        cell.imageView.image = [book.coverImage resizedImage:CGSizeMake(30, 45) interpolationQuality:kCGInterpolationHigh];
+        [UIView transitionWithView:cell.imageView
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+            cell.imageView.image = [book.coverImage resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh];
+                                    } completion:nil];
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return COVER_HEIGHT + CELL_BORDER;
 }
 
 #pragma mark - Navigation

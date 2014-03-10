@@ -27,6 +27,13 @@
     [super viewDidLoad];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    if (self.view.window) {
+        self.currentBooks = nil;
+    }
+}
+
 - (IBAction)snapTapped
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
