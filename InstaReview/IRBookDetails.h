@@ -10,17 +10,20 @@
 
 @interface IRBookDetails : NSObject
 
+@property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *alternativeName;
 @property (nonatomic, strong) NSString *author;
-@property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSNumber *rating;
-@property (nonatomic, strong) NSString *published;
 @property (nonatomic, strong) NSString *description;
 
-@property (nonatomic, strong) NSArray *reviews;
+@property (nonatomic, strong) NSNumber *rating;
+@property (nonatomic, strong) NSNumber *ratingCount;
+@property (nonatomic, strong) NSNumber *year;
 
 @property (nonatomic, strong) NSString *coverUrl;
 @property (nonatomic, strong) UIImage *coverImage;
+
+@property (nonatomic, strong) NSArray *reviews;
 
 - (id)initWithDictionary:(NSDictionary *)dic;
 

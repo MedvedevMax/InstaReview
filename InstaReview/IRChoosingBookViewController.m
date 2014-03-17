@@ -66,7 +66,7 @@
 
 #define COVER_WIDTH     40
 #define COVER_HEIGHT    60
-#define CELL_BORDER     3
+#define CELL_BORDER     10
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

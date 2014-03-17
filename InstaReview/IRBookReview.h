@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface IRBookReview : NSObject
 
-@property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) NSString *shortText;
 @property (nonatomic, strong) NSString *reviewer;
-@property (nonatomic, strong) NSString *reviewerUrl;
-@property (nonatomic, strong) NSString *likes;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSNumber *rate;
+
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *text;
 
 - (id)initWithDictionary:(NSDictionary *)dic;
 

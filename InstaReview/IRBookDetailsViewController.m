@@ -21,6 +21,7 @@
 #define kTableViewTagAuthor                 102
 #define kTableViewTagYear                   103
 #define kTableViewTagRating                 104
+#define kTableViewTagRatingCount            105
 
 @interface IRBookDetailsViewController ()
 
@@ -117,8 +118,10 @@
             
         case kTableViewBookReviewsSection:
             cell = [tableView dequeueReusableCellWithIdentifier:@"Review" forIndexPath:indexPath];
+
             IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
-            cell.textLabel.text = review.shortText;
+            cell.textLabel.text = review.title;
+            cell.detailTextLabel.text = review.text;
             break;
     }
     return cell;
@@ -133,10 +136,12 @@
     UILabel *author = (UILabel*)[cell viewWithTag:kTableViewTagAuthor];
     UILabel *year = (UILabel*)[cell viewWithTag:kTableViewTagYear];
     UIImageView *rating = (UIImageView*)[cell viewWithTag:kTableViewTagRating];
+    UILabel *ratingCount = (UILabel*)[cell viewWithTag:kTableViewTagRatingCount];
     
     title.text = self.currentBook.name;
     author.text = self.currentBook.author;
-    year.text = self.currentBook.published;
+    year.text = [NSString stringWithFormat:@"%@", self.currentBook.year];
+    ratingCount.text = [NSString stringWithFormat:@"(%@)", self.currentBook.ratingCount];
 
     UIImage *fiveStarImage = [UIImage imageNamed:@"5stars.png"];
     CGRect cropFrame = CGRectMake(0, 0,
@@ -152,38 +157,47 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    #define TEXT_MARGIN 25;
-    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
+    #define TEXT_MARGIN 20;
+    CGSize constraintSize = CGSizeMake(290.0f, MAXFLOAT);
+
+    NSDictionary *descriptionAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
+    NSDictionary *titleAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:16]};
+    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
     
     UITableViewCell *cell = NULL;
+    NSString *title = NULL;
     NSString *text = NULL;
-    CGSize cellSize;
+    
+    CGFloat height = 0;
     
     switch (indexPath.section) {
         case kTableViewBookDetailsSection:
             cell = [tableView dequeueReusableCellWithIdentifier:@"Book Info"];
-            cellSize = cell.bounds.size;
+            height = cell.bounds.size.height;
             break;
             
         case kTableViewBookDescriptionSection:
             text = self.currentBook.description;
-            cellSize = [text boundingRectWithSize:constraintSize
-                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                       attributes:attributes context:nil].size;
-            cellSize.height += TEXT_MARGIN;
+            height = [text boundingRectWithSize:constraintSize
+                                          options:NSLineBreakByTruncatingTail |NSStringDrawingUsesLineFragmentOrigin
+                                       attributes:descriptionAttributes context:nil].size.height;
+            height += TEXT_MARGIN;
             break;
             
         case kTableViewBookReviewsSection:
-            text = [[self.currentBook.reviews objectAtIndex:indexPath.row] shortText];
-            cellSize = [text boundingRectWithSize:constraintSize
-                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                       attributes:attributes context:nil].size;
-            cellSize.height += TEXT_MARGIN;
+            title = [[self.currentBook.reviews objectAtIndex:indexPath.row] title];
+            text = [[self.currentBook.reviews objectAtIndex:indexPath.row] text];
+            height = [title boundingRectWithSize:constraintSize
+                                         options:NSLineBreakByTruncatingTail | NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:titleAttributes context:nil].size.height;
+            height += [text boundingRectWithSize:constraintSize
+                                         options:NSLineBreakByWordWrapping |NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:textAttributes context:nil].size.height;
+            height += TEXT_MARGIN;
             break;
     }
     
-    return cellSize.height;
+    return height;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

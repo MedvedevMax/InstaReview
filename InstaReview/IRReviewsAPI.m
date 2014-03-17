@@ -66,7 +66,7 @@
 {
     @synchronized(book.coverImage)
     {
-        if (!book.coverImage && book.url.length > 0) {
+        if (!book.coverImage && book.coverUrl.length > 0) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 UIImage *image = [self.httpClient downloadImage:book.coverUrl];
 

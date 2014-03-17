@@ -9,15 +9,15 @@
 #import "IRReviewsFetcher.h"
 #import "IRBookDetails.h"
 
-//#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/mock/"
-#define IR_API_URL @"http://localhost:8888/1.0/"
+#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/1.1/"
+//#define IR_API_URL @"http://localhost:8888/1.0/"
 
 @implementation IRReviewsFetcher
 
 - (NSArray*)getBooksForCoverPhotoUrl:(NSString *)imageUrl
 {
     NSURL *queryUrl = [NSURL URLWithString:
-                       [NSString stringWithFormat:@"%@?imgurl=%@&log=1",
+                       [NSString stringWithFormat:@"%@?imgurl=%@",
                         IR_API_URL, [self encodeURL:imageUrl]]];
     
     NSLog(@"Querying API at %@", queryUrl);
