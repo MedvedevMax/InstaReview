@@ -151,7 +151,12 @@
     rating.image = [fiveStarImage croppedImage:cropFrame];
     
     if (self.currentBook.coverImage) {
-        coverImage.image = self.currentBook.coverImage;
+        [UIView transitionWithView:coverImage
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            coverImage.image = self.currentBook.coverImage;
+                        } completion:nil];
     }
 }
 
@@ -160,9 +165,8 @@
     #define TEXT_MARGIN 20;
     CGSize constraintSize = CGSizeMake(290.0f, MAXFLOAT);
 
-    NSDictionary *descriptionAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
     NSDictionary *titleAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:16]};
-    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
+    NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
     
     UITableViewCell *cell = NULL;
     NSString *title = NULL;
@@ -180,7 +184,7 @@
             text = self.currentBook.description;
             height = [text boundingRectWithSize:constraintSize
                                           options:NSLineBreakByTruncatingTail |NSStringDrawingUsesLineFragmentOrigin
-                                       attributes:descriptionAttributes context:nil].size.height;
+                                       attributes:textAttributes context:nil].size.height;
             height += TEXT_MARGIN;
             break;
             

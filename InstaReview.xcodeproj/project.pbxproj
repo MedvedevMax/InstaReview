@@ -29,6 +29,8 @@
 		A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */; };
 		A28D73D518CC791E00B2965B /* 5stars-bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */; };
 		A28D73D618CC791E00B2965B /* 5stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28D73D418CC791E00B2965B /* 5stars@2x.png */; };
+		A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */; };
+		A2B06FF718D8A3BA0004ACE1 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */; };
 		A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B310A718CA60FF00868DEA /* UIImage+Resize.m */; };
 		A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */; };
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
@@ -78,6 +80,9 @@
 		A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLIMGURUploader.m; sourceTree = "<group>"; };
 		A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5stars-bw@2x.png"; sourceTree = "<group>"; };
 		A28D73D418CC791E00B2965B /* 5stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5stars@2x.png"; sourceTree = "<group>"; };
+		A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		A2B06FF518D8A3BA0004ACE1 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filters.h"; sourceTree = "<group>"; };
+		A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
 		A2B310A618CA60FF00868DEA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		A2B310A718CA60FF00868DEA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		A2E1A60F18CA679D00CD1E28 /* IRBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetails.h; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */,
 				A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */,
 				A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */,
 				A276A87018C3D5FF006865F2 /* UIKit.framework in Frameworks */,
@@ -138,6 +144,7 @@
 		A276A86A18C3D5FF006865F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */,
 				A276A8A818C3E090006865F2 /* MobileCoreServices.framework */,
 				A276A86B18C3D5FF006865F2 /* Foundation.framework */,
 				A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */,
@@ -256,6 +263,8 @@
 			children = (
 				A2B310A618CA60FF00868DEA /* UIImage+Resize.h */,
 				A2B310A718CA60FF00868DEA /* UIImage+Resize.m */,
+				A2B06FF518D8A3BA0004ACE1 /* UIImage+Filters.h */,
+				A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */,
 			);
 			name = "UIImage+";
 			sourceTree = "<group>";
@@ -364,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B06FF718D8A3BA0004ACE1 /* UIImage+Filters.m in Sources */,
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
 				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,

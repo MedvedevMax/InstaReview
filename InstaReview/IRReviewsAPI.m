@@ -11,6 +11,7 @@
 #import "IRReviewsFetcher.h"
 #import "IRHTTPClient.h"
 #import "UIImage+Resize.h"
+#import "UIImage+Filters.h"
 
 @interface IRReviewsAPI ()
 
@@ -47,17 +48,26 @@
 
 - (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
 {
-    #define IMG_WIDTH   480
-    #define IMG_HEIGHT  640
-    #define REMOVE_BORDER_PERCENTAGE    5
+    #define IMG_WIDTH                   360
+    #define IMG_HEIGHT                  480
+    #define WIDTH_BORDER_PERCENTAGE     12
+    #define HEIGHT_BORDER_PERCENTAGE    8
+
+    #define IMG_GAMMA                   0.6f
+    #define IMG_SHARPNESS               0.65f
     
+    // resising
     UIImage *newImage = [sourceImage resizedImage:CGSizeMake(IMG_WIDTH, IMG_HEIGHT)
-                             interpolationQuality:kCGInterpolationMedium];
+                             interpolationQuality:kCGInterpolationHigh];
     
-    int borderWidth = IMG_WIDTH * REMOVE_BORDER_PERCENTAGE / 100.0;
-    int borderHeight = IMG_HEIGHT * REMOVE_BORDER_PERCENTAGE / 100.0;
+    // cropping
+    int borderWidth = IMG_WIDTH * WIDTH_BORDER_PERCENTAGE / 100.0;
+    int borderHeight = IMG_HEIGHT * HEIGHT_BORDER_PERCENTAGE / 100.0;
     newImage = [newImage croppedImage:CGRectMake(borderWidth, borderHeight,
-                                                 IMG_WIDTH - borderWidth, IMG_HEIGHT - borderHeight)];
+                                                 IMG_WIDTH - borderWidth * 2, IMG_HEIGHT - borderHeight * 2)];
+    
+    // applying filters
+    newImage = [newImage imageWithGamma:IMG_GAMMA andSharpen:IMG_SHARPNESS];
     
     return newImage;
 }
