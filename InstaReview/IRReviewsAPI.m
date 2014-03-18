@@ -48,8 +48,8 @@
 
 - (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
 {
-    #define IMG_WIDTH                   360
-    #define IMG_HEIGHT                  480
+    #define IMG_WIDTH                   288
+    #define IMG_HEIGHT                  384
     #define WIDTH_BORDER_PERCENTAGE     12
     #define HEIGHT_BORDER_PERCENTAGE    8
     

@@ -12,7 +12,7 @@
 @implementation IRHTTPClient
 
 #define IMGUR_CLIENT_ID @"abefe443c6d1bee"
-#define IMG_JPEG_QUALITY 0.4f
+#define IMG_JPEG_QUALITY 0.2f
 
 - (NSString*)uploadImage:(UIImage *)image
 {
