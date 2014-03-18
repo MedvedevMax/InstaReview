@@ -10,19 +10,32 @@
 
 @implementation UIImage (Filters)
 
-- (UIImage *)imageWithGamma:(double)gamma andSharpen:(double)sharpness
+- (UIImage *)processImageForRecognition
 {
+    #define IMG_GAMMA                   0.6f
+    #define IMG_SHARPNESS               0.65f
+    #define IMG_SATURATION              1.3f
+    #define IMG_CONTRAST                1.2f
+    
     CIImage *image = [[CIImage alloc] initWithImage:self];
 
     CIFilter *shadowFilter = [CIFilter filterWithName:@"CIGammaAdjust"];
+    [shadowFilter setDefaults];
     [shadowFilter setValue:image forKey:kCIInputImageKey];
-    [shadowFilter setValue:@(0.5) forKey:@"inputPower"];
+    [shadowFilter setValue:@(IMG_GAMMA) forKey:@"inputPower"];
     
     CIFilter *sharpFilter = [CIFilter filterWithName:@"CISharpenLuminance"];
+    [sharpFilter setDefaults];
     [sharpFilter setValue:[shadowFilter valueForKey:kCIOutputImageKey] forKey:kCIInputImageKey];
-    [sharpFilter setValue:@(sharpness) forKey:kCIInputSharpnessKey];
+    [sharpFilter setValue:@(IMG_SHARPNESS) forKey:kCIInputSharpnessKey];
     
-    CIImage *result = [sharpFilter valueForKey:kCIOutputImageKey];
+    CIFilter *saturationFilter = [CIFilter filterWithName:@"CIColorControls"];
+    [saturationFilter setDefaults];
+    [saturationFilter setValue:[sharpFilter valueForKey:kCIOutputImageKey] forKey:@"inputImage"];
+    [saturationFilter setValue:@(IMG_SATURATION) forKey:@"inputSaturation"];
+    [saturationFilter setValue:@(IMG_CONTRAST) forKey:@"inputContrast"];
+    
+    CIImage *result = [saturationFilter valueForKey:kCIOutputImageKey];
 
     // saving to CGImage -> UIImage
     CIContext *context = [CIContext contextWithOptions:nil];

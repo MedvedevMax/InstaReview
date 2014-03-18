@@ -52,9 +52,6 @@
     #define IMG_HEIGHT                  480
     #define WIDTH_BORDER_PERCENTAGE     12
     #define HEIGHT_BORDER_PERCENTAGE    8
-
-    #define IMG_GAMMA                   0.6f
-    #define IMG_SHARPNESS               0.65f
     
     // resising
     UIImage *newImage = [sourceImage resizedImage:CGSizeMake(IMG_WIDTH, IMG_HEIGHT)
@@ -67,7 +64,7 @@
                                                  IMG_WIDTH - borderWidth * 2, IMG_HEIGHT - borderHeight * 2)];
     
     // applying filters
-    newImage = [newImage imageWithGamma:IMG_GAMMA andSharpen:IMG_SHARPNESS];
+    newImage = [newImage processImageForRecognition];
     
     return newImage;
 }

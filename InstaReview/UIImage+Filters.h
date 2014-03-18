@@ -10,6 +10,6 @@
 
 @interface UIImage (Filters)
 
-- (UIImage *)imageWithGamma:(double)gamma andSharpen:(double)sharpness;
+- (UIImage *)processImageForRecognition;
 
 @end
