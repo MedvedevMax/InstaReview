@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet IRViewFinderView *viewFinderView;
 
 @property (nonatomic) float lastMotionRateValue;
+@property (nonatomic) NSDate *stabilizationMoment;
 
 @end
 
@@ -110,6 +111,8 @@
 
 - (void)initMotionDetection
 {
+    #define MIN_ROTATION_RATE_THREASHOLD 0.1f
+    
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = 0.15f;
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
@@ -118,13 +121,13 @@
                                     + motion.rotationRate.y * motion.rotationRate.y
                                     + motion.rotationRate.z * motion.rotationRate.z) / 2.0;
 
-        if (relativeRotationRate < 0.05)
+        if (relativeRotationRate < MIN_ROTATION_RATE_THREASHOLD)
             relativeRotationRate = 0;
         
         if (relativeRotationRate > 1.0)
             relativeRotationRate = 1.0;
         
-        [self deviceMovementsDetected:relativeRotationRate];
+        [self refreshViewFinderWithMotionRate:relativeRotationRate];
     }];
 }
 
@@ -144,11 +147,14 @@
     self.motionManager = nil;
 }
 
-- (void)deviceMovementsDetected:(float)motionRate
+- (void)refreshViewFinderWithMotionRate:(float)motionRate
 {
+    #define STABILIZATION_TIME_INTERVAL .8f
+    
     float averageMotionRate = (motionRate + self.lastMotionRateValue) / 2.0;
     
     if (self.viewFinderView.radius != averageMotionRate) {
+        // animating radius
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"radius"];
         animation.duration = 0.15f;
         animation.fromValue = [NSNumber numberWithFloat:self.viewFinderView.radius];
@@ -158,7 +164,41 @@
         [self.viewFinderView.containerLayer addAnimation:animation forKey:@"radius"];
     }
     
+    // First time
+    if (self.lastMotionRateValue > 0 && motionRate == 0) {
+        self.stabilizationMoment = [NSDate date];
+//        [self forceDeviceAutoFocus];
+    }
+    
     self.lastMotionRateValue = motionRate;
+    
+    float stabilizationTime = [[NSDate date] timeIntervalSinceDate:self.stabilizationMoment];
+    if (averageMotionRate == 0 &&
+        stabilizationTime >= STABILIZATION_TIME_INTERVAL &&
+        ![self.captureDevice isAdjustingFocus]) {
+        
+        // if focused & no motion for enough time
+        [self.viewFinderView turnToGreen];
+    }
+    else {
+        // not focused or moving
+        [self.viewFinderView turnToWhite];
+    }
+}
+
+- (void)forceDeviceAutoFocus
+{
+    NSError *error;
+    if ([self.captureDevice lockForConfiguration:&error]) {
+        if ([self.captureDevice isFocusPointOfInterestSupported]) {
+            self.captureDevice.focusPointOfInterest = CGPointMake(.5f, .5f);
+        }
+        [self.captureDevice unlockForConfiguration];
+    }
+    
+    if (error) {
+        NSLog(@"Unpredicted error while configuring input device: %@", error);
+    }
 }
 
 - (IBAction)snapButtonTapped

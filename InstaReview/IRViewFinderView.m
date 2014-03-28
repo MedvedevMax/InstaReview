@@ -7,7 +7,6 @@
 //
 
 #import "IRViewFinderView.h"
-#import "UIView+AnimatedProperty.h"
 
 @interface IRViewFinderView ()
 @end
@@ -21,6 +20,7 @@
     self.containerLayer = [IRViewFinderLayer layer];
     self.containerLayer.frame = CGRectMake(0, 0,
                                            self.bounds.size.width, self.bounds.size.height);
+    self.containerLayer.color = [[UIColor whiteColor] CGColor];
     [self.layer addSublayer:self.containerLayer];
     
     [self.containerLayer setNeedsDisplay];
@@ -36,7 +36,32 @@
 - (void)setRadius:(CGFloat)radius
 {
     self.containerLayer.radius = radius;
-    [self.containerLayer setNeedsDisplay];
+}
+
+- (void)turnToGreen
+{
+    UIColor *lightGreen = [[UIColor alloc] initWithRed:0.4 green:1.0 blue:0.4 alpha:1.0];
+    if (self.containerLayer.color != [lightGreen CGColor]) {
+        [self animateToColor:lightGreen];
+    }
+}
+
+- (void)turnToWhite
+{
+    if (self.containerLayer.color != [[UIColor whiteColor] CGColor]) {
+        [self animateToColor:[UIColor whiteColor]];
+    }
+}
+
+- (void)animateToColor:(UIColor *)color
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"color"];
+    animation.duration = 0.2f;
+    animation.fromValue = (id) self.containerLayer.color;
+    animation.toValue = (id) color.CGColor;
+    
+    self.containerLayer.color = color.CGColor;
+    [self.containerLayer addAnimation:animation forKey:@"color"];
 }
 
 @end

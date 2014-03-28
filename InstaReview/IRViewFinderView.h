@@ -14,4 +14,7 @@
 @property (nonatomic) CGFloat radius;   // from 0.0 to 1.0 (to size)
 @property (nonatomic, strong) IRViewFinderLayer *containerLayer;
 
+- (void)turnToWhite;
+- (void)turnToGreen;
+
 @end
