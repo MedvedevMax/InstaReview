@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IRRecognitionResponse.h"
 
 @interface IRReviewsFetcher : NSObject
 
-- (NSArray*)getBooksForCoverPhotoUrl:(NSString *)imageUrl;
+- (IRRecognitionResponse*)getResponseForCoverUrl:(NSString *)imageUrl;
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation IRReviewsFetcher
 
-- (NSArray*)getBooksForCoverPhotoUrl:(NSString *)imageUrl
+- (IRRecognitionResponse *)getResponseForCoverUrl:(NSString *)imageUrl
 {
     NSURL *queryUrl = [NSURL URLWithString:
                        [NSString stringWithFormat:@"%@?imgurl=%@",
@@ -27,38 +27,7 @@
         return nil;
     }
     
-    NSError *error;
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:apiResponse options:kNilOptions error:&error];
-    if (error) {
-        NSLog(@"Error parsing jQuery: %@", error);
-        return nil;
-    }
-    
-    if (![dictionary isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"Response is not dictionary");
-        return nil;
-    }
-    
-    NSString *response = [dictionary objectForKey:@"response"];
-    NSArray *bookDics = [dictionary objectForKey:@"reviews"];
-    
-    if (![response isEqualToString:@"success"]) {
-        NSLog(@"Query failed (response = %@)", response);
-        return nil;
-    }
-    
-    if (![bookDics isKindOfClass:[NSArray class]]) {
-        NSLog(@"[Reviews] content is not an array");
-        return nil;
-    }
-    
-    NSMutableArray *books = [[NSMutableArray alloc] init];
-    
-    for (NSDictionary *bookDic in bookDics) {
-        [books addObject:[[IRBookDetails alloc] initWithDictionary:bookDic]];
-    }
-    
-    return [books copy];
+    return [IRRecognitionResponse responseWithJSON:apiResponse];
 }
 
 - (NSString*)encodeURL:(NSString *)unescaped

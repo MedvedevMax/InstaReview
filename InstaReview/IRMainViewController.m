@@ -55,8 +55,8 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *snap = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [self asynchronouslyRecognizeImage:snap];
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self asynchronouslyRecognizeSingleImage:image];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -65,7 +65,7 @@
 
 - (void)cameraViewController:(IRCameraViewController *)viewController photoTaken:(UIImage *)photoImage
 {
-    [self asynchronouslyRecognizeImage:photoImage];
+    [self asynchronouslyRecognizeSingleImage:photoImage];
 }
 
 -(void)cameraViewController:(IRCameraViewController *)viewController errorCapturing:(NSError *)error
@@ -76,11 +76,13 @@
 
 #pragma mark - Recognize and show books list
 
-- (void)asynchronouslyRecognizeImage:(UIImage *)image
+- (void)asynchronouslyRecognizeSingleImage:(UIImage *)image
 {
     [self.activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.currentBooks = [[IRReviewsAPI sharedInstance] getBooksForCover:image];
+        IRRecognitionSession *session = [[IRReviewsAPI sharedInstance] newSession];
+        [session pushPhoto:image];
+        self.currentBooks = [session recognizeAndGetReviews];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];

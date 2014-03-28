@@ -10,13 +10,11 @@
 
 #import "IRReviewsFetcher.h"
 #import "IRHTTPClient.h"
-#import "UIImage+Resize.h"
-#import "UIImage+Filters.h"
 
 @interface IRReviewsAPI ()
 
-@property (nonatomic, strong) IRReviewsFetcher *reviewsFetcher;
 @property (nonatomic, strong) IRHTTPClient *httpClient;
+@property (nonatomic, strong) IRReviewsFetcher *reviewsFetcher;
 
 @end
 
@@ -33,40 +31,9 @@
     return _sharedInstance;
 }
 
-- (NSArray*)getBooksForCover:(UIImage *)coverImage
+- (IRRecognitionSession *)newSession
 {
-    // Posting to imgur
-    NSString *coverImageUrl = [self.httpClient uploadImage:[self prepareImageForRecognition:coverImage]];
-    
-    if (!coverImageUrl) {
-        return nil;
-    }
-
-    NSArray *books = [self.reviewsFetcher getBooksForCoverPhotoUrl:coverImageUrl];
-    return books;
-}
-
-- (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
-{
-    #define IMG_WIDTH                   288
-    #define IMG_HEIGHT                  384
-    #define WIDTH_BORDER_PERCENTAGE     12
-    #define HEIGHT_BORDER_PERCENTAGE    8
-    
-    // resising
-    UIImage *newImage = [sourceImage resizedImage:CGSizeMake(IMG_WIDTH, IMG_HEIGHT)
-                             interpolationQuality:kCGInterpolationHigh];
-    
-    // cropping
-    int borderWidth = IMG_WIDTH * WIDTH_BORDER_PERCENTAGE / 100.0;
-    int borderHeight = IMG_HEIGHT * HEIGHT_BORDER_PERCENTAGE / 100.0;
-    newImage = [newImage croppedImage:CGRectMake(borderWidth, borderHeight,
-                                                 IMG_WIDTH - borderWidth * 2, IMG_HEIGHT - borderHeight * 2)];
-    
-    // applying filters
-    newImage = [newImage processImageForRecognition];
-    
-    return newImage;
+    return [[IRRecognitionSession alloc] init];
 }
 
 - (void)downloadCoverForBook:(IRBookDetails *)book

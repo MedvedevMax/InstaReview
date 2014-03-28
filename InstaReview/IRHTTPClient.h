@@ -10,7 +10,6 @@
 
 @interface IRHTTPClient : NSObject
 
-- (NSString*)uploadImage:(UIImage *)image;
 - (UIImage*)downloadImage:(NSString *)url;
 
 @end

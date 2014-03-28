@@ -25,7 +25,7 @@
         
         self.description = [self emptyStringOrValue:dic[@"description"]];
 
-        self.rating = @([[self zeroStringOrValue:dic[@"rating"]] doubleValue]);
+        self.rating = @([[self zeroStringOrValue:dic[@"rating"]] floatValue]);
         self.ratingCount = @([[self zeroStringOrValue:dic[@"ratingCount"]] intValue]);
         
         self.year = @([[self zeroStringOrValue:dic[@"year"]] intValue]);
