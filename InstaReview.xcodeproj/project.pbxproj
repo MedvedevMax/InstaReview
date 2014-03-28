@@ -10,6 +10,10 @@
 		A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A21A6CF618CBD12900EA7776 /* blankCover.png */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
+		A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3818E4C35500E2BCC4 /* FXBlurView.m */; };
+		A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */; };
+		A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */; };
+		A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB4518E4E62800E2BCC4 /* IRViewFinderLayer.m */; };
 		A276A86C18C3D5FF006865F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86B18C3D5FF006865F2 /* Foundation.framework */; };
 		A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */; };
 		A276A87018C3D5FF006865F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86F18C3D5FF006865F2 /* UIKit.framework */; };
@@ -36,6 +40,8 @@
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
 		A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */; };
 		A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */; };
+		A2E45F3C18E36AD200A41CA7 /* IRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E45F3B18E36AD200A41CA7 /* IRCameraViewController.m */; };
+		A2E45F3E18E36C2800A41CA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,13 @@
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
 		A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetailsViewController.h; sourceTree = "<group>"; };
 		A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetailsViewController.m; sourceTree = "<group>"; };
+		A275AB3718E4C35500E2BCC4 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		A275AB3818E4C35500E2BCC4 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		A275AB3C18E4D24800E2BCC4 /* IRViewFinderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewFinderView.h; sourceTree = "<group>"; };
+		A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRViewFinderView.m; sourceTree = "<group>"; };
+		A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A275AB4418E4E62800E2BCC4 /* IRViewFinderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewFinderLayer.h; sourceTree = "<group>"; };
+		A275AB4518E4E62800E2BCC4 /* IRViewFinderLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRViewFinderLayer.m; sourceTree = "<group>"; };
 		A276A86818C3D5FF006865F2 /* InstaReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A276A86B18C3D5FF006865F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,6 +107,9 @@
 		A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRChoosingBookViewController.h; sourceTree = "<group>"; };
 		A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRChoosingBookViewController.m; sourceTree = "<group>"; };
 		A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRBooksContainerDelegate.h; sourceTree = "<group>"; };
+		A2E45F3A18E36AD200A41CA7 /* IRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCameraViewController.h; sourceTree = "<group>"; };
+		A2E45F3B18E36AD200A41CA7 /* IRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCameraViewController.m; sourceTree = "<group>"; };
+		A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */,
+				A2E45F3E18E36C2800A41CA7 /* AVFoundation.framework in Frameworks */,
 				A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */,
 				A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */,
 				A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */,
@@ -122,6 +140,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A275AB3618E4C35500E2BCC4 /* FXBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				A275AB3718E4C35500E2BCC4 /* FXBlurView.h */,
+				A275AB3818E4C35500E2BCC4 /* FXBlurView.m */,
+			);
+			path = FXBlurView;
+			sourceTree = "<group>";
+		};
 		A276A85F18C3D5FE006865F2 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +171,8 @@
 		A276A86A18C3D5FF006865F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */,
+				A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */,
 				A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */,
 				A276A8A818C3E090006865F2 /* MobileCoreServices.framework */,
 				A276A86B18C3D5FF006865F2 /* Foundation.framework */,
@@ -241,6 +270,8 @@
 			children = (
 				A276A88018C3D5FF006865F2 /* IRMainViewController.h */,
 				A276A88118C3D5FF006865F2 /* IRMainViewController.m */,
+				A2E45F3A18E36AD200A41CA7 /* IRCameraViewController.h */,
+				A2E45F3B18E36AD200A41CA7 /* IRCameraViewController.m */,
 				A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */,
 				A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */,
 				A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */,
@@ -253,7 +284,9 @@
 		A276A8A518C3D720006865F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A275AB3618E4C35500E2BCC4 /* FXBlurView */,
 				A2B310A918CA628000868DEA /* UIImage+ */,
+				A2F511C518E5A9FE001C6209 /* IRViewFinder */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -267,6 +300,17 @@
 				A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */,
 			);
 			name = "UIImage+";
+			sourceTree = "<group>";
+		};
+		A2F511C518E5A9FE001C6209 /* IRViewFinder */ = {
+			isa = PBXGroup;
+			children = (
+				A275AB3C18E4D24800E2BCC4 /* IRViewFinderView.h */,
+				A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */,
+				A275AB4418E4E62800E2BCC4 /* IRViewFinderLayer.h */,
+				A275AB4518E4E62800E2BCC4 /* IRViewFinderLayer.m */,
+			);
+			name = IRViewFinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,8 +419,12 @@
 			files = (
 				A2B06FF718D8A3BA0004ACE1 /* UIImage+Filters.m in Sources */,
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
+				A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */,
+				A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */,
 				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,
+				A2E45F3C18E36AD200A41CA7 /* IRCameraViewController.m in Sources */,
+				A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */,
 				A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */,
 				A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,

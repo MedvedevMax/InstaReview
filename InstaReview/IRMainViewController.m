@@ -41,15 +41,16 @@
     picker.delegate = self;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self performSegueWithIdentifier:@"Show Camera" sender:self];
     }
     else {
+        // if camera is not available
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+        picker.allowsEditing = NO;
+        
+        [self presentViewController:picker animated:YES completion:nil];
     }
-    picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
-    picker.allowsEditing = NO;
-    
-    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -58,6 +59,19 @@
     [self asynchronouslyRecognizeImage:snap];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - CameraViewController delegate
+
+- (void)cameraViewController:(IRCameraViewController *)viewController photoTaken:(UIImage *)photoImage
+{
+    [self asynchronouslyRecognizeImage:photoImage];
+}
+
+-(void)cameraViewController:(IRCameraViewController *)viewController errorCapturing:(NSError *)error
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Couldn't capture" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
 }
 
 #pragma mark - Recognize and show books list
@@ -100,7 +114,11 @@
     // remove "back" button
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
+    if ([segue.identifier isEqualToString:@"Show Camera"]) {
+        IRCameraViewController *cameraVC = segue.destinationViewController;
+        cameraVC.delegate = self;
+    }
+    else if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
         IRChoosingBookViewController *chooseVC = segue.destinationViewController;
         chooseVC.delegate = self;
     }

@@ -57,11 +57,12 @@
                         <outlet property="activityIndicator" destination="ZwH-Mp-kET" id="Bc0-no-T2r"/>
                         <segue destination="zZZ-32-Ipv" kind="push" identifier="Ask To Specify Book" id="yFv-b0-aKK"/>
                         <segue destination="3rV-Ow-eQ9" kind="push" identifier="Show Book Details" id="RSt-4o-L0H"/>
+                        <segue destination="Bzp-EO-gex" kind="modal" identifier="Show Camera" id="8cM-dU-8CW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="297"/>
+            <point key="canvasLocation" x="468" y="305"/>
         </scene>
         <!--Choosing Book View Controller - Did you mean...-->
         <scene sceneID="rZq-uH-WbI">
@@ -228,6 +229,70 @@
             </objects>
             <point key="canvasLocation" x="1545" y="297"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="0HR-e5-uhU">
+            <objects>
+                <viewController id="Bzp-EO-gex" customClass="IRCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0w3-j8-hVa"/>
+                        <viewControllerLayoutGuide type="bottom" id="vuY-yf-b2o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uVR-f0-IuF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RZ-Xy-h28">
+                                <rect key="frame" x="112" y="399" width="96" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.58632431110000005" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Snap">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="snapButtonTapped" destination="Bzp-EO-gex" eventType="touchUpInside" id="eqq-ij-IvA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efM-g3-c6b">
+                                <rect key="frame" x="219" y="482" width="65" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.58632431110000005" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonTapped" destination="Bzp-EO-gex" eventType="touchUpInside" id="sIJ-Pc-To6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hA1-r2-igP">
+                                <rect key="frame" x="39" y="482" width="65" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.58632431110000005" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Flash">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flashOnButtonTapped" destination="Bzp-EO-gex" eventType="touchUpInside" id="CLx-Z1-ApT"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wD0-Wn-A7B" customClass="IRViewFinderView">
+                                <rect key="frame" x="70" y="194" width="180" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewFinderView" destination="wD0-Wn-A7B" id="ZOs-kJ-4Eg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeM-48-KCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="736"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ulo-rp-W6J">
             <objects>
@@ -239,12 +304,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="gho-f5-brE"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="ssV-u0-1DQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20c-kF-yh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10" y="297"/>
+            <point key="canvasLocation" x="-34" y="305"/>
         </scene>
     </scenes>
     <resources>
@@ -258,6 +323,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="IJe-mc-WGc"/>
+        <segue reference="RSt-4o-L0H"/>
     </inferredMetricsTieBreakers>
 </document>
