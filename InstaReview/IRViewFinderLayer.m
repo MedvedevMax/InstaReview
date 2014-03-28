@@ -11,7 +11,7 @@
 @implementation IRViewFinderLayer
 
 #define ANGLE_DIFF M_PI / 24
-#define MIN_ACTUAL_RADIUS 40.0f
+#define MIN_ACTUAL_RADIUS 45.0f
 #define PEN_THICKNESS 3.0
 
 + (BOOL)needsDisplayForKey:(NSString *)key

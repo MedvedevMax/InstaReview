@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (weak, nonatomic) IBOutlet IRViewFinderView *viewFinderView;
+@property (weak, nonatomic) IBOutlet UILabel *processingLabel;
 
 @property (nonatomic) float lastMotionRateValue;
 @property (nonatomic) NSDate *stabilizationMoment;
@@ -31,20 +32,28 @@
 
 @implementation IRCameraViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self initCapturing];
     [self initMotionDetection];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self.session stopRunning];
+    
+    [self.motionManager stopDeviceMotionUpdates];
+    self.motionManager = nil;
+    
+    self.session = nil;
+    self.captureDevice = nil;
+    self.deviceInput = nil;
+    self.previewLayer = nil;
+    self.stillImageOutput = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -109,12 +118,14 @@
     [self.session startRunning];
 }
 
+#define MOTION_REFRESH_RATE 0.15f
+#define MIN_ROTATION_RATE_THREASHOLD 0.1f
+#define STABILIZATION_TIME_INTERVAL .8f
+
 - (void)initMotionDetection
 {
-    #define MIN_ROTATION_RATE_THREASHOLD 0.1f
-    
     self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.deviceMotionUpdateInterval = 0.15f;
+    self.motionManager.deviceMotionUpdateInterval = MOTION_REFRESH_RATE;
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         float relativeRotationRate =
                                     sqrt(motion.rotationRate.x * motion.rotationRate.x
@@ -131,32 +142,16 @@
     }];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    [self.session stopRunning];
-    
-    self.session = nil;
-    self.captureDevice = nil;
-    self.deviceInput = nil;
-    self.previewLayer = nil;
-    self.stillImageOutput = nil;
-    
-    [self.motionManager stopAccelerometerUpdates];
-    self.motionManager = nil;
-}
-
 - (void)refreshViewFinderWithMotionRate:(float)motionRate
 {
-    #define STABILIZATION_TIME_INTERVAL .8f
+    #define PROCESSING_LABEL_ANIMATION_DURATION 0.2f
     
     float averageMotionRate = (motionRate + self.lastMotionRateValue) / 2.0;
     
     if (self.viewFinderView.radius != averageMotionRate) {
         // animating radius
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"radius"];
-        animation.duration = 0.15f;
+        animation.duration = MOTION_REFRESH_RATE;
         animation.fromValue = [NSNumber numberWithFloat:self.viewFinderView.radius];
         animation.toValue = [NSNumber numberWithFloat:averageMotionRate];
         
@@ -167,7 +162,6 @@
     // First time
     if (self.lastMotionRateValue > 0 && motionRate == 0) {
         self.stabilizationMoment = [NSDate date];
-//        [self forceDeviceAutoFocus];
     }
     
     self.lastMotionRateValue = motionRate;
@@ -179,25 +173,16 @@
         
         // if focused & no motion for enough time
         [self.viewFinderView turnToGreen];
+        [UIView animateWithDuration:PROCESSING_LABEL_ANIMATION_DURATION animations:^{
+            self.processingLabel.alpha = 1.0f;
+        }];
     }
     else {
         // not focused or moving
         [self.viewFinderView turnToWhite];
-    }
-}
-
-- (void)forceDeviceAutoFocus
-{
-    NSError *error;
-    if ([self.captureDevice lockForConfiguration:&error]) {
-        if ([self.captureDevice isFocusPointOfInterestSupported]) {
-            self.captureDevice.focusPointOfInterest = CGPointMake(.5f, .5f);
-        }
-        [self.captureDevice unlockForConfiguration];
-    }
-    
-    if (error) {
-        NSLog(@"Unpredicted error while configuring input device: %@", error);
+        [UIView animateWithDuration:PROCESSING_LABEL_ANIMATION_DURATION / 2.0f animations:^{
+            self.processingLabel.alpha = 0.0f;
+        }];
     }
 }
 
