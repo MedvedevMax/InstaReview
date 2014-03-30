@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IRRecognitionResponse.h"
 
 @interface IRRecognitionSession : NSObject
 

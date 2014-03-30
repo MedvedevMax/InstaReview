@@ -35,7 +35,7 @@
     NSArray *bookDics = [dictionary objectForKey:@"reviews"];
     
     if (![responseValue isEqualToString:@"success"]) {
-        NSLog(@"Query failed (response = %@)", response);
+        NSLog(@"Query failed (response = %@)", responseValue);
         return response;
     }
     

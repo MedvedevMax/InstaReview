@@ -16,6 +16,7 @@
 @interface IRMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) IRRecognitionSession *currentSession;
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @end
@@ -36,36 +37,42 @@
 
 - (IBAction)snapTapped
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    // creating new session
+    self.currentSession = [[IRReviewsAPI sharedInstance] newSession];
     
-    picker.delegate = self;
-    
+    // showing camera
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self performSegueWithIdentifier:@"Show Camera" sender:self];
     }
     else {
         // if camera is not available
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
         picker.allowsEditing = NO;
-        
         [self presentViewController:picker animated:YES completion:nil];
     }
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [self asynchronouslyRecognizeSingleImage:image];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 #pragma mark - CameraViewController delegate
+
+- (void)cameraViewControllerOkTapped:(IRCameraViewController *)viewController
+{
+    [self.activityIndicator startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.currentBooks = [self.currentSession recognizeAndGetReviews];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.activityIndicator stopAnimating];
+            [self showCurrentBooksDetails];
+        });
+    });
+}
 
 - (void)cameraViewController:(IRCameraViewController *)viewController photoTaken:(UIImage *)photoImage
 {
-    [self asynchronouslyRecognizeSingleImage:photoImage];
+    [self.currentSession pushPhoto:photoImage];
 }
 
 -(void)cameraViewController:(IRCameraViewController *)viewController errorCapturing:(NSError *)error
@@ -75,21 +82,6 @@
 }
 
 #pragma mark - Recognize and show books list
-
-- (void)asynchronouslyRecognizeSingleImage:(UIImage *)image
-{
-    [self.activityIndicator startAnimating];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        IRRecognitionSession *session = [[IRReviewsAPI sharedInstance] newSession];
-        [session pushPhoto:image];
-        self.currentBooks = [session recognizeAndGetReviews];
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.activityIndicator stopAnimating];
-            [self showCurrentBooksDetails];
-        });
-    });
-}
 
 - (void)showCurrentBooksDetails
 {
@@ -135,6 +127,30 @@
 - (NSArray *)books
 {
     return self.currentBooks;
+}
+
+#pragma mark - ImagePickerController
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self asynchronouslyRecognizeSingleImage:image];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)asynchronouslyRecognizeSingleImage:(UIImage *)image
+{
+    [self.activityIndicator startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.currentSession pushPhoto:image];
+        self.currentBooks = [self.currentSession recognizeAndGetReviews];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.activityIndicator stopAnimating];
+            [self showCurrentBooksDetails];
+        });
+    });
 }
 
 @end

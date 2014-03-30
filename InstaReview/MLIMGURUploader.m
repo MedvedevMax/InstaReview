@@ -77,6 +77,10 @@
   [request setHTTPBody:requestBody];
   
   [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+      if (!data) {
+          failureBlock(response, error, -1);
+      }
+      
     NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     if ([responseDictionary valueForKeyPath:@"data.error"]) {
       if (failureBlock) {

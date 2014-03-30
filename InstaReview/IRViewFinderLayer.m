@@ -10,6 +10,15 @@
 
 @implementation IRViewFinderLayer
 
+@synthesize color = _color;
+
+- (void)setColor:(CGColorRef)color
+{
+    CGColorRelease(_color);
+    CGColorRetain(color);
+    _color = color;
+}
+
 #define ANGLE_DIFF M_PI / 24
 #define MIN_ACTUAL_RADIUS 45.0f
 #define PEN_THICKNESS 3.0
@@ -28,12 +37,12 @@
     self = [super initWithLayer:layer];
     
     if (self) {
-    if ([layer isKindOfClass:[IRViewFinderLayer class]]) {
-        IRViewFinderLayer *copyLayer = layer;
-        
-        self.color = copyLayer.color;
-        self.radius = copyLayer.radius;
-    }
+        if ([layer isKindOfClass:[IRViewFinderLayer class]]) {
+            IRViewFinderLayer *copyLayer = layer;
+            
+            self.color = copyLayer.color;
+            self.radius = copyLayer.radius;
+        }
     }
     
     return self;

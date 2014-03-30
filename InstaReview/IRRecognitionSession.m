@@ -19,7 +19,8 @@
 @property (nonatomic, strong) IRReviewsFetcher *reviewsFetcher;
 
 @property (nonatomic, strong) NSMutableArray *imageURLs;
-@property (atomic) BOOL isCurrentlyPushing;
+
+@property (atomic) int currentlyPushingCount;
 
 @end
 
@@ -30,34 +31,43 @@
 
 - (void)pushPhoto:(UIImage *)image
 {
-    self.isCurrentlyPushing = YES;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // preprocessing a photo
-        UIImage *imageToUpload = [self prepareImageForRecognition:image];
-        NSData *imgData = UIImageJPEGRepresentation(imageToUpload, IMG_JPEG_QUALITY);
-        
-        // uploading to "imgur"
-        [MLIMGURUploader uploadPhoto:imgData
-                               title:@"Book cover"
-                         description:@"cover of some book"
-                       imgurClientID:IMGUR_CLIENT_ID
-                     completionBlock:^(NSString *imgURL) {
-                         
-                         NSLog(@"Image successfuly uploaded to: %@", imgURL);
-                         [self.imageURLs addObject:imgURL];
-                         self.isCurrentlyPushing = NO;
-                         
-                     } failureBlock:^(NSURLResponse *response, NSError *error, NSInteger status) {
-                         NSLog(@"A problem occured while uploading image: %@", error);
-                         self.isCurrentlyPushing = NO;
-                     }];
+        [self uploadAndQueueImage:image withCropCoefficient:1.0f];
     });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self uploadAndQueueImage:image withCropCoefficient:1.5f];
+    });
+}
+
+- (void)uploadAndQueueImage:(UIImage *)image withCropCoefficient:(float)coef
+{
+    self.currentlyPushingCount++;
+    NSLog(@"Image pushed (crop coef = %f)", coef);
+
+    UIImage *imageToUpload = [self prepareImageForRecognition:image withCropCoefficient:coef];
+    NSData *imgData = UIImageJPEGRepresentation(imageToUpload, IMG_JPEG_QUALITY);
+    
+    // uploading to "imgur"
+    [MLIMGURUploader uploadPhoto:imgData
+                           title:@"Book cover"
+                     description:@"cover of some book"
+                   imgurClientID:IMGUR_CLIENT_ID
+                 completionBlock:^(NSString *imgURL) {
+                     
+                     NSLog(@"Image successfuly uploaded to: %@", imgURL);
+                     [self.imageURLs addObject:imgURL];
+                     self.currentlyPushingCount--;
+                     
+                 } failureBlock:^(NSURLResponse *response, NSError *error, NSInteger status) {
+                     NSLog(@"A problem occured while uploading image: %@", error);
+                     self.currentlyPushingCount--;
+                 }];
 }
 
 - (NSArray*)recognizeAndGetReviews
 {
     // waiting for all uploads to be finished
-    while (self.isCurrentlyPushing) {
+    while (self.currentlyPushingCount > 0) {
         [NSThread sleepForTimeInterval:0.1f];
     }
     
@@ -67,6 +77,7 @@
     
     NSMutableArray *responses = [[NSMutableArray alloc] init];
     
+    NSLog(@"Recognizing images...");
     // recognizing all photos simultaneously
     dispatch_group_t recognitionGroup = dispatch_group_create();
     for (NSString *imgURL in self.imageURLs) {
@@ -74,6 +85,7 @@
                              dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                              ^{
                                  IRRecognitionResponse *response = [self.reviewsFetcher getResponseForCoverUrl:imgURL];
+                                 NSLog(@"Response for '%@' received: %d; confidence = %f", imgURL, response.success, response.confidence);
                                  if (response.success) {
                                      [responses addObject:response];
                                  }
@@ -94,7 +106,7 @@
     return bestResponse.books;
 }
 
-- (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
+- (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage withCropCoefficient:(float)coef
 {
 #define IMG_WIDTH                   288
 #define IMG_HEIGHT                  384
@@ -105,9 +117,8 @@
     UIImage *newImage = [sourceImage resizedImage:CGSizeMake(IMG_WIDTH, IMG_HEIGHT)
                              interpolationQuality:kCGInterpolationHigh];
     
-    // cropping
-    int borderWidth = IMG_WIDTH * WIDTH_BORDER_PERCENTAGE / 100.0;
-    int borderHeight = IMG_HEIGHT * HEIGHT_BORDER_PERCENTAGE / 100.0;
+    int borderWidth = IMG_WIDTH * WIDTH_BORDER_PERCENTAGE * coef / 100.0;
+    int borderHeight = IMG_HEIGHT * HEIGHT_BORDER_PERCENTAGE * coef / 100.0;
     newImage = [newImage croppedImage:CGRectMake(borderWidth, borderHeight,
                                                  IMG_WIDTH - borderWidth * 2, IMG_HEIGHT - borderHeight * 2)];
     

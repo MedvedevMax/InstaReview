@@ -12,7 +12,8 @@
     
 @protocol IRCameraViewControllerDelegate <NSObject>
 
-- (void)cameraViewController:(IRCameraViewController*)viewController photoTaken:(UIImage*)photoImage;
+- (void)cameraViewControllerOkTapped:(IRCameraViewController*)viewController;
+- (void)cameraViewController:(IRCameraViewController*)viewController photoTaken:(UIImage*)image;
 - (void)cameraViewController:(IRCameraViewController*)viewController errorCapturing:(NSError*)error;
 
 @end

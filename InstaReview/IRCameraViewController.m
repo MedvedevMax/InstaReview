@@ -23,10 +23,12 @@
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (weak, nonatomic) IBOutlet IRViewFinderView *viewFinderView;
-@property (weak, nonatomic) IBOutlet UILabel *processingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 @property (nonatomic) float lastMotionRateValue;
 @property (nonatomic) NSDate *stabilizationMoment;
+@property (nonatomic) BOOL isPictureTakenForCurrentStabilization;
+@property (nonatomic) BOOL isOkButtonActive;
 
 @end
 
@@ -42,28 +44,34 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
-    
     [self.session stopRunning];
-    
-    [self.motionManager stopDeviceMotionUpdates];
     self.motionManager = nil;
-    
     self.session = nil;
     self.captureDevice = nil;
     self.deviceInput = nil;
     self.previewLayer = nil;
     self.stillImageOutput = nil;
+    
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [CATransaction begin];
+    [self.viewFinderView.containerLayer removeAllAnimations];
+    [CATransaction commit];
+    
+    [self.motionManager stopDeviceMotionUpdates];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
+
+    [super viewWillDisappear:animated];
 }
 
 - (void)initCapturing
@@ -120,7 +128,7 @@
 
 #define MOTION_REFRESH_RATE 0.15f
 #define MIN_ROTATION_RATE_THREASHOLD 0.1f
-#define STABILIZATION_TIME_INTERVAL .8f
+#define STABILIZATION_TIME_INTERVAL 2.0f
 
 - (void)initMotionDetection
 {
@@ -140,6 +148,7 @@
         
         [self refreshViewFinderWithMotionRate:relativeRotationRate];
     }];
+    self.stabilizationMoment = [[NSDate date] dateByAddingTimeInterval:2.0];
 }
 
 - (void)refreshViewFinderWithMotionRate:(float)motionRate
@@ -159,7 +168,7 @@
         [self.viewFinderView.containerLayer addAnimation:animation forKey:@"radius"];
     }
     
-    // First time
+    // catching stabilization moment
     if (self.lastMotionRateValue > 0 && motionRate == 0) {
         self.stabilizationMoment = [NSDate date];
     }
@@ -172,21 +181,20 @@
         ![self.captureDevice isAdjustingFocus]) {
         
         // if focused & no motion for enough time
-        [self.viewFinderView turnToGreen];
-        [UIView animateWithDuration:PROCESSING_LABEL_ANIMATION_DURATION animations:^{
-            self.processingLabel.alpha = 1.0f;
-        }];
+        // check if viewFinder is still white -> turn it to green/
+        // then take a photo
+        if (!self.isPictureTakenForCurrentStabilization) {
+            [self takePhotoAndPush];
+            self.isPictureTakenForCurrentStabilization = YES;
+        }
     }
     else {
         // not focused or moving
-        [self.viewFinderView turnToWhite];
-        [UIView animateWithDuration:PROCESSING_LABEL_ANIMATION_DURATION / 2.0f animations:^{
-            self.processingLabel.alpha = 0.0f;
-        }];
+        self.isPictureTakenForCurrentStabilization = NO;
     }
 }
 
-- (IBAction)snapButtonTapped
+- (void)takePhotoAndPush
 {
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in self.stillImageOutput.connections) {
@@ -200,14 +208,76 @@
     }
     
     [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
-       completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-           NSData *jpegImageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-           UIImage *takenImage = [UIImage imageWithData:jpegImageData];
-           
-           [self.delegate cameraViewController:self photoTaken:takenImage];
+                                                       completionHandler:
+     ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+            NSData *jpegImageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            UIImage *takenImage = [UIImage imageWithData:jpegImageData];
+
+            [self.delegate cameraViewController:self photoTaken:takenImage];
+            [self flashAnimation];
+            [self activateOkButton];
        }];
+}
+
+- (void)activateOkButton
+{
+    #define BUTTON_SCALE 1.3f
+    #define DELAY_TIME 0.7f
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    self.isOkButtonActive = YES;
+    [UIView animateWithDuration:0.2f delay:DELAY_TIME options:0 animations:^{
+        self.okButton.backgroundColor = [UIColor colorWithRed:0 green:0.5f blue:0 alpha:1.0f];
+    } completion:nil];
+    
+    CABasicAnimation *throbAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    throbAnimation.autoreverses = YES;
+    throbAnimation.duration = 0.1f;
+    throbAnimation.beginTime = CACurrentMediaTime() + DELAY_TIME;
+    throbAnimation.toValue = [NSValue valueWithCATransform3D:
+                              CATransform3DMakeScale(BUTTON_SCALE, BUTTON_SCALE, 1.0f)];
+    [self.okButton.layer addAnimation:throbAnimation forKey:@"transform"];
+}
+
+- (void)flashAnimation
+{
+    UIView *whiteView = [[UIView alloc] initWithFrame:self.view.frame];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:whiteView];
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        whiteView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [whiteView removeFromSuperview];
+    }];
+}
+
+- (void)shakeView:(UIView*)view
+{
+    #define SHAKING_AMPLITUDE 6.0f
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+    animation.duration = 0.05;
+    animation.repeatCount = 4;
+    animation.autoreverses = YES;
+    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(view.center.x - SHAKING_AMPLITUDE,
+                                                                view.center.y)];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(view.center.x + SHAKING_AMPLITUDE,
+                                                              view.center.y)];
+    
+    [view.layer addAnimation:animation forKey:@"position"];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)okButtonTapped
+{
+    if (self.isOkButtonActive) {
+        [self.delegate cameraViewControllerOkTapped:self];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        [self shakeView:self.viewFinderView];
+    }
 }
 
 - (IBAction)flashOnButtonTapped

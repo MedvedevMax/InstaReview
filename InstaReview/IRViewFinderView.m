@@ -38,30 +38,4 @@
     self.containerLayer.radius = radius;
 }
 
-- (void)turnToGreen
-{
-    UIColor *lightGreen = [[UIColor alloc] initWithRed:0.4 green:1.0 blue:0.4 alpha:1.0];
-    if (self.containerLayer.color != [lightGreen CGColor]) {
-        [self animateToColor:lightGreen];
-    }
-}
-
-- (void)turnToWhite
-{
-    if (self.containerLayer.color != [[UIColor whiteColor] CGColor]) {
-        [self animateToColor:[UIColor whiteColor]];
-    }
-}
-
-- (void)animateToColor:(UIColor *)color
-{
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"color"];
-    animation.duration = 0.2f;
-    animation.fromValue = (id) self.containerLayer.color;
-    animation.toValue = (id) color.CGColor;
-    
-    self.containerLayer.color = color.CGColor;
-    [self.containerLayer addAnimation:animation forKey:@"color"];
-}
-
 @end
