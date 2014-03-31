@@ -234,7 +234,7 @@
 - (void)activateOkButton
 {
     #define BUTTON_SCALE 1.3f
-    #define DELAY_TIME 0.7f
+    #define DELAY_TIME 0.3f
     
     self.isOkButtonActive = YES;
     self.infoTextLabel.text = NSLocalizedString(@"Tap OK to get reviews", nil);
@@ -257,7 +257,7 @@
     whiteView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:whiteView];
     
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.4f animations:^{
         whiteView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [whiteView removeFromSuperview];

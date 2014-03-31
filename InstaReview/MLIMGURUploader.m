@@ -81,7 +81,15 @@
           failureBlock(response, error, -1);
       }
       
-    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+      NSDictionary *responseDictionary = nil;
+      @try {
+          responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+      }
+      @catch (NSException *exception) {
+          failureBlock(response, error, -1);
+          return;
+      }
+    
     if ([responseDictionary valueForKeyPath:@"data.error"]) {
       if (failureBlock) {
         if (!error) {

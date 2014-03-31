@@ -151,12 +151,15 @@
     rating.image = [fiveStarImage croppedImage:cropFrame];
     
     if (self.currentBook.coverImage) {
-        [UIView transitionWithView:coverImage
-                          duration:0.3
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^{
-                            coverImage.image = self.currentBook.coverImage;
-                        } completion:nil];
+        // Do the transition a little later
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView transitionWithView:coverImage
+                              duration:0.3
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                coverImage.image = self.currentBook.coverImage;
+                            } completion:nil];
+        });
     }
 }
 
