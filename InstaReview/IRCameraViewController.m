@@ -24,6 +24,7 @@
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (weak, nonatomic) IBOutlet IRViewFinderView *viewFinderView;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UILabel *infoTextLabel;
 
 @property (nonatomic) float lastMotionRateValue;
 @property (nonatomic) NSDate *stabilizationMoment;
@@ -40,6 +41,9 @@
     
     [self initCapturing];
     [self initMotionDetection];
+    
+    [self setShadowOnView:self.viewFinderView withOpacity:0.7f andRadius:2.0f];
+    [self setShadowOnView:self.infoTextLabel withOpacity:1.0f andRadius:4.0f];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -124,6 +128,14 @@
     [rootLayer insertSublayer:self.previewLayer atIndex:0];
     
     [self.session startRunning];
+}
+
+- (void)setShadowOnView:(UIView *)view withOpacity:(float)opacity andRadius:(float)radius
+{
+    view.layer.shadowColor = [[UIColor blackColor] CGColor];
+    view.layer.shadowOffset = CGSizeMake(0, 0);
+    view.layer.shadowOpacity = opacity;
+    view.layer.shadowRadius = radius;
 }
 
 #define MOTION_REFRESH_RATE 0.15f
@@ -225,6 +237,7 @@
     #define DELAY_TIME 0.7f
     
     self.isOkButtonActive = YES;
+    self.infoTextLabel.text = NSLocalizedString(@"Tap OK to get reviews", nil);
     [UIView animateWithDuration:0.2f delay:DELAY_TIME options:0 animations:^{
         self.okButton.backgroundColor = [UIColor colorWithRed:0 green:0.5f blue:0 alpha:1.0f];
     } completion:nil];

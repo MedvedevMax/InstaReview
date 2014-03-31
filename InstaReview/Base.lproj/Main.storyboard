@@ -295,10 +295,10 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DOZ-Rk-uab">
-                                <rect key="frame" x="20" y="517" width="280" height="31"/>
+                                <rect key="frame" x="20" y="510" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="h7P-Rd-IHG"/>
+                                    <constraint firstAttribute="height" constant="38" id="h7P-Rd-IHG"/>
                                 </constraints>
                                 <string key="text">Center the book cover to the view.
 Avoid glare and shadows.</string>
@@ -321,11 +321,12 @@ Avoid glare and shadows.</string>
                             <constraint firstItem="wD0-Wn-A7B" firstAttribute="top" secondItem="uVR-f0-IuF" secondAttribute="top" constant="194" id="kdu-L2-5bx"/>
                             <constraint firstItem="vuY-yf-b2o" firstAttribute="top" secondItem="DOZ-Rk-uab" secondAttribute="bottom" constant="20" id="sQQ-ZY-Dbw"/>
                             <constraint firstAttribute="trailing" secondItem="efM-g3-c6b" secondAttribute="trailing" constant="20" id="x1y-9X-5Cx"/>
-                            <constraint firstItem="DOZ-Rk-uab" firstAttribute="top" secondItem="8RZ-Xy-h28" secondAttribute="bottom" constant="15" id="zpd-eV-Ahu"/>
+                            <constraint firstItem="DOZ-Rk-uab" firstAttribute="top" secondItem="8RZ-Xy-h28" secondAttribute="bottom" constant="8" id="zpd-eV-Ahu"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="infoTextLabel" destination="DOZ-Rk-uab" id="2Ss-D9-6gZ"/>
                         <outlet property="okButton" destination="8RZ-Xy-h28" id="501-18-b8v"/>
                         <outlet property="viewFinderView" destination="wD0-Wn-A7B" id="ZOs-kJ-4Eg"/>
                     </connections>
