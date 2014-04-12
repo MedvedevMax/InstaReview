@@ -9,8 +9,7 @@
 #import "IRReviewsFetcher.h"
 #import "IRBookDetails.h"
 
-#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/1.1/"
-//#define IR_API_URL @"http://localhost:8888/1.0/"
+#define IR_API_URL @"http://instareview-medvedev.rhcloud.com/"
 
 @implementation IRReviewsFetcher
 

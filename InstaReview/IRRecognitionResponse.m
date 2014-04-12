@@ -32,7 +32,7 @@
     
     NSString *responseValue = [dictionary objectForKey:@"response"];
     id confidenceRef = [dictionary objectForKey:@"confidence"];
-    NSArray *bookDics = [dictionary objectForKey:@"reviews"];
+    NSArray *bookDics = [dictionary objectForKey:@"books"];
     
     if (![responseValue isEqualToString:@"success"]) {
         NSLog(@"Query failed (response = %@)", responseValue);

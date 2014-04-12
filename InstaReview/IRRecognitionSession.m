@@ -34,9 +34,6 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self uploadAndQueueImage:image withCropCoefficient:1.0f];
     });
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self uploadAndQueueImage:image withCropCoefficient:1.5f];
-    });
 }
 
 - (void)uploadAndQueueImage:(UIImage *)image withCropCoefficient:(float)coef
