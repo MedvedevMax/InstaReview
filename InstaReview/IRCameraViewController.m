@@ -226,8 +226,11 @@
             UIImage *takenImage = [UIImage imageWithData:jpegImageData];
 
             [self.delegate cameraViewController:self photoTaken:takenImage];
+         
             [self flashAnimation];
             [self activateOkButton];
+         
+            UIImageWriteToSavedPhotosAlbum(takenImage, nil, nil, nil);
        }];
 }
 

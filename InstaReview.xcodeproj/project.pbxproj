@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A212878118FDD20B0001473B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
+		A212878518FDD2420001473B /* BookCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A212878318FDD2420001473B /* BookCropper.cpp */; };
+		A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A212878718FDD2840001473B /* IRPhotoPreparer.mm */; };
 		A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A21A6CF618CBD12900EA7776 /* blankCover.png */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
@@ -30,7 +33,6 @@
 		A276A89718C3D5FF006865F2 /* InstaReviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A89618C3D5FF006865F2 /* InstaReviewTests.m */; };
 		A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A8A818C3E090006865F2 /* MobileCoreServices.framework */; };
 		A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */; };
-		A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */; };
 		A28D73D518CC791E00B2965B /* 5stars-bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */; };
 		A28D73D618CC791E00B2965B /* 5stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28D73D418CC791E00B2965B /* 5stars@2x.png */; };
 		A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */; };
@@ -57,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A212878018FDD20B0001473B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../opencv2.framework; sourceTree = "<group>"; };
+		A212878318FDD2420001473B /* BookCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookCropper.cpp; sourceTree = "<group>"; };
+		A212878418FDD2420001473B /* BookCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCropper.h; sourceTree = "<group>"; };
+		A212878618FDD2840001473B /* IRPhotoPreparer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPhotoPreparer.h; sourceTree = "<group>"; };
+		A212878718FDD2840001473B /* IRPhotoPreparer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IRPhotoPreparer.mm; sourceTree = "<group>"; };
 		A21A6CF618CBD12900EA7776 /* blankCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankCover.png; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
@@ -91,8 +98,6 @@
 		A276A8A818C3E090006865F2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A276A8AA18C3EDB0006865F2 /* IRHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRHTTPClient.h; sourceTree = "<group>"; };
 		A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRHTTPClient.m; sourceTree = "<group>"; };
-		A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLIMGURUploader.h; sourceTree = "<group>"; };
-		A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLIMGURUploader.m; sourceTree = "<group>"; };
 		A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5stars-bw@2x.png"; sourceTree = "<group>"; };
 		A28D73D418CC791E00B2965B /* 5stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5stars@2x.png"; sourceTree = "<group>"; };
 		A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -123,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A212878118FDD20B0001473B /* opencv2.framework in Frameworks */,
 				A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */,
 				A2E45F3E18E36C2800A41CA7 /* AVFoundation.framework in Frameworks */,
 				A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */,
@@ -146,6 +152,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A212878218FDD2170001473B /* ImageProcessing */ = {
+			isa = PBXGroup;
+			children = (
+				A212878618FDD2840001473B /* IRPhotoPreparer.h */,
+				A212878718FDD2840001473B /* IRPhotoPreparer.mm */,
+				A212878418FDD2420001473B /* BookCropper.h */,
+				A212878318FDD2420001473B /* BookCropper.cpp */,
+			);
+			name = ImageProcessing;
+			sourceTree = "<group>";
+		};
 		A275AB3618E4C35500E2BCC4 /* FXBlurView */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +194,7 @@
 		A276A86A18C3D5FF006865F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A212878018FDD20B0001473B /* opencv2.framework */,
 				A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */,
 				A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */,
 				A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */,
@@ -259,6 +277,7 @@
 		A276A8A318C3D710006865F2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A212878218FDD2170001473B /* ImageProcessing */,
 				A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */,
 				A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */,
 				A2F511C618E622BB001C6209 /* IRRecognitionSession.h */,
@@ -269,8 +288,6 @@
 				A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */,
 				A276A8AA18C3EDB0006865F2 /* IRHTTPClient.h */,
 				A276A8AB18C3EDB0006865F2 /* IRHTTPClient.m */,
-				A276A8AD18C3EFC7006865F2 /* MLIMGURUploader.h */,
-				A276A8AE18C3EFC7006865F2 /* MLIMGURUploader.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -445,7 +462,8 @@
 				A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */,
 				A2F511C818E622BB001C6209 /* IRRecognitionSession.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
-				A276A8AF18C3EFC7006865F2 /* MLIMGURUploader.m in Sources */,
+				A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */,
+				A212878518FDD2420001473B /* BookCropper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +589,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/maxmedvedev/Documents/Development/XCode,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstaReview/InstaReview-Prefix.pch";
 				INFOPLIST_FILE = "InstaReview/InstaReview-Info.plist";
@@ -585,6 +607,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/maxmedvedev/Documents/Development/XCode,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InstaReview/InstaReview-Prefix.pch";
 				INFOPLIST_FILE = "InstaReview/InstaReview-Info.plist";

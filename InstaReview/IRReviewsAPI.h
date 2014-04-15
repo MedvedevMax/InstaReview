@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "IRBookDetails.h"
-#import "IRRecognitionSession.h"
 
 @interface IRReviewsAPI : NSObject
 
 + (id)sharedInstance;
 
-- (IRRecognitionSession*)newSession;
+- (NSArray*)getBooksForPhoto:(UIImage *)photo;
+
 - (void)downloadCoverForBook:(IRBookDetails *)book;
 
 @end

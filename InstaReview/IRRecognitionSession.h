@@ -12,6 +12,6 @@
 @interface IRRecognitionSession : NSObject
 
 - (void)pushPhoto:(UIImage *)image;
-- (NSArray*)recognizeAndGetReviews;
+- (NSArray*)waitAndGetReviews;
 
 @end

@@ -9,12 +9,14 @@
 #import "IRReviewsAPI.h"
 
 #import "IRReviewsFetcher.h"
+#import "IRPhotoPreparer.h"
 #import "IRHTTPClient.h"
 
 @interface IRReviewsAPI ()
 
 @property (nonatomic, strong) IRHTTPClient *httpClient;
 @property (nonatomic, strong) IRReviewsFetcher *reviewsFetcher;
+@property (nonatomic, strong) IRPhotoPreparer *photoPreparer;
 
 @end
 
@@ -31,9 +33,18 @@
     return _sharedInstance;
 }
 
-- (IRRecognitionSession *)newSession
+- (NSArray *)getBooksForPhoto:(UIImage *)photo
 {
-    return [[IRRecognitionSession alloc] init];
+    #define IMG_JPEG_QUALITY 0.4f
+    
+    UIImage *imageToUpload = [self.photoPreparer prepareImageForRecognition:photo];
+    NSData *imgData = UIImageJPEGRepresentation(imageToUpload, IMG_JPEG_QUALITY);
+    NSLog(@"Image preprocessing completed");
+    
+    IRRecognitionResponse *response = [self.reviewsFetcher getResponseForJPEGRepresentation:imgData];
+    NSLog(@"Response received: %d; confidence = %f", response.success, response.confidence);
+
+    return response.books;
 }
 
 - (void)downloadCoverForBook:(IRBookDetails *)book
@@ -54,6 +65,15 @@
 
 #pragma mark - Properties lazy instantiation
 
+- (IRHTTPClient*)httpClient
+{
+    if (!_httpClient) {
+        _httpClient = [[IRHTTPClient alloc] init];
+    }
+    
+    return _httpClient;
+}
+
 - (IRReviewsFetcher*)reviewsFetcher
 {
     if (!_reviewsFetcher)
@@ -62,13 +82,13 @@
     return _reviewsFetcher;
 }
 
-- (IRHTTPClient*)httpClient
+- (IRPhotoPreparer *)photoPreparer
 {
-    if (!_httpClient) {
-        _httpClient = [[IRHTTPClient alloc] init];
+    if (!_photoPreparer) {
+        _photoPreparer = [[IRPhotoPreparer alloc] init];
     }
     
-    return _httpClient;
+    return _photoPreparer;
 }
 
 @end

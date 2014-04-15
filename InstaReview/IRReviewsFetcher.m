@@ -21,6 +21,28 @@
     
     NSLog(@"Querying API at %@", queryUrl);
     NSData *apiResponse = [NSData dataWithContentsOfURL:queryUrl];
+    
+    if (!apiResponse) {
+        NSLog(@"Can't get the response");
+        return nil;
+    }
+    
+    return [IRRecognitionResponse responseWithJSON:apiResponse];
+}
+
+- (IRRecognitionResponse *)getResponseForJPEGRepresentation:(NSData *)jpegRepresentation
+{
+    NSURL *queryUrl = [NSURL URLWithString:IR_API_URL];
+    NSLog(@"Querying API using POST request at %@", queryUrl);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:queryUrl];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:jpegRepresentation];
+    [request setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
+    
+    NSData *apiResponse = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil
+                                                         error:nil];
     if (!apiResponse) {
         NSLog(@"Can't get the response");
         return nil;

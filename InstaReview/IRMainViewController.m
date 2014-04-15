@@ -61,7 +61,7 @@
 {
     [self.activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.currentBooks = [self.currentSession recognizeAndGetReviews];
+        self.currentBooks = [self.currentSession waitAndGetReviews];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];
@@ -144,7 +144,7 @@
     [self.activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.currentSession pushPhoto:image];
-        self.currentBooks = [self.currentSession recognizeAndGetReviews];
+        self.currentBooks = [self.currentSession waitAndGetReviews];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];

@@ -13,4 +13,6 @@
 
 - (IRRecognitionResponse*)getResponseForCoverUrl:(NSString *)imageUrl;
 
+- (IRRecognitionResponse*)getResponseForJPEGRepresentation:(NSData *)jpegRepresentation;
+
 @end
