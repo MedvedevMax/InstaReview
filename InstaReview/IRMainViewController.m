@@ -16,7 +16,6 @@
 @interface IRMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) IRRecognitionSession *currentSession;
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @end
@@ -37,48 +36,44 @@
 
 - (IBAction)snapTapped
 {
-    // creating new session
-    self.currentSession = [[IRReviewsAPI sharedInstance] newSession];
-    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+
     // showing camera
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [self performSegueWithIdentifier:@"Show Camera" sender:self];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else {
         // if camera is not available
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
-        picker.allowsEditing = NO;
-        [self presentViewController:picker animated:YES completion:nil];
     }
+    
+    picker.delegate = self;
+    picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+    picker.allowsEditing = NO;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark - CameraViewController delegate
+#pragma mark - ImagePickerController
 
-- (void)cameraViewControllerOkTapped:(IRCameraViewController *)viewController
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self asynchronouslyRecognizePhoto:image];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)asynchronouslyRecognizePhoto:(UIImage *)photo
 {
     [self.activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.currentBooks = [self.currentSession waitAndGetReviews];
+        self.currentBooks = [[IRReviewsAPI sharedInstance] getBooksForPhoto:photo];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];
             [self showCurrentBooksDetails];
         });
     });
-}
-
-- (void)cameraViewController:(IRCameraViewController *)viewController photoTaken:(UIImage *)photoImage
-{
-    [self.currentSession pushPhoto:photoImage];
-}
-
--(void)cameraViewController:(IRCameraViewController *)viewController errorCapturing:(NSError *)error
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Couldn't capture" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
 }
 
 #pragma mark - Recognize and show books list
@@ -108,11 +103,7 @@
     // remove "back" button
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    if ([segue.identifier isEqualToString:@"Show Camera"]) {
-        IRCameraViewController *cameraVC = segue.destinationViewController;
-        cameraVC.delegate = self;
-    }
-    else if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
+    if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
         IRChoosingBookViewController *chooseVC = segue.destinationViewController;
         chooseVC.delegate = self;
     }
@@ -127,30 +118,6 @@
 - (NSArray *)books
 {
     return self.currentBooks;
-}
-
-#pragma mark - ImagePickerController
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [self asynchronouslyRecognizeSingleImage:image];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)asynchronouslyRecognizeSingleImage:(UIImage *)image
-{
-    [self.activityIndicator startAnimating];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.currentSession pushPhoto:image];
-        self.currentBooks = [self.currentSession waitAndGetReviews];
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.activityIndicator stopAnimating];
-            [self showCurrentBooksDetails];
-        });
-    });
 }
 
 @end

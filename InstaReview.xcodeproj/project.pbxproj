@@ -42,9 +42,7 @@
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
 		A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */; };
 		A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */; };
-		A2E45F3C18E36AD200A41CA7 /* IRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E45F3B18E36AD200A41CA7 /* IRCameraViewController.m */; };
 		A2E45F3E18E36C2800A41CA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */; };
-		A2F511C818E622BB001C6209 /* IRRecognitionSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F511C718E622BB001C6209 /* IRRecognitionSession.m */; };
 		A2F511CB18E6290A001C6209 /* IRRecognitionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F511CA18E6290A001C6209 /* IRRecognitionResponse.m */; };
 /* End PBXBuildFile section */
 
@@ -114,11 +112,7 @@
 		A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRChoosingBookViewController.h; sourceTree = "<group>"; };
 		A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRChoosingBookViewController.m; sourceTree = "<group>"; };
 		A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRBooksContainerDelegate.h; sourceTree = "<group>"; };
-		A2E45F3A18E36AD200A41CA7 /* IRCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCameraViewController.h; sourceTree = "<group>"; };
-		A2E45F3B18E36AD200A41CA7 /* IRCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCameraViewController.m; sourceTree = "<group>"; };
 		A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		A2F511C618E622BB001C6209 /* IRRecognitionSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRecognitionSession.h; sourceTree = "<group>"; };
-		A2F511C718E622BB001C6209 /* IRRecognitionSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRecognitionSession.m; sourceTree = "<group>"; };
 		A2F511C918E6290A001C6209 /* IRRecognitionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRRecognitionResponse.h; sourceTree = "<group>"; };
 		A2F511CA18E6290A001C6209 /* IRRecognitionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRecognitionResponse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,8 +274,6 @@
 				A212878218FDD2170001473B /* ImageProcessing */,
 				A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */,
 				A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */,
-				A2F511C618E622BB001C6209 /* IRRecognitionSession.h */,
-				A2F511C718E622BB001C6209 /* IRRecognitionSession.m */,
 				A2F511C918E6290A001C6209 /* IRRecognitionResponse.h */,
 				A2F511CA18E6290A001C6209 /* IRRecognitionResponse.m */,
 				A2E1A61518CA6E3400CD1E28 /* IRReviewsFetcher.h */,
@@ -297,8 +289,6 @@
 			children = (
 				A276A88018C3D5FF006865F2 /* IRMainViewController.h */,
 				A276A88118C3D5FF006865F2 /* IRMainViewController.m */,
-				A2E45F3A18E36AD200A41CA7 /* IRCameraViewController.h */,
-				A2E45F3B18E36AD200A41CA7 /* IRCameraViewController.m */,
 				A2E1A61E18CA780A00CD1E28 /* IRChoosingBookViewController.h */,
 				A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */,
 				A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */,
@@ -450,7 +440,6 @@
 				A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */,
 				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,
-				A2E45F3C18E36AD200A41CA7 /* IRCameraViewController.m in Sources */,
 				A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */,
 				A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */,
 				A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */,
@@ -460,7 +449,6 @@
 				A276A88218C3D5FF006865F2 /* IRMainViewController.m in Sources */,
 				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
 				A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */,
-				A2F511C818E622BB001C6209 /* IRRecognitionSession.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
 				A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */,
 				A212878518FDD2420001473B /* BookCropper.cpp in Sources */,

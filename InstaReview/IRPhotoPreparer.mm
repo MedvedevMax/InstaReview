@@ -8,20 +8,21 @@
 
 #import "IRPhotoPreparer.h"
 #import "BookCropper.h"
+#import "UIImage+Resize.h"
 #import "UIImage+Filters.h"
 
 @implementation IRPhotoPreparer
 
 - (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
 {
-    cv::Mat source = [IRPhotoPreparer cvMatFromUIImage:sourceImage];
+    UIImage *resizedImage = [sourceImage resizedImage:CGSizeMake(480, 640)
+                                 interpolationQuality:kCGInterpolationMedium];
+    cv::Mat source = [IRPhotoPreparer cvMatFromUIImage:resizedImage];
     BookCropper cropper;
     cv::Mat croppedImage = cropper.getBookImage(source);
     
     // applying filters
     UIImage *newImage = [IRPhotoPreparer UIImageFromCVMat:croppedImage];
-    newImage = [newImage processImageForRecognition];
-    
     return newImage;
 }
 

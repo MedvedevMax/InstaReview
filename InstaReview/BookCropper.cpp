@@ -9,7 +9,7 @@
 #include "BookCropper.h"
 #include <math.h>
 
-#define START_THREASHOLD 5
+#define START_THREASHOLD 8
 #define END_THREASHOLD 30
 
 #define BEST_APPROX_AREA 0.65
@@ -214,8 +214,6 @@ cv::Mat BookCropper::getPaperAreaFromImage(cv::Mat image, std::vector<cv::Point>
 {
     // declare used vars
     cv::Point2f imageVertices[4];
-    float distanceP1P2;
-    float distanceP1P3;
     int scaleFactor;
     cv::Mat paperImage;
     cv::Mat paperImageCorrected;
@@ -230,11 +228,7 @@ cv::Mat BookCropper::getPaperAreaFromImage(cv::Mat image, std::vector<cv::Point>
     imageVertices[2] = square[3];
     imageVertices[3] = square[2];
     
-    // get distance between corner points for further operations
-    distanceP1P2 = distanceBetweenPoints( imageVertices[0], imageVertices[1] );
-    distanceP1P3 = distanceBetweenPoints( imageVertices[0], imageVertices[2] );
-    
-    scaleFactor =  ceil( lroundf(distanceP1P3/height) ); // we always want to scale the image down to maintain the best quality possible
+    scaleFactor = 1;
     paperImage = cv::Mat( height*scaleFactor, width*scaleFactor, CV_8UC3 );
     paperVertices[0] = cv::Point( 0, 0 );
     paperVertices[1] = cv::Point( width*scaleFactor, 0 );
