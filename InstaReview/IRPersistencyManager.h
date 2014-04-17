@@ -14,4 +14,6 @@
 - (void)addBookToViewed:(IRBookDetails *)book;
 - (NSArray*)getAllViewedBooks;
 
+- (void)saveHistory;
+
 @end
