@@ -36,4 +36,27 @@
     return [dictionaryObject isKindOfClass:[NSNull class]] ? @"0" : dictionaryObject;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    
+    if (self) {
+        self.reviewer = [aDecoder decodeObjectForKey:@"reviewer"];
+        self.date = [aDecoder decodeObjectForKey:@"date"];
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.text = [aDecoder decodeObjectForKey:@"text"];
+        self.rate = [aDecoder decodeObjectForKey:@"rate"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.reviewer forKey:@"reviewer"];
+    [aCoder encodeObject:self.date forKey:@"date"];
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.text forKey:@"text"];
+    [aCoder encodeObject:self.rate forKey:@"rate"];
+}
+
 @end

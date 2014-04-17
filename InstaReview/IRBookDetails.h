@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IRBookDetails : NSObject
+@interface IRBookDetails : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSString *name;

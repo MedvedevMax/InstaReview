@@ -55,4 +55,39 @@
     return [dictionaryObject isKindOfClass:[NSNull class]] ? @"0" : dictionaryObject;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.identifier = [aDecoder decodeObjectForKey:@"id"];
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.alternativeName = [aDecoder decodeObjectForKey:@"altname"];
+        self.author = [aDecoder decodeObjectForKey:@"author"];
+        self.description = [aDecoder decodeObjectForKey:@"description"];
+        self.rating = [aDecoder decodeObjectForKey:@"rating"];
+        self.ratingCount = [aDecoder decodeObjectForKey:@"ratingCount"];
+        self.year = [aDecoder decodeObjectForKey:@"year"];
+        self.coverUrl = [aDecoder decodeObjectForKey:@"coverUrl"];
+        self.coverImage = [aDecoder decodeObjectForKey:@"coverImage"];
+        self.reviews = [aDecoder decodeObjectForKey:@"reviews"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.identifier forKey:@"id"];
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.alternativeName forKey:@"altname"];
+    [aCoder encodeObject:self.author forKey:@"author"];
+    [aCoder encodeObject:self.description forKey:@"description"];
+    [aCoder encodeObject:self.rating forKey:@"rating"];
+    [aCoder encodeObject:self.ratingCount forKey:@"ratingCount"];
+    [aCoder encodeObject:self.year forKey:@"year"];
+    [aCoder encodeObject:self.coverUrl forKey:@"coverUrl"];
+    [aCoder encodeObject:self.coverImage forKey:@"coverImage"];
+    [aCoder encodeObject:self.reviews forKey:@"reviews"];
+}
+
 @end

@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-
-@interface IRBookReview : NSObject
+@interface IRBookReview : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *reviewer;
 @property (nonatomic, strong) NSDate *date;
