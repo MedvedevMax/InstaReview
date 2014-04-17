@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap a book cover to find reviews of it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="03u-ip-kaq">
-                                <rect key="frame" x="57" y="263" width="207" height="41"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap a book cover to find reviews of it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="03u-ip-kaq">
+                                <rect key="frame" x="59" y="264" width="203" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,16 +40,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="03u-ip-kaq" secondAttribute="trailing" constant="56" id="Kho-yC-uc4"/>
+                            <constraint firstAttribute="centerY" secondItem="03u-ip-kaq" secondAttribute="centerY" id="DdX-Of-j20"/>
                             <constraint firstAttribute="trailing" secondItem="ZwH-Mp-kET" secondAttribute="trailing" constant="150" id="NS2-VA-K4S"/>
                             <constraint firstItem="QUq-NZ-PsV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="57" id="PJW-cb-ODu"/>
+                            <constraint firstAttribute="centerX" secondItem="03u-ip-kaq" secondAttribute="centerX" id="US6-4U-Oq2"/>
                             <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="QUq-NZ-PsV" secondAttribute="bottom" constant="75" id="Use-25-6Fb"/>
-                            <constraint firstItem="03u-ip-kaq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="57" id="VGe-Vk-LvN"/>
                             <constraint firstAttribute="trailing" secondItem="QUq-NZ-PsV" secondAttribute="trailing" constant="56" id="e5O-cK-aj3"/>
                             <constraint firstItem="ZwH-Mp-kET" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="150" id="mbL-HD-QWa"/>
-                            <constraint firstItem="03u-ip-kaq" firstAttribute="top" secondItem="bbZ-NR-dk0" secondAttribute="bottom" constant="199" id="nl6-8q-0U1"/>
                             <constraint firstItem="QUq-NZ-PsV" firstAttribute="top" secondItem="ZwH-Mp-kET" secondAttribute="bottom" constant="8" id="uNl-Oq-nes"/>
-                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="03u-ip-kaq" secondAttribute="bottom" constant="264" id="ySm-Gb-4qp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="InstaReview" id="wM8-Zn-mF2"/>
@@ -108,7 +106,7 @@
                                 <rect key="frame" x="41" y="458" width="238" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="LKs-5g-agN"/>
+                                    <constraint firstAttribute="height" constant="38" id="27V-pO-SNm"/>
                                 </constraints>
                                 <state key="normal" title="Try again">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,16 +118,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aGj-SQ-HGl" firstAttribute="leading" secondItem="u8t-vs-53N" secondAttribute="leading" constant="41" id="0uG-iq-O2s"/>
                             <constraint firstItem="o70-3o-hHc" firstAttribute="top" secondItem="w2h-Im-e0G" secondAttribute="bottom" constant="8" id="3Yc-lb-H8P"/>
                             <constraint firstItem="w2h-Im-e0G" firstAttribute="top" secondItem="GTC-NE-C3s" secondAttribute="bottom" constant="8" id="4K9-ZN-Kje"/>
-                            <constraint firstAttribute="trailing" secondItem="aGj-SQ-HGl" secondAttribute="trailing" constant="41" id="FOL-ll-JJj"/>
                             <constraint firstAttribute="trailing" secondItem="w2h-Im-e0G" secondAttribute="trailing" constant="20" id="IJq-Ap-not"/>
                             <constraint firstAttribute="centerX" secondItem="GTC-NE-C3s" secondAttribute="centerX" id="Ua3-4z-siR"/>
+                            <constraint firstItem="yPc-sJ-0BR" firstAttribute="top" relation="lessThanOrEqual" secondItem="aGj-SQ-HGl" secondAttribute="bottom" constant="72" id="XnZ-WV-oZF"/>
+                            <constraint firstItem="aGj-SQ-HGl" firstAttribute="top" secondItem="o70-3o-hHc" secondAttribute="bottom" constant="42" id="eYV-Bj-VCd"/>
                             <constraint firstItem="w2h-Im-e0G" firstAttribute="leading" secondItem="u8t-vs-53N" secondAttribute="leading" constant="20" id="eZA-Uh-gjJ"/>
-                            <constraint firstItem="GTC-NE-C3s" firstAttribute="top" secondItem="HgH-sM-x3b" secondAttribute="bottom" constant="87" id="ey3-sj-za9"/>
                             <constraint firstAttribute="trailing" secondItem="o70-3o-hHc" secondAttribute="trailing" constant="41" id="gwL-cE-3S7"/>
-                            <constraint firstItem="yPc-sJ-0BR" firstAttribute="top" secondItem="aGj-SQ-HGl" secondAttribute="bottom" constant="72" id="tWt-cZ-7lr"/>
+                            <constraint firstAttribute="trailing" secondItem="aGj-SQ-HGl" secondAttribute="trailing" constant="41" id="iVM-5S-VCL"/>
+                            <constraint firstItem="aGj-SQ-HGl" firstAttribute="leading" secondItem="u8t-vs-53N" secondAttribute="leading" constant="41" id="kOz-cF-dhv"/>
+                            <constraint firstItem="GTC-NE-C3s" firstAttribute="top" relation="lessThanOrEqual" secondItem="HgH-sM-x3b" secondAttribute="bottom" constant="87" id="qhK-tc-nYo"/>
                             <constraint firstItem="o70-3o-hHc" firstAttribute="leading" secondItem="u8t-vs-53N" secondAttribute="leading" constant="41" id="x65-gV-Xo8"/>
                         </constraints>
                     </view>

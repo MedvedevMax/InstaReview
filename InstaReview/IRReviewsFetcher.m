@@ -32,6 +32,8 @@
 
 - (IRRecognitionResponse *)getResponseForJPEGRepresentation:(NSData *)jpegRepresentation
 {
+    #define URL_REQUEST_TRY_COUNT 3
+    
     NSURL *queryUrl = [NSURL URLWithString:IR_API_URL];
     NSLog(@"Querying API using POST request at %@", queryUrl);
     
@@ -39,10 +41,20 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:jpegRepresentation];
     [request setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
+    request.timeoutInterval = 15;
     
-    NSData *apiResponse = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:nil
-                                                         error:nil];
+    NSData *apiResponse = nil;
+    
+    for (int tryNumber = 0; tryNumber < URL_REQUEST_TRY_COUNT; tryNumber++) {
+        NSError *error;
+        NSLog(@"Sending url request, try #%d", tryNumber);
+        apiResponse = [NSURLConnection sendSynchronousRequest:request
+                                            returningResponse:nil
+                                                        error:&error];
+        if (!error) {
+            break;
+        }
+    }
     if (!apiResponse) {
         NSLog(@"Can't get the response");
         return nil;
