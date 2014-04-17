@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "IRBooksContainerDelegate.h"
 
+typedef enum {
+    kChoosingBookViewControllerDidYouMean = 0,
+    kChoosingBookViewControllerHistory = 1
+} IRChoosingBookViewControllerKind;
+
 @interface IRChoosingBookViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) id<IRBooksContainerDelegate> delegate;
+@property (nonatomic) IRChoosingBookViewControllerKind kind;
+@property (nonatomic, strong) NSArray *books;
 
 @end

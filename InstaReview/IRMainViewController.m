@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCurrentState) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,6 +33,11 @@
     if (self.view.window) {
         self.currentBooks = nil;
     }
+}
+
+- (void)saveCurrentState
+{
+    [[IRReviewsAPI sharedInstance] saveViewedBooksHistory];
 }
 
 - (IBAction)snapTapped
@@ -98,7 +104,15 @@
     
     if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
         IRChoosingBookViewController *chooseVC = segue.destinationViewController;
-        chooseVC.delegate = self;
+        chooseVC.kind = kChoosingBookViewControllerDidYouMean;
+        chooseVC.books = self.currentBooks;
+    }
+    else if ([segue.identifier isEqualToString:@"Show History"]) {
+        UINavigationController *navigationVC = segue.destinationViewController;
+        
+        IRChoosingBookViewController *chooseVC = [navigationVC.viewControllers objectAtIndex:0];
+        chooseVC.kind = kChoosingBookViewControllerHistory;
+        chooseVC.books = [[IRReviewsAPI sharedInstance] getAllViewedBooks];
     }
     else if ([segue.identifier isEqualToString:@"Show Book Details"]) {
         IRBookDetailsViewController *detailsVC = segue.destinationViewController;
@@ -109,13 +123,6 @@
         oopsVC.delegate = self;
         oopsVC.errorType = (self.currentBooks == nil) ? kOopsViewTypeNoNetwork : kOopsViewTypeNoBookFound;
     }
-}
-
-#pragma mark - IRBooksContainerDelegate
-
-- (NSArray *)books
-{
-    return self.currentBooks;
 }
 
 #pragma mark - IROopsViewControllerDelegate

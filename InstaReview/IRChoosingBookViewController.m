@@ -16,6 +16,8 @@
 
 @interface IRChoosingBookViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
 @end
 
 @implementation IRChoosingBookViewController
@@ -24,15 +26,28 @@
 {
     [super viewDidLoad];
     
-    for (IRBookDetails *book in [self.delegate books]) {
+    for (IRBookDetails *book in self.books) {
         [book addObserver:self forKeyPath:@"coverImage" options:NSKeyValueObservingOptionNew context:nil];
         [[IRReviewsAPI sharedInstance] downloadCoverForBook:book];
+    }
+    
+    switch (self.kind) {
+        case kChoosingBookViewControllerDidYouMean:
+            self.navigationItem.title = NSLocalizedString(@"Did you mean...", @"'did you mean' navigation bar title");
+            self.navigationItem.rightBarButtonItem = nil;
+            break;
+        case kChoosingBookViewControllerHistory:
+            self.navigationItem.title = NSLocalizedString(@"History", @"'history' navigation bar title");
+            self.navigationItem.rightBarButtonItem = self.doneButton;
+            break;
+        default:
+            break;
     }
 }
 
 - (void)dealloc
 {
-    for (IRBookDetails *book in [self.delegate books]) {
+    for (IRBookDetails *book in self.books) {
         [book removeObserver:self forKeyPath:@"coverImage"];
     }
 }
@@ -40,9 +55,9 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"coverImage"]) {
-        if ([[self.delegate books] containsObject:object]) {
+        if ([self.books containsObject:object]) {
             [self.tableView reloadRowsAtIndexPaths:
-                    @[[NSIndexPath indexPathForRow:[[self.delegate books] indexOfObject:object] inSection:0]]
+                    @[[NSIndexPath indexPathForRow:[self.books indexOfObject:object] inSection:0]]
                                   withRowAnimation:UITableViewRowAnimationNone];
         }
     }
@@ -61,7 +76,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.delegate books] count];
+    return [self.books count];
 }
 
 #define COVER_WIDTH     40
@@ -73,7 +88,7 @@
     static NSString *CellIdentifier = @"Book Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IRBookDetails *book = [[self.delegate books] objectAtIndex:indexPath.row];
+    IRBookDetails *book = [self.books objectAtIndex:indexPath.row];
     cell.textLabel.text = book.name;
     cell.detailTextLabel.text = book.author;
     
@@ -95,6 +110,10 @@
 }
 
 #pragma mark - Navigation
+- (IBAction)doneButtonTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -103,7 +122,7 @@
     
     if ([segue.identifier isEqualToString:@"Show Book Details"]) {
         IRBookDetailsViewController *detailsVC = segue.destinationViewController;
-        detailsVC.currentBook = [[self.delegate books] objectAtIndex:[[self.tableView indexPathForCell:sender] row]];
+        detailsVC.currentBook = [self.books objectAtIndex:[[self.tableView indexPathForCell:sender] row]];
     }
 }
 

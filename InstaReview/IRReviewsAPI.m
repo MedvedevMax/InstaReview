@@ -11,12 +11,14 @@
 #import "IRReviewsFetcher.h"
 #import "IRPhotoPreparer.h"
 #import "IRHTTPClient.h"
+#import "IRPersistencyManager.h"
 
 @interface IRReviewsAPI ()
 
 @property (nonatomic, strong) IRHTTPClient *httpClient;
 @property (nonatomic, strong) IRReviewsFetcher *reviewsFetcher;
 @property (nonatomic, strong) IRPhotoPreparer *photoPreparer;
+@property (nonatomic, strong) IRPersistencyManager *persistencyManager;
 
 @end
 
@@ -45,6 +47,21 @@
     NSLog(@"Response received: %d; confidence = %f", response.success, response.confidence);
 
     return response.books;
+}
+
+- (void)addBookToViewed:(IRBookDetails *)book
+{
+    [self.persistencyManager addBookToViewed:book];
+}
+
+- (NSArray*)getAllViewedBooks
+{
+    return [self.persistencyManager getAllViewedBooks];
+}
+
+- (void)saveViewedBooksHistory
+{
+    [self.persistencyManager saveHistory];
 }
 
 - (void)downloadCoverForBook:(IRBookDetails *)book
@@ -89,6 +106,15 @@
     }
     
     return _photoPreparer;
+}
+
+- (IRPersistencyManager *)persistencyManager
+{
+    if (!_persistencyManager) {
+        _persistencyManager = [[IRPersistencyManager alloc] init];
+    }
+    
+    return _persistencyManager;
 }
 
 @end

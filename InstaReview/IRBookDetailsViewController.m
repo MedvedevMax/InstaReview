@@ -46,7 +46,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[IRReviewsAPI sharedInstance] downloadCoverForBook:self.currentBook]; 
+    
+    [[IRReviewsAPI sharedInstance] downloadCoverForBook:self.currentBook];
+    [[IRReviewsAPI sharedInstance] addBookToViewed:self.currentBook];
 }
 
 #pragma mark - Observing book cover image

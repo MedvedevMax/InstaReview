@@ -50,7 +50,13 @@
                             <constraint firstItem="QUq-NZ-PsV" firstAttribute="top" secondItem="ZwH-Mp-kET" secondAttribute="bottom" constant="8" id="uNl-Oq-nes"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="InstaReview" id="wM8-Zn-mF2"/>
+                    <navigationItem key="navigationItem" title="InstaReview" id="wM8-Zn-mF2">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="qNd-R1-viE">
+                            <connections>
+                                <segue destination="mV2-9a-gAK" kind="modal" identifier="Show History" id="lDx-y6-QBm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="ZwH-Mp-kET" id="Bc0-no-T2r"/>
                         <segue destination="zZZ-32-Ipv" kind="push" identifier="Ask To Specify Book" id="yFv-b0-aKK"/>
@@ -60,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="305"/>
+            <point key="canvasLocation" x="433" y="305"/>
         </scene>
         <!--Oops View Controller - No network/No books-->
         <scene sceneID="QqZ-CU-8Z7">
@@ -141,6 +147,21 @@
             </objects>
             <point key="canvasLocation" x="1004" y="659"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WaH-sN-wcO">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="mV2-9a-gAK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wkd-Nm-NjH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zZZ-32-Ipv" kind="relationship" relationship="rootViewController" id="ke5-r6-Z7s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="inm-mP-TfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="-417"/>
+        </scene>
         <!--Choosing Book View Controller - Did you mean...-->
         <scene sceneID="rZq-uH-WbI">
             <objects>
@@ -188,8 +209,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Did you mean..." id="ze3-nJ-Mev"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="TFH-ht-Rk0" id="1T0-U1-QSN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Kv-cd-thm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Done" id="TFH-ht-Rk0">
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="zZZ-32-Ipv" id="vg0-Lo-alL"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1004" y="-90"/>
         </scene>
@@ -375,6 +405,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RSt-4o-L0H"/>
+        <segue reference="ke5-r6-Z7s"/>
+        <segue reference="IJe-mc-WGc"/>
     </inferredMetricsTieBreakers>
 </document>

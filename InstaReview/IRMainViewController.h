@@ -10,6 +10,6 @@
 #import "IRBooksContainerDelegate.h"
 #import "IROopsViewController.h"
 
-@interface IRMainViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, IRBooksContainerDelegate, IROopsViewControllerDelegate>
+@interface IRMainViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, IROopsViewControllerDelegate>
 
 @end
