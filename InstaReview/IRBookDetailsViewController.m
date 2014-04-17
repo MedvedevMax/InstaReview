@@ -23,6 +23,12 @@
 #define kTableViewTagRating                 104
 #define kTableViewTagRatingCount            105
 
+#define kTableViewReviewTagTitle            100
+#define kTableViewReviewTagDate             101
+#define kTableViewReviewTagThumbImage       102
+#define kTableViewReviewTagText             103
+#define kTableViewReviewTagReviewer         104
+
 @interface IRBookDetailsViewController ()
 
 @end
@@ -120,8 +126,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"Review" forIndexPath:indexPath];
 
             IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
-            cell.textLabel.text = review.title;
-            cell.detailTextLabel.text = review.text;
+            [self assignReview:review toCell:cell];
             break;
     }
     return cell;
@@ -163,16 +168,43 @@
     }
 }
 
+- (void)assignReview:(IRBookReview *)review toCell:(UITableViewCell *)cell
+{
+    UILabel *title = (UILabel*)[cell viewWithTag:kTableViewReviewTagTitle];
+    UILabel *date = (UILabel*)[cell viewWithTag:kTableViewReviewTagDate];
+    UIImageView *thumbImage = (UIImageView*)[cell viewWithTag:kTableViewReviewTagThumbImage];
+    UILabel *text = (UILabel*)[cell viewWithTag:kTableViewReviewTagText];
+    UILabel *reviewer = (UILabel*)[cell viewWithTag:kTableViewReviewTagReviewer];
+    
+    title.text = review.title;
+    date.text = [NSDateFormatter localizedStringFromDate:review.date
+                                               dateStyle:NSDateFormatterLongStyle
+                                               timeStyle:NSDateFormatterNoStyle];
+    
+    int rating = [review.rate intValue];
+    if (rating > 3) {
+        thumbImage.image = [UIImage imageNamed:@"thumb-up.png"];
+    }
+    else if (rating < 3) {
+        thumbImage.image = [UIImage imageNamed:@"thumb-down.png"];
+    }
+    else {
+        thumbImage.image = [UIImage imageNamed:@"thumb-neutral.png"];
+    }
+    text.text = review.text;
+    reviewer.text = review.reviewer;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     #define TEXT_MARGIN 20;
+    #define REVIEW_CELL_HEIGHT_WITHOUT_TEXT 97
+    
     CGSize constraintSize = CGSizeMake(290.0f, MAXFLOAT);
 
-    NSDictionary *titleAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:16]};
     NSDictionary *textAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
     
     UITableViewCell *cell = NULL;
-    NSString *title = NULL;
     NSString *text = NULL;
     
     CGFloat height = 0;
@@ -192,11 +224,9 @@
             break;
             
         case kTableViewBookReviewsSection:
-            title = [[self.currentBook.reviews objectAtIndex:indexPath.row] title];
             text = [[self.currentBook.reviews objectAtIndex:indexPath.row] text];
-            height = [title boundingRectWithSize:constraintSize
-                                         options:NSLineBreakByTruncatingTail | NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:titleAttributes context:nil].size.height;
+
+            height = REVIEW_CELL_HEIGHT_WITHOUT_TEXT;
             height += [text boundingRectWithSize:constraintSize
                                          options:NSLineBreakByWordWrapping |NSStringDrawingUsesLineFragmentOrigin
                                       attributes:textAttributes context:nil].size.height;

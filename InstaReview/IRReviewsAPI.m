@@ -39,7 +39,7 @@
     
     UIImage *imageToUpload = [self.photoPreparer prepareImageForRecognition:photo];
     NSData *imgData = UIImageJPEGRepresentation(imageToUpload, IMG_JPEG_QUALITY);
-    NSLog(@"Image preprocessing completed. Sending %u kb", imgData.length / 1024);
+    NSLog(@"Image preprocessing completed. Sending %d kb", (int)(imgData.length / 1024));
     
     IRRecognitionResponse *response = [self.reviewsFetcher getResponseForJPEGRepresentation:imgData];
     NSLog(@"Response received: %d; confidence = %f", response.success, response.confidence);

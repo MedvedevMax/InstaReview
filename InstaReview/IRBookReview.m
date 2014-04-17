@@ -16,7 +16,7 @@
     if (self) {
         self.reviewer = [self emptyStringOrValue:dic[@"reviewer"]];
 
-        self.date = [NSDate dateWithTimeIntervalSince1970:[[self zeroStringOrValue:dic[@"date"]] intValue]];
+        self.date = [NSDate dateWithTimeIntervalSince1970:[[self zeroStringOrValue:dic[@"date"]] doubleValue]];
         self.title = [self emptyStringOrValue:dic[@"title"]];
         self.text = [self emptyStringOrValue:dic[@"text"]];
         
