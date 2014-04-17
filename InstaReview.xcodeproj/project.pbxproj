@@ -41,6 +41,7 @@
 		A2C7CAEC1900640900DCCF1E /* thumb-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C7CAE91900640900DCCF1E /* thumb-down@2x.png */; };
 		A2C7CAED1900640900DCCF1E /* thumb-neutral@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C7CAEA1900640900DCCF1E /* thumb-neutral@2x.png */; };
 		A2C7CAEE1900640900DCCF1E /* thumb-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C7CAEB1900640900DCCF1E /* thumb-up@2x.png */; };
+		A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */; };
 		A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */; };
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
 		A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */; };
@@ -109,6 +110,8 @@
 		A2C7CAE91900640900DCCF1E /* thumb-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-down@2x.png"; sourceTree = "<group>"; };
 		A2C7CAEA1900640900DCCF1E /* thumb-neutral@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-neutral@2x.png"; sourceTree = "<group>"; };
 		A2C7CAEB1900640900DCCF1E /* thumb-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-up@2x.png"; sourceTree = "<group>"; };
+		A2C7CAEF190071F700DCCF1E /* IROopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IROopsViewController.h; sourceTree = "<group>"; };
+		A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IROopsViewController.m; sourceTree = "<group>"; };
 		A2E1A60F18CA679D00CD1E28 /* IRBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetails.h; sourceTree = "<group>"; };
 		A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetails.m; sourceTree = "<group>"; };
 		A2E1A61218CA67A600CD1E28 /* IRBookReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookReview.h; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */,
 				A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */,
 				A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */,
+				A2C7CAEF190071F700DCCF1E /* IROopsViewController.h */,
+				A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				A276A88218C3D5FF006865F2 /* IRMainViewController.m in Sources */,
 				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
 				A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */,
+				A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
 				A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */,
 				A212878518FDD2420001473B /* BookCropper.cpp in Sources */,

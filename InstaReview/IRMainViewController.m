@@ -80,15 +80,8 @@
 
 - (void)showCurrentBooksDetails
 {
-    if (!self.currentBooks) {
-        // TODO: show "connection error"
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InstaReview" message:@"Sorry, connection error :(" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-        [alert show];
-    }
-    else if (self.currentBooks.count == 0) {
-        // TODO: show "nothing found"
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"InstaReview" message:@"No books found :(" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-        [alert show];
+    if (self.currentBooks.count == 0) {
+        [self performSegueWithIdentifier:@"Show Error" sender:self];
     }
     else if (self.currentBooks.count == 1) {
         [self performSegueWithIdentifier:@"Show Book Details" sender:self];
@@ -111,6 +104,11 @@
         IRBookDetailsViewController *detailsVC = segue.destinationViewController;
         detailsVC.currentBook = [self.currentBooks objectAtIndex:0];
     }
+    else if ([segue.identifier isEqual:@"Show Error"]) {
+        IROopsViewController *oopsVC = segue.destinationViewController;
+        oopsVC.delegate = self;
+        oopsVC.errorType = (self.currentBooks == nil) ? kOopsViewTypeNoNetwork : kOopsViewTypeNoBookFound;
+    }
 }
 
 #pragma mark - IRBooksContainerDelegate
@@ -118,6 +116,13 @@
 - (NSArray *)books
 {
     return self.currentBooks;
+}
+
+#pragma mark - IROopsViewControllerDelegate
+
+- (void)tryAgainButtonTapped
+{
+    [self snapTapped];
 }
 
 @end
