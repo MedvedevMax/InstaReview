@@ -25,7 +25,7 @@
             break;
         case kOopsViewTypeNoBookFound:
             self.navigationItem.title = NSLocalizedString(@"No books", @"'no books' error");
-            self.errorExplanationLabel.text = NSLocalizedString(@"No books found for this cover. Maybe you should try again?", @"'no books' explaration");
+            self.errorExplanationLabel.text = NSLocalizedString(@"This book wasn't found. Maybe you should try again?", @"'no books' explaration");
             break;
             
         default:
