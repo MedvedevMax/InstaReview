@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A212878118FDD20B0001473B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
-		A212878518FDD2420001473B /* BookCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A212878318FDD2420001473B /* BookCropper.cpp */; };
 		A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A212878718FDD2840001473B /* IRPhotoPreparer.mm */; };
 		A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A21A6CF618CBD12900EA7776 /* blankCover.png */; };
+		A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A21CDAC3190119C000F3ED2B /* BookCropper.cpp */; };
+		A2218312190116B800A73F2C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
 		A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3818E4C35500E2BCC4 /* FXBlurView.m */; };
@@ -47,7 +47,6 @@
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
 		A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */; };
 		A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */; };
-		A2E45F3E18E36C2800A41CA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E45F3D18E36C2800A41CA7 /* AVFoundation.framework */; };
 		A2F511CB18E6290A001C6209 /* IRRecognitionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F511CA18E6290A001C6209 /* IRRecognitionResponse.m */; };
 /* End PBXBuildFile section */
 
@@ -63,11 +62,11 @@
 
 /* Begin PBXFileReference section */
 		A212878018FDD20B0001473B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../opencv2.framework; sourceTree = "<group>"; };
-		A212878318FDD2420001473B /* BookCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookCropper.cpp; sourceTree = "<group>"; };
-		A212878418FDD2420001473B /* BookCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCropper.h; sourceTree = "<group>"; };
 		A212878618FDD2840001473B /* IRPhotoPreparer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPhotoPreparer.h; sourceTree = "<group>"; };
 		A212878718FDD2840001473B /* IRPhotoPreparer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IRPhotoPreparer.mm; sourceTree = "<group>"; };
 		A21A6CF618CBD12900EA7776 /* blankCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankCover.png; sourceTree = "<group>"; };
+		A21CDAC2190119C000F3ED2B /* BookCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCropper.h; sourceTree = "<group>"; };
+		A21CDAC3190119C000F3ED2B /* BookCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookCropper.cpp; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
 		A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetailsViewController.h; sourceTree = "<group>"; };
@@ -134,9 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A212878118FDD20B0001473B /* opencv2.framework in Frameworks */,
+				A2218312190116B800A73F2C /* opencv2.framework in Frameworks */,
 				A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */,
-				A2E45F3E18E36C2800A41CA7 /* AVFoundation.framework in Frameworks */,
 				A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */,
 				A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */,
 				A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */,
@@ -163,8 +161,8 @@
 			children = (
 				A212878618FDD2840001473B /* IRPhotoPreparer.h */,
 				A212878718FDD2840001473B /* IRPhotoPreparer.mm */,
-				A212878418FDD2420001473B /* BookCropper.h */,
-				A212878318FDD2420001473B /* BookCropper.cpp */,
+				A21CDAC2190119C000F3ED2B /* BookCropper.h */,
+				A21CDAC3190119C000F3ED2B /* BookCropper.cpp */,
 			);
 			name = ImageProcessing;
 			sourceTree = "<group>";
@@ -474,8 +472,8 @@
 				A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */,
 				A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
+				A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */,
 				A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */,
-				A212878518FDD2420001473B /* BookCropper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -109,6 +109,29 @@
     return COVER_HEIGHT + CELL_BORDER;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.kind == kChoosingBookViewControllerHistory;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        IRBookDetails *bookToRemove = [self.books objectAtIndex:indexPath.row];
+        [self removeBookFromHistory:bookToRemove];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)removeBookFromHistory:(IRBookDetails *)book
+{
+    [[IRReviewsAPI sharedInstance] removeBookFromViewed:book];
+    [book removeObserver:self forKeyPath:@"coverImage"];
+    
+    self.books = [[IRReviewsAPI sharedInstance] getAllViewedBooks];
+}
+
 #pragma mark - Navigation
 - (IBAction)doneButtonTapped:(id)sender
 {

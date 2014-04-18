@@ -35,15 +35,26 @@
 
 - (void)addBookToViewed:(IRBookDetails *)book
 {
+    IRBookDetails *duplicate = nil;
     for (IRBookDetails *viewedBook in self.viewedBooks) {
         if ([book.name isEqualToString:viewedBook.name] &&
             [book.author isEqualToString:viewedBook.author]) {
-            // found duplicate
-            return;
+            duplicate = viewedBook;
+            break;
         }
     }
     
-    [self.viewedBooks addObject:book];
+    if (duplicate) {
+        // remove duplicate to put new one to top
+        [self.viewedBooks removeObject:duplicate];
+    }
+    
+    [self.viewedBooks insertObject:book atIndex:0];
+}
+
+- (void)removeBookFromViewed:(IRBookDetails *)book
+{
+    [self.viewedBooks removeObject:book];
 }
 
 - (NSArray*)getAllViewedBooks

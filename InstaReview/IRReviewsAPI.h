@@ -16,6 +16,7 @@
 - (NSArray*)getBooksForPhoto:(UIImage *)photo;
 
 - (void)addBookToViewed:(IRBookDetails *)book;
+- (void)removeBookFromViewed:(IRBookDetails *)book;
 - (NSArray*)getAllViewedBooks;
 - (void)saveViewedBooksHistory;
 

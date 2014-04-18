@@ -54,6 +54,11 @@
     [self.persistencyManager addBookToViewed:book];
 }
 
+- (void)removeBookFromViewed:(IRBookDetails *)book
+{
+    [self.persistencyManager removeBookFromViewed:book];
+}
+
 - (NSArray*)getAllViewedBooks
 {
     return [self.persistencyManager getAllViewedBooks];

@@ -12,6 +12,7 @@
 @interface IRPersistencyManager : NSObject
 
 - (void)addBookToViewed:(IRBookDetails *)book;
+- (void)removeBookFromViewed:(IRBookDetails *)book;
 - (NSArray*)getAllViewedBooks;
 
 - (void)saveHistory;
