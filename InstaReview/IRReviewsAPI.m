@@ -13,6 +13,9 @@
 #import "IRHTTPClient.h"
 #import "IRPersistencyManager.h"
 
+#import "UIImage+Resize.h"
+#import "UIImage+WhiteColorTransparent.h"
+
 @interface IRReviewsAPI ()
 
 @property (nonatomic, strong) IRHTTPClient *httpClient;
@@ -71,14 +74,24 @@
 
 - (void)downloadCoverForBook:(IRBookDetails *)book
 {
+    #define COVER_IMG_WIDTH 195
+    #define COVER_IMG_HEIGHT 300
     @synchronized(book.coverImage)
     {
         if (!book.coverImage && book.coverUrl.length > 0) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                UIImage *image = [self.httpClient downloadImage:book.coverUrl];
+                UIImage *coverImage = [self.httpClient downloadImage:book.coverUrl];
 
+                // Resizing & saving aspect ratio
+                double aspectRatioWidth = coverImage.size.width * (COVER_IMG_HEIGHT / coverImage.size.height);
+                coverImage = [coverImage resizedImage:CGSizeMake(aspectRatioWidth, COVER_IMG_HEIGHT) interpolationQuality:kCGInterpolationDefault];
+                
+                // Cropping to desired size
+                int xCrop = MAX(0, (aspectRatioWidth - COVER_IMG_WIDTH) / 2);
+                coverImage = [coverImage croppedImage:CGRectMake(xCrop, 0, COVER_IMG_WIDTH, COVER_IMG_HEIGHT)];
+                
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    book.coverImage = image;
+                    book.coverImage = coverImage;
                 });
             });
         }

@@ -11,6 +11,7 @@
 		A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A21A6CF618CBD12900EA7776 /* blankCover.png */; };
 		A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A21CDAC3190119C000F3ED2B /* BookCropper.cpp */; };
 		A2218312190116B800A73F2C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
+		A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
 		A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3818E4C35500E2BCC4 /* FXBlurView.m */; };
@@ -67,6 +68,8 @@
 		A21A6CF618CBD12900EA7776 /* blankCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankCover.png; sourceTree = "<group>"; };
 		A21CDAC2190119C000F3ED2B /* BookCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCropper.h; sourceTree = "<group>"; };
 		A21CDAC3190119C000F3ED2B /* BookCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookCropper.cpp; sourceTree = "<group>"; };
+		A2364A441901D73400BFFC63 /* UIImage+WhiteColorTransparent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WhiteColorTransparent.h"; sourceTree = "<group>"; };
+		A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WhiteColorTransparent.m"; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
 		A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetailsViewController.h; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				A2B310A718CA60FF00868DEA /* UIImage+Resize.m */,
 				A2B06FF518D8A3BA0004ACE1 /* UIImage+Filters.h */,
 				A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */,
+				A2364A441901D73400BFFC63 /* UIImage+WhiteColorTransparent.h */,
+				A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */,
 			);
 			name = "UIImage+";
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			files = (
 				A2B06FF718D8A3BA0004ACE1 /* UIImage+Filters.m in Sources */,
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
+				A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */,
 				A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */,
 				A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */,
 				A2C7CAF41900817100DCCF1E /* IRPersistencyManager.m in Sources */,

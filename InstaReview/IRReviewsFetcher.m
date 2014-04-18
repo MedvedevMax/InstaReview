@@ -45,6 +45,7 @@
     
     NSData *apiResponse = nil;
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     for (int tryNumber = 0; tryNumber < URL_REQUEST_TRY_COUNT; tryNumber++) {
         NSError *error;
         NSLog(@"Sending url request, try #%d", tryNumber);
@@ -55,6 +56,8 @@
             break;
         }
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
     if (!apiResponse) {
         NSLog(@"Can't get the response");
         return nil;
