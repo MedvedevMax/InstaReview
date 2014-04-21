@@ -25,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCurrentState) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,11 +32,6 @@
     if (self.view.window) {
         self.currentBooks = nil;
     }
-}
-
-- (void)saveCurrentState
-{
-    [[IRReviewsAPI sharedInstance] saveViewedBooksHistory];
 }
 
 - (IBAction)snapTapped

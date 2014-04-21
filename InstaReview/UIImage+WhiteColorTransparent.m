@@ -14,7 +14,7 @@
 {
     CGImageRef rawImageRef = self.CGImage;
     
-    const float colorMasking[6] = {222, 255, 222, 255, 222, 255};
+    const CGFloat colorMasking[6] = {222, 255, 222, 255, 222, 255};
     
     UIGraphicsBeginImageContext(self.size);
     CGImageRef maskedImageRef=CGImageCreateWithMaskingColors(rawImageRef, colorMasking);
