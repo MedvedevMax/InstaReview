@@ -7,13 +7,14 @@
 //
 
 #import "IRAppDelegate.h"
+
 #import "IRReviewsAPI.h"
+#import "IRMainViewController.h"
 
 @implementation IRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     [application setStatusBarStyle:UIStatusBarStyleDefault];
     return YES;
 }
@@ -41,7 +42,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [application setStatusBarStyle:UIStatusBarStyleLightContent];    
 }
 

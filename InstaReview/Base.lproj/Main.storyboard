@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IlN-74-uzi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IlN-74-uzi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller - InstaReview-->
+        <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="IRMainViewController" sceneMemberID="viewController">
@@ -16,49 +16,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap a book cover to find reviews of it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="03u-ip-kaq">
-                                <rect key="frame" x="59" y="264" width="203" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUq-NZ-PsV">
+                                <rect key="frame" x="39" y="420" width="245" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUq-NZ-PsV">
-                                <rect key="frame" x="57" y="463" width="207" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Snap to review">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="6gU-FC-cus"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
+                                <state key="normal" backgroundImage="SnapButton.png"/>
                                 <connections>
                                     <action selector="snapTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qR0-FG-IVT"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZwH-Mp-kET">
-                                <rect key="frame" x="150" y="435" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Book.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wvt-ta-9dq">
+                                <rect key="frame" x="53" y="119" width="216" height="209"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="209" id="GJN-DE-JBN"/>
+                                    <constraint firstAttribute="width" constant="216" id="QrY-Cm-e0O"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделайте снимок обложки, чтобы найти отзывы" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-WL-7WF">
+                                <rect key="frame" x="39" y="336" width="245" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="VRF-5n-VJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="03u-ip-kaq" secondAttribute="centerY" id="DdX-Of-j20"/>
-                            <constraint firstAttribute="trailing" secondItem="ZwH-Mp-kET" secondAttribute="trailing" constant="150" id="NS2-VA-K4S"/>
-                            <constraint firstItem="QUq-NZ-PsV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="57" id="PJW-cb-ODu"/>
-                            <constraint firstAttribute="centerX" secondItem="03u-ip-kaq" secondAttribute="centerX" id="US6-4U-Oq2"/>
-                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="QUq-NZ-PsV" secondAttribute="bottom" constant="75" id="Use-25-6Fb"/>
-                            <constraint firstAttribute="trailing" secondItem="QUq-NZ-PsV" secondAttribute="trailing" constant="56" id="e5O-cK-aj3"/>
-                            <constraint firstItem="ZwH-Mp-kET" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="150" id="mbL-HD-QWa"/>
-                            <constraint firstItem="QUq-NZ-PsV" firstAttribute="top" secondItem="ZwH-Mp-kET" secondAttribute="bottom" constant="8" id="uNl-Oq-nes"/>
+                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="QUq-NZ-PsV" secondAttribute="bottom" priority="999" constant="91" id="1pk-fG-zgy"/>
+                            <constraint firstItem="QUq-NZ-PsV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ydW-WL-7WF" secondAttribute="bottom" constant="20" id="3S6-ca-nDj"/>
+                            <constraint firstAttribute="centerY" secondItem="Wvt-ta-9dq" secondAttribute="centerY" constant="60.5" id="6En-2U-ca3"/>
+                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QUq-NZ-PsV" secondAttribute="bottom" constant="30" id="Hn2-eM-2ow"/>
+                            <constraint firstItem="QUq-NZ-PsV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="39" id="PJW-cb-ODu"/>
+                            <constraint firstAttribute="trailing" secondItem="ydW-WL-7WF" secondAttribute="trailing" constant="36" id="Ycq-zy-eWi"/>
+                            <constraint firstItem="ydW-WL-7WF" firstAttribute="top" secondItem="Wvt-ta-9dq" secondAttribute="bottom" constant="8" id="aFk-ra-G3k"/>
+                            <constraint firstItem="ydW-WL-7WF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="39" id="dOp-38-OKY"/>
+                            <constraint firstAttribute="trailing" secondItem="QUq-NZ-PsV" secondAttribute="trailing" constant="36" id="e5O-cK-aj3"/>
+                            <constraint firstAttribute="centerX" secondItem="Wvt-ta-9dq" secondAttribute="centerX" constant="-1" id="hOm-zW-tst"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="InstaReview" id="wM8-Zn-mF2">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="qNd-R1-viE">
+                    <navigationItem key="navigationItem" id="wM8-Zn-mF2">
+                        <barButtonItem key="rightBarButtonItem" image="History.png" id="kJX-Ns-0qE">
                             <connections>
-                                <segue destination="mV2-9a-gAK" kind="modal" identifier="Show History" id="lDx-y6-QBm"/>
+                                <segue destination="mV2-9a-gAK" kind="modal" identifier="Show History" id="cRx-cO-mx2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="ZwH-Mp-kET" id="Bc0-no-T2r"/>
+                        <outlet property="snapButton" destination="QUq-NZ-PsV" id="YTb-SN-zkn"/>
                         <segue destination="zZZ-32-Ipv" kind="push" identifier="Ask To Specify Book" id="yFv-b0-aKK"/>
                         <segue destination="3rV-Ow-eQ9" kind="push" identifier="Show Book Details" id="RSt-4o-L0H"/>
                         <segue destination="zh3-e8-nxw" kind="push" identifier="Show Error" id="tuh-qV-KGk"/>
@@ -153,6 +164,10 @@
                 <navigationController definesPresentationContext="YES" id="mV2-9a-gAK" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wkd-Nm-NjH">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.90114462380000004" green="0.69308716059999997" blue="0.033362369980000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="zZZ-32-Ipv" kind="relationship" relationship="rootViewController" id="ke5-r6-Z7s"/>
@@ -382,6 +397,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ak0-y6-tNK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.90114462375640869" green="0.69308716058731079" blue="0.033362369984388351" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -396,6 +415,9 @@
     <resources>
         <image name="5stars-bw.png" width="129" height="24"/>
         <image name="5stars.png" width="129" height="24"/>
+        <image name="Book.png" width="215" height="209"/>
+        <image name="History.png" width="25" height="26"/>
+        <image name="SnapButton.png" width="245" height="56"/>
         <image name="blankCover.png" width="200" height="297"/>
         <image name="thumb-up.png" width="44" height="50"/>
     </resources>
@@ -405,7 +427,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ke5-r6-Z7s"/>
-        <segue reference="IJe-mc-WGc"/>
+        <segue reference="yFv-b0-aKK"/>
+        <segue reference="RSt-4o-L0H"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) NSArray *currentBooks;
 
+@property (weak, nonatomic) IBOutlet UIButton *snapButton;
 @end
 
 @implementation IRMainViewController
@@ -25,6 +26,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
+    
+    // Width equivalent to system default Done button's (which appears on pushed view in my case).
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]
+                                           initWithCustomView:[[UIView alloc]
+                                                               initWithFrame:CGRectMake(0, 0, 50, 1)]];
+    leftBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
