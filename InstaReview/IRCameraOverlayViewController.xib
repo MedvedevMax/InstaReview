@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IRCameraOverlayViewController">
+            <connections>
+                <outlet property="flashModeLabel" destination="Sqr-9w-aSq" id="7gd-XV-TTY"/>
+                <outlet property="view" destination="xOB-dF-Xqn" id="UMv-nP-TBY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xOB-dF-Xqn">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-kk-mue">
+                    <rect key="frame" x="0.0" y="443" width="320" height="125"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="t7J-4Z-Zf3"/>
+                    </constraints>
+                </view>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vih-20-Vzc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flash:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OZ-mV-9zC">
+                            <rect key="frame" x="47" y="33" width="110" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="mDB-ij-7GM"/>
+                                <constraint firstAttribute="width" constant="110" id="ySt-hN-sHT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-9w-aSq">
+                            <rect key="frame" x="165" y="33" width="110" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="110" id="JxX-zx-0PP"/>
+                                <constraint firstAttribute="height" constant="21" id="nxc-kh-Pha"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Sqr-9w-aSq" firstAttribute="top" secondItem="Vih-20-Vzc" secondAttribute="top" constant="33" id="EB9-zv-oYf"/>
+                        <constraint firstItem="9OZ-mV-9zC" firstAttribute="leading" secondItem="Vih-20-Vzc" secondAttribute="leading" constant="47" id="I3J-oc-V5x"/>
+                        <constraint firstAttribute="height" constant="69" id="V10-Se-5oL"/>
+                        <constraint firstAttribute="trailing" secondItem="Sqr-9w-aSq" secondAttribute="trailing" constant="45" id="j0s-1g-5mS"/>
+                        <constraint firstItem="9OZ-mV-9zC" firstAttribute="top" secondItem="Vih-20-Vzc" secondAttribute="top" constant="33" id="y1q-3E-9as"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-gM-yBJ">
+                    <rect key="frame" x="119" y="456" width="83" height="83"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="83" id="Cs5-jW-Aob"/>
+                        <constraint firstAttribute="width" constant="83" id="WjR-6B-0cd"/>
+                    </constraints>
+                    <state key="normal" image="ShootButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shootButtonTapped" destination="-1" eventType="touchUpInside" id="iCH-Hs-ODS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-Zy-Hbc">
+                    <rect key="frame" x="33" y="492" width="46" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="5dx-0d-8cD"/>
+                        <constraint firstAttribute="height" constant="46" id="sO6-H8-MCi"/>
+                    </constraints>
+                    <state key="normal" image="FlashButton-auto.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="flashModeButtonTapped:" destination="-1" eventType="touchUpInside" id="vk7-Lm-qbM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-ph-Hnn">
+                    <rect key="frame" x="245" y="500" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="08V-Yy-89g"/>
+                        <constraint firstAttribute="width" constant="30" id="AEn-fI-Aic"/>
+                    </constraints>
+                    <state key="normal" image="CloseButton.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissButtonTapped" destination="-1" eventType="touchUpInside" id="bwb-ha-eUf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Vih-20-Vzc" secondAttribute="trailing" id="3u8-uM-298"/>
+                <constraint firstItem="vU0-kk-mue" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="Khk-1Y-MpY"/>
+                <constraint firstAttribute="bottom" secondItem="VqU-Zy-Hbc" secondAttribute="bottom" constant="30" id="M0u-gr-sNy"/>
+                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="38" id="SKb-tw-zIW"/>
+                <constraint firstAttribute="trailing" secondItem="vU0-kk-mue" secondAttribute="trailing" id="U5J-kT-rE6"/>
+                <constraint firstAttribute="bottom" secondItem="9GB-gM-yBJ" secondAttribute="bottom" constant="29" id="XAC-oM-JkZ"/>
+                <constraint firstAttribute="bottom" secondItem="vU0-kk-mue" secondAttribute="bottom" id="qeW-Cz-XZT"/>
+                <constraint firstItem="Vih-20-Vzc" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="rKC-31-ERY"/>
+                <constraint firstItem="Vih-20-Vzc" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" id="sz9-Sv-dgm"/>
+                <constraint firstAttribute="centerX" secondItem="9GB-gM-yBJ" secondAttribute="centerX" id="uaK-pa-tsS"/>
+                <constraint firstAttribute="trailing" secondItem="UXH-ph-Hnn" secondAttribute="trailing" constant="45" id="w0T-Bg-sR9"/>
+                <constraint firstItem="VqU-Zy-Hbc" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" constant="33" id="ycq-rI-KYq"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CloseButton.png" width="30" height="30"/>
+        <image name="FlashButton-auto.png" width="46" height="46"/>
+        <image name="ShootButton.png" width="83" height="83"/>
+    </resources>
+</document>

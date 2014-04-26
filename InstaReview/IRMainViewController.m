@@ -9,6 +9,7 @@
 #import "IRMainViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#import "IRCameraOverlayViewController.h"
 #import "IRReviewsAPI.h"
 #import "IRChoosingBookViewController.h"
 #import "IRBookDetailsViewController.h"
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @property (weak, nonatomic) IBOutlet UIButton *snapButton;
+
+@property (nonatomic, strong) IRCameraOverlayViewController *overlayViewController;
 @end
 
 @implementation IRMainViewController
@@ -48,10 +51,12 @@
 - (IBAction)snapTapped
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-
     // showing camera
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        self.overlayViewController = [[IRCameraOverlayViewController alloc] initWithNibName:@"IRCameraOverlayViewController" bundle:nil];
+        [self.overlayViewController setImagePickerController:picker];
     }
     else {
         // if camera is not available
@@ -61,7 +66,10 @@
     picker.delegate = self;
     picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
     picker.allowsEditing = NO;
+    
     [self presentViewController:picker animated:YES completion:nil];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
+                                            withAnimation:UIStatusBarAnimationNone];
 }
 
 #pragma mark - ImagePickerController
@@ -83,6 +91,12 @@
             [self showCurrentBooksDetails];
         });
     });
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 #pragma mark - Recognize and show books list

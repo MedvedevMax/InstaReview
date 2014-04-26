@@ -45,11 +45,18 @@
 		A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B06FF218D8A38D0004ACE1 /* CoreImage.framework */; };
 		A2B06FF718D8A3BA0004ACE1 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */; };
 		A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B310A718CA60FF00868DEA /* UIImage+Resize.m */; };
+		A2C011DB190BFFF100262C83 /* IRCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C011D9190BFFF100262C83 /* IRCameraOverlayViewController.m */; };
+		A2C011DC190BFFF100262C83 /* IRCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2C011DA190BFFF100262C83 /* IRCameraOverlayViewController.xib */; };
 		A2C7CAEC1900640900DCCF1E /* thumb-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C7CAE91900640900DCCF1E /* thumb-down@2x.png */; };
 		A2C7CAED1900640900DCCF1E /* thumb-neutral@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C7CAEA1900640900DCCF1E /* thumb-neutral@2x.png */; };
 		A2C7CAEE1900640900DCCF1E /* thumb-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C7CAEB1900640900DCCF1E /* thumb-up@2x.png */; };
 		A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */; };
 		A2C7CAF41900817100DCCF1E /* IRPersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C7CAF31900817100DCCF1E /* IRPersistencyManager.m */; };
+		A2C81932190BD59500B55B01 /* CloseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C8192D190BD59500B55B01 /* CloseButton@2x.png */; };
+		A2C81933190BD59500B55B01 /* FlashButton-auto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C8192E190BD59500B55B01 /* FlashButton-auto@2x.png */; };
+		A2C81934190BD59500B55B01 /* FlashButton-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C8192F190BD59500B55B01 /* FlashButton-off@2x.png */; };
+		A2C81935190BD59500B55B01 /* FlashButton-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C81930190BD59500B55B01 /* FlashButton-on@2x.png */; };
+		A2C81936190BD59500B55B01 /* ShootButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C81931190BD59500B55B01 /* ShootButton@2x.png */; };
 		A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */; };
 		A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61318CA67A600CD1E28 /* IRBookReview.m */; };
 		A2E1A61718CA6E3400CD1E28 /* IRReviewsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61618CA6E3400CD1E28 /* IRReviewsFetcher.m */; };
@@ -127,6 +134,9 @@
 		A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
 		A2B310A618CA60FF00868DEA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		A2B310A718CA60FF00868DEA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		A2C011D8190BFFF100262C83 /* IRCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCameraOverlayViewController.h; sourceTree = "<group>"; };
+		A2C011D9190BFFF100262C83 /* IRCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCameraOverlayViewController.m; sourceTree = "<group>"; };
+		A2C011DA190BFFF100262C83 /* IRCameraOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRCameraOverlayViewController.xib; sourceTree = "<group>"; };
 		A2C7CAE91900640900DCCF1E /* thumb-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-down@2x.png"; sourceTree = "<group>"; };
 		A2C7CAEA1900640900DCCF1E /* thumb-neutral@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-neutral@2x.png"; sourceTree = "<group>"; };
 		A2C7CAEB1900640900DCCF1E /* thumb-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb-up@2x.png"; sourceTree = "<group>"; };
@@ -134,6 +144,11 @@
 		A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IROopsViewController.m; sourceTree = "<group>"; };
 		A2C7CAF21900817100DCCF1E /* IRPersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPersistencyManager.h; sourceTree = "<group>"; };
 		A2C7CAF31900817100DCCF1E /* IRPersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPersistencyManager.m; sourceTree = "<group>"; };
+		A2C8192D190BD59500B55B01 /* CloseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseButton@2x.png"; sourceTree = "<group>"; };
+		A2C8192E190BD59500B55B01 /* FlashButton-auto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashButton-auto@2x.png"; sourceTree = "<group>"; };
+		A2C8192F190BD59500B55B01 /* FlashButton-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashButton-off@2x.png"; sourceTree = "<group>"; };
+		A2C81930190BD59500B55B01 /* FlashButton-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashButton-on@2x.png"; sourceTree = "<group>"; };
+		A2C81931190BD59500B55B01 /* ShootButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShootButton@2x.png"; sourceTree = "<group>"; };
 		A2E1A60F18CA679D00CD1E28 /* IRBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetails.h; sourceTree = "<group>"; };
 		A2E1A61018CA679D00CD1E28 /* IRBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetails.m; sourceTree = "<group>"; };
 		A2E1A61218CA67A600CD1E28 /* IRBookReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookReview.h; sourceTree = "<group>"; };
@@ -285,8 +300,9 @@
 		A276A8A018C3D6F0006865F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A2EBCA3A19070D600048EA40 /* ReviewsScreen */,
 				A2EBCA2D19070D510048EA40 /* MainScreen */,
+				A2C8192C190BD58000B55B01 /* CameraView */,
+				A2EBCA3A19070D600048EA40 /* ReviewsScreen */,
 				A21A6CF618CBD12900EA7776 /* blankCover.png */,
 				A276A88318C3D5FF006865F2 /* Images.xcassets */,
 			);
@@ -341,6 +357,7 @@
 		A276A8A518C3D720006865F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A2C81937190BD5B900B55B01 /* ImagePickerOverlayView */,
 				A2FB70EE190B0561007D8811 /* BlurryModalSegue */,
 				A275AB3618E4C35500E2BCC4 /* FXBlurView */,
 				A2B310A918CA628000868DEA /* UIImage+ */,
@@ -360,6 +377,28 @@
 				A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */,
 			);
 			name = "UIImage+";
+			sourceTree = "<group>";
+		};
+		A2C8192C190BD58000B55B01 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				A2C8192D190BD59500B55B01 /* CloseButton@2x.png */,
+				A2C8192E190BD59500B55B01 /* FlashButton-auto@2x.png */,
+				A2C8192F190BD59500B55B01 /* FlashButton-off@2x.png */,
+				A2C81930190BD59500B55B01 /* FlashButton-on@2x.png */,
+				A2C81931190BD59500B55B01 /* ShootButton@2x.png */,
+			);
+			name = CameraView;
+			sourceTree = "<group>";
+		};
+		A2C81937190BD5B900B55B01 /* ImagePickerOverlayView */ = {
+			isa = PBXGroup;
+			children = (
+				A2C011D8190BFFF100262C83 /* IRCameraOverlayViewController.h */,
+				A2C011D9190BFFF100262C83 /* IRCameraOverlayViewController.m */,
+				A2C011DA190BFFF100262C83 /* IRCameraOverlayViewController.xib */,
+			);
+			name = ImagePickerOverlayView;
 			sourceTree = "<group>";
 		};
 		A2EBCA2D19070D510048EA40 /* MainScreen */ = {
@@ -493,11 +532,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C81933190BD59500B55B01 /* FlashButton-auto@2x.png in Resources */,
 				A276A88418C3D5FF006865F2 /* Images.xcassets in Resources */,
 				A285C7BF190AF7A500F1E5AD /* SnapButton@2x.png in Resources */,
+				A2C81935190BD59500B55B01 /* FlashButton-on@2x.png in Resources */,
+				A2C81936190BD59500B55B01 /* ShootButton@2x.png in Resources */,
 				A2C7CAED1900640900DCCF1E /* thumb-neutral@2x.png in Resources */,
 				A276A87618C3D5FF006865F2 /* InfoPlist.strings in Resources */,
+				A2C81934190BD59500B55B01 /* FlashButton-off@2x.png in Resources */,
+				A2C011DC190BFFF100262C83 /* IRCameraOverlayViewController.xib in Resources */,
 				A2C7CAEE1900640900DCCF1E /* thumb-up@2x.png in Resources */,
+				A2C81932190BD59500B55B01 /* CloseButton@2x.png in Resources */,
 				A285C7B7190A9B7700F1E5AD /* History@2x.png in Resources */,
 				A2C7CAEC1900640900DCCF1E /* thumb-down@2x.png in Resources */,
 				A285C7B6190A9B7700F1E5AD /* Book@2x.png in Resources */,
@@ -538,6 +583,7 @@
 				A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */,
 				A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */,
 				A24E1E73190B980A00F905C3 /* MZAppearance.m in Sources */,
+				A2C011DB190BFFF100262C83 /* IRCameraOverlayViewController.m in Sources */,
 				A2E1A61118CA679D00CD1E28 /* IRBookDetails.m in Sources */,
 				A24E1E74190B980A00F905C3 /* NSInvocation+Copy.m in Sources */,
 				A276A87C18C3D5FF006865F2 /* IRAppDelegate.m in Sources */,
