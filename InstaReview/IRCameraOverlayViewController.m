@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *flashModeLabel;
 @property (nonatomic) UIImagePickerControllerCameraFlashMode cameraFlashMode;
 
+@property (strong, nonatomic) IBOutlet UIView *useRetakeView;
+@property (weak, nonatomic) IBOutlet UIImageView *capturedImageView;
+
 @end
 
 @implementation IRCameraOverlayViewController
@@ -36,10 +39,11 @@
     self.view.frame = [[UIScreen mainScreen] bounds];
 }
 
+#pragma mark - Main view
+
 - (IBAction)shootButtonTapped
 {
     [self.imagePickerController takePicture];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 - (IBAction)flashModeButtonTapped:(UIButton *)sender
@@ -93,6 +97,26 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
+#pragma mark - Use/Retake Image View
+
+- (IBAction)usePhotoButtonTapped
+{
+    [self.delegate photoCaptured:self.capturedImageView.image];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+}
+
+- (IBAction)retakePhotoButtonTapped
+{
+    [UIView transitionWithView:self.view
+                      duration:0.3f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+
+                        [self.useRetakeView removeFromSuperview];
+
+                    } completion:nil];
+}
+
 - (void)setImagePickerController:(UIImagePickerController *)imagePickerController
 {
     if (_imagePickerController) {
@@ -120,7 +144,31 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [self.delegate photoCaptured:image];
+
+    self.useRetakeView.frame = self.view.frame;
+    self.capturedImageView.image = image;
+    
+    [UIView transitionWithView:self.view
+                      duration:0.3f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+
+                        [self.view addSubview:self.useRetakeView];
+                        
+                    } completion:nil];
+}
+
+- (void)animateShootEffect
+{
+    UIView *whiteView = [[UIView alloc] initWithFrame:self.view.frame];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:whiteView];
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        whiteView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [whiteView removeFromSuperview];
+    }];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -128,6 +176,5 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
-
 
 @end

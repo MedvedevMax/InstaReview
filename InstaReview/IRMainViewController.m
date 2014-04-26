@@ -14,11 +14,12 @@
 #import "IRBookDetailsViewController.h"
 
 @interface IRMainViewController ()
+
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @property (weak, nonatomic) IBOutlet UIButton *snapButton;
-
 @property (nonatomic, strong) IRCameraOverlayViewController *overlayViewController;
+
 @end
 
 @implementation IRMainViewController
@@ -32,7 +33,7 @@
 {
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
     
-    // Width equivalent to system default Done button's (which appears on pushed view in my case).
+    // Hack to prevent titleView jumping
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]
                                            initWithCustomView:[[UIView alloc]
                                                                initWithFrame:CGRectMake(0, 0, 50, 1)]];
@@ -118,7 +119,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // remove "back" button
+    // remove "back" button text
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     if ([segue.identifier isEqualToString:@"Ask To Specify Book"]) {
@@ -137,7 +138,7 @@
         IRBookDetailsViewController *detailsVC = segue.destinationViewController;
         detailsVC.currentBook = [self.currentBooks objectAtIndex:0];
     }
-    else if ([segue.identifier isEqual:@"Show Error"]) {
+    else if ([segue.identifier isEqualToString:@"Show Error"]) {
         IROopsViewController *oopsVC = segue.destinationViewController;
         oopsVC.delegate = self;
         oopsVC.errorType = (self.currentBooks == nil) ? kOopsViewTypeNoNetwork : kOopsViewTypeNoBookFound;

@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IRCameraOverlayViewController">
             <connections>
+                <outlet property="capturedImageView" destination="VXE-sy-JDE" id="nKh-B5-iFh"/>
                 <outlet property="flashModeLabel" destination="Sqr-9w-aSq" id="7gd-XV-TTY"/>
+                <outlet property="useRetakeView" destination="8dz-2U-juN" id="FL4-Xw-9eJ"/>
                 <outlet property="view" destination="xOB-dF-Xqn" id="UMv-nP-TBY"/>
             </connections>
         </placeholder>
@@ -117,7 +119,75 @@
                 <constraint firstAttribute="trailing" secondItem="UXH-ph-Hnn" secondAttribute="trailing" constant="37" id="w0T-Bg-sR9"/>
                 <constraint firstItem="VqU-Zy-Hbc" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" constant="33" id="ycq-rI-KYq"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="8dz-2U-juN">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VXE-sy-JDE">
+                    <rect key="frame" x="0.0" y="0.0" width="321" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <view alpha="0.80000000000000016" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAj-2r-bvg">
+                    <rect key="frame" x="0.0" y="407" width="321" height="73"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-rQ-T25">
+                            <rect key="frame" x="162" y="16" width="156" height="43"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="GcV-FA-nOv"/>
+                                <constraint firstAttribute="width" constant="156" id="f8A-Lz-sjR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                            <state key="normal" title="Use Photo">
+                                <color key="titleColor" red="0.1085968056" green="0.71490743889999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="usePhotoButtonTapped" destination="-1" eventType="touchUpInside" id="fkW-dJ-1wd"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-GQ-hTs">
+                            <rect key="frame" x="2" y="16" width="156" height="43"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="jWp-Hv-TzX"/>
+                                <constraint firstAttribute="width" constant="156" id="tcX-uE-E7l"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                            <state key="normal" title="Retake">
+                                <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="retakePhotoButtonTapped" destination="-1" eventType="touchUpInside" id="T9A-BX-aAq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dUd-GQ-hTs" firstAttribute="leading" secondItem="aAj-2r-bvg" secondAttribute="leading" constant="2" id="APf-vo-sc7"/>
+                        <constraint firstAttribute="height" constant="73" id="EBf-n2-JFd"/>
+                        <constraint firstAttribute="trailing" secondItem="qRi-rQ-T25" secondAttribute="trailing" constant="3" id="J2H-Ys-MJ5"/>
+                        <constraint firstAttribute="bottom" secondItem="dUd-GQ-hTs" secondAttribute="bottom" constant="14" id="JRi-Nf-VW1"/>
+                        <constraint firstAttribute="bottom" secondItem="qRi-rQ-T25" secondAttribute="bottom" constant="14" id="jF5-EV-OHO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="VXE-sy-JDE" firstAttribute="top" secondItem="8dz-2U-juN" secondAttribute="top" id="10s-zu-NIT"/>
+                <constraint firstAttribute="trailing" secondItem="aAj-2r-bvg" secondAttribute="trailing" id="2pP-sI-fQ6"/>
+                <constraint firstItem="aAj-2r-bvg" firstAttribute="leading" secondItem="8dz-2U-juN" secondAttribute="leading" id="Aqo-pr-rMv"/>
+                <constraint firstAttribute="bottom" secondItem="VXE-sy-JDE" secondAttribute="bottom" id="BHk-jO-uY9"/>
+                <constraint firstItem="VXE-sy-JDE" firstAttribute="leading" secondItem="8dz-2U-juN" secondAttribute="leading" id="eao-b3-aB4"/>
+                <constraint firstAttribute="bottom" secondItem="aAj-2r-bvg" secondAttribute="bottom" id="lRN-2T-WQE"/>
+                <constraint firstAttribute="trailing" secondItem="VXE-sy-JDE" secondAttribute="trailing" id="vGE-Sy-OYQ"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
