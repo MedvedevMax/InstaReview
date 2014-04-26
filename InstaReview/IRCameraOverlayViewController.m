@@ -144,7 +144,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-
+    
+    // make image portrait if not
+    image = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
+    
+    // confirm if photo is OK
     self.useRetakeView.frame = self.view.frame;
     self.capturedImageView.image = image;
     
