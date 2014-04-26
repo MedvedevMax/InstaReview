@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IRCameraOverlayViewController : UIViewController
+@protocol IRCameraOverlayViewControllerDelegate <NSObject>
+
+- (void)photoCaptured:(UIImage*)image;
+
+@end
+
+@interface IRCameraOverlayViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, weak) UIImagePickerController *imagePickerController;
+
+@property (nonatomic, weak) id<IRCameraOverlayViewControllerDelegate> delegate;
 
 @end

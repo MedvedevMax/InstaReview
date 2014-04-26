@@ -12,11 +12,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="xOB-dF-Xqn">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-kk-mue">
-                    <rect key="frame" x="0.0" y="443" width="320" height="125"/>
+                    <rect key="frame" x="0.0" y="355" width="320" height="125"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -60,13 +60,13 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-gM-yBJ">
-                    <rect key="frame" x="119" y="456" width="83" height="83"/>
+                    <rect key="frame" x="119" y="368" width="83" height="83"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="83" id="Cs5-jW-Aob"/>
                         <constraint firstAttribute="width" constant="83" id="WjR-6B-0cd"/>
                     </constraints>
-                    <state key="normal" image="ShootButton.png">
+                    <state key="normal" image="TakeButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -74,7 +74,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-Zy-Hbc">
-                    <rect key="frame" x="33" y="492" width="46" height="46"/>
+                    <rect key="frame" x="33" y="404" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="5dx-0d-8cD"/>
@@ -88,11 +88,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-ph-Hnn">
-                    <rect key="frame" x="245" y="500" width="30" height="30"/>
+                    <rect key="frame" x="237" y="404" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="08V-Yy-89g"/>
-                        <constraint firstAttribute="width" constant="30" id="AEn-fI-Aic"/>
+                        <constraint firstAttribute="height" constant="46" id="08V-Yy-89g"/>
+                        <constraint firstAttribute="width" constant="46" id="AEn-fI-Aic"/>
                     </constraints>
                     <state key="normal" image="CloseButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,23 +107,23 @@
                 <constraint firstAttribute="trailing" secondItem="Vih-20-Vzc" secondAttribute="trailing" id="3u8-uM-298"/>
                 <constraint firstItem="vU0-kk-mue" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="Khk-1Y-MpY"/>
                 <constraint firstAttribute="bottom" secondItem="VqU-Zy-Hbc" secondAttribute="bottom" constant="30" id="M0u-gr-sNy"/>
-                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="38" id="SKb-tw-zIW"/>
+                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="30" id="SKb-tw-zIW"/>
                 <constraint firstAttribute="trailing" secondItem="vU0-kk-mue" secondAttribute="trailing" id="U5J-kT-rE6"/>
                 <constraint firstAttribute="bottom" secondItem="9GB-gM-yBJ" secondAttribute="bottom" constant="29" id="XAC-oM-JkZ"/>
                 <constraint firstAttribute="bottom" secondItem="vU0-kk-mue" secondAttribute="bottom" id="qeW-Cz-XZT"/>
                 <constraint firstItem="Vih-20-Vzc" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="rKC-31-ERY"/>
                 <constraint firstItem="Vih-20-Vzc" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" id="sz9-Sv-dgm"/>
                 <constraint firstAttribute="centerX" secondItem="9GB-gM-yBJ" secondAttribute="centerX" id="uaK-pa-tsS"/>
-                <constraint firstAttribute="trailing" secondItem="UXH-ph-Hnn" secondAttribute="trailing" constant="45" id="w0T-Bg-sR9"/>
+                <constraint firstAttribute="trailing" secondItem="UXH-ph-Hnn" secondAttribute="trailing" constant="37" id="w0T-Bg-sR9"/>
                 <constraint firstItem="VqU-Zy-Hbc" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" constant="33" id="ycq-rI-KYq"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
         <image name="CloseButton.png" width="30" height="30"/>
         <image name="FlashButton-auto.png" width="46" height="46"/>
-        <image name="ShootButton.png" width="83" height="83"/>
+        <image name="TakeButton.png" width="83" height="83"/>
     </resources>
 </document>

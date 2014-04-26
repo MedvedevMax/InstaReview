@@ -9,7 +9,6 @@
 #import "IRMainViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-#import "IRCameraOverlayViewController.h"
 #import "IRReviewsAPI.h"
 #import "IRChoosingBookViewController.h"
 #import "IRBookDetailsViewController.h"
@@ -56,14 +55,15 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         self.overlayViewController = [[IRCameraOverlayViewController alloc] initWithNibName:@"IRCameraOverlayViewController" bundle:nil];
-        [self.overlayViewController setImagePickerController:picker];
+        self.overlayViewController.imagePickerController = picker;
+        self.overlayViewController.delegate = self;
     }
     else {
         // if camera is not available
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.delegate = self;
     }
     
-    picker.delegate = self;
     picker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
     picker.allowsEditing = NO;
     
@@ -72,7 +72,7 @@
                                             withAnimation:UIStatusBarAnimationNone];
 }
 
-#pragma mark - ImagePickerController
+#pragma mark - imagePickerController
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -82,8 +82,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - IRCameraOverlayViewControllerDelegate
+- (void)photoCaptured:(UIImage *)image
+{
+    [self asynchronouslyRecognizePhoto:image];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)asynchronouslyRecognizePhoto:(UIImage *)photo
 {
+    self.currentBooks = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.currentBooks = [[IRReviewsAPI sharedInstance] getBooksForPhoto:photo];
         
@@ -91,12 +99,6 @@
             [self showCurrentBooksDetails];
         });
     });
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 #pragma mark - Recognize and show books list

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "IRBooksContainerDelegate.h"
 #import "IROopsViewController.h"
+#import "IRCameraOverlayViewController.h"
 
-@interface IRMainViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, IROopsViewControllerDelegate>
+@interface IRMainViewController : UIViewController <IRCameraOverlayViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, IROopsViewControllerDelegate>
 
 @end
