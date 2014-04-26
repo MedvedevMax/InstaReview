@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" id="wM8-Zn-mF2">
                         <barButtonItem key="rightBarButtonItem" image="History.png" id="kJX-Ns-0qE">
                             <connections>
-                                <segue destination="mV2-9a-gAK" kind="modal" identifier="Show History" id="cRx-cO-mx2"/>
+                                <segue destination="mV2-9a-gAK" kind="custom" identifier="Show History" customClass="BlurryModalSegue" id="cRx-cO-mx2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -170,7 +170,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="zZZ-32-Ipv" kind="relationship" relationship="rootViewController" id="ke5-r6-Z7s"/>
+                        <segue destination="zZZ-32-Ipv" kind="relationship" relationship="rootViewController" id="OUl-Xd-Pp6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inm-mP-TfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,7 +184,6 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="D03-4H-5XR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Book Cell" textLabel="q0L-La-LdU" detailTextLabel="EUQ-PY-NCd" imageView="W4v-Kp-6NT" rowHeight="68" style="IBUITableViewCellStyleSubtitle" id="OzI-Oh-2bb">
                                 <rect key="frame" x="0.0" y="86" width="320" height="68"/>
@@ -213,6 +212,7 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="3rV-Ow-eQ9" kind="push" identifier="Show Book Details" id="IJe-mc-WGc"/>
                                 </connections>
@@ -427,7 +427,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yFv-b0-aKK"/>
-        <segue reference="RSt-4o-L0H"/>
+        <segue reference="OUl-Xd-Pp6"/>
+        <segue reference="IJe-mc-WGc"/>
     </inferredMetricsTieBreakers>
 </document>

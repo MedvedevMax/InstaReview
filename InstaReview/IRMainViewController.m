@@ -14,8 +14,6 @@
 #import "IRBookDetailsViewController.h"
 
 @interface IRMainViewController ()
-
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @property (weak, nonatomic) IBOutlet UIButton *snapButton;
@@ -78,12 +76,10 @@
 
 - (void)asynchronouslyRecognizePhoto:(UIImage *)photo
 {
-    [self.activityIndicator startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.currentBooks = [[IRReviewsAPI sharedInstance] getBooksForPhoto:photo];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.activityIndicator stopAnimating];
             [self showCurrentBooksDetails];
         });
     });

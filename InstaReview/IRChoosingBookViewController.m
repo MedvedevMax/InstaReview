@@ -35,10 +35,14 @@
         case kChoosingBookViewControllerDidYouMean:
             self.navigationItem.title = NSLocalizedString(@"Did you mean...", @"'did you mean' navigation bar title");
             self.navigationItem.rightBarButtonItem = nil;
+            
+            self.view.backgroundColor = [UIColor whiteColor];
             break;
         case kChoosingBookViewControllerHistory:
             self.navigationItem.title = NSLocalizedString(@"History", @"'history' navigation bar title");
             self.navigationItem.rightBarButtonItem = self.doneButton;
+
+            self.view.backgroundColor = [UIColor clearColor];
             break;
         default:
             break;

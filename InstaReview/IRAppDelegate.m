@@ -10,12 +10,16 @@
 
 #import "IRReviewsAPI.h"
 #import "IRMainViewController.h"
+#import "BlurryModalSegue.h"
 
 @implementation IRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [application setStatusBarStyle:UIStatusBarStyleDefault];
+    [[BlurryModalSegue appearance] setBackingImageBlurRadius:@(40)];
+    [[BlurryModalSegue appearance] setBackingImageTintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5]];
+    
     return YES;
 }
 							
@@ -42,7 +46,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [application setStatusBarStyle:UIStatusBarStyleLightContent];    
 }
 
 @end
