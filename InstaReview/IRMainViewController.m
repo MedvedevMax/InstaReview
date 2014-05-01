@@ -78,24 +78,31 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [self asynchronouslyRecognizePhoto:image];
+    [[IRReviewsAPI sharedInstance] beginGettingBooksForPhoto:image];
     
+    [self waitAndShowResults];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - IRCameraOverlayViewControllerDelegate
-- (void)photoCaptured:(UIImage *)image
+
+- (void)overlayViewControllerPhotoCaptured:(UIImage *)image
 {
-    [self asynchronouslyRecognizePhoto:image];
+    self.currentBooks = nil;
+    [[IRReviewsAPI sharedInstance] beginGettingBooksForPhoto:image];
+}
+
+- (void)overlayViewControllerUsePhotoTapped
+{
+    [self waitAndShowResults];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)asynchronouslyRecognizePhoto:(UIImage *)photo
+- (void)waitAndShowResults
 {
-    self.currentBooks = nil;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.currentBooks = [[IRReviewsAPI sharedInstance] getBooksForPhoto:photo];
         
+        self.currentBooks = [[IRReviewsAPI sharedInstance] waitAndGetBooks];
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self showCurrentBooksDetails];
         });

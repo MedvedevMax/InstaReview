@@ -23,6 +23,10 @@
 @property (nonatomic, strong) IRPhotoPreparer *photoPreparer;
 @property (nonatomic, strong) IRPersistencyManager *persistencyManager;
 
+@property (strong) dispatch_queue_t gettingBooksTask;
+@property (strong) dispatch_semaphore_t waitingSemaphore;
+
+@property (strong) IRRecognitionResponse *recognitionResponse;
 @end
 
 @implementation IRReviewsAPI
@@ -38,18 +42,39 @@
     return _sharedInstance;
 }
 
-- (NSArray *)getBooksForPhoto:(UIImage *)photo
+- (void)beginGettingBooksForPhoto:(UIImage *)photo
 {
     #define IMG_JPEG_QUALITY 0.5f
     
-    UIImage *imageToUpload = [self.photoPreparer prepareImageForRecognition:photo];
-    NSData *imgData = UIImageJPEGRepresentation(imageToUpload, IMG_JPEG_QUALITY);
-    NSLog(@"Image preprocessing completed. Sending %d kb", (int)(imgData.length / 1024));
+    if (self.gettingBooksTask) {
+        self.gettingBooksTask = nil;
+    }
     
-    IRRecognitionResponse *response = [self.reviewsFetcher getResponseForJPEGRepresentation:imgData];
-    NSLog(@"Response received: %d; confidence = %f", response.success, response.confidence);
+    self.gettingBooksTask = dispatch_queue_create("Getting Books Queue", nil);
+    dispatch_semaphore_t waitingSemaphore = dispatch_semaphore_create(0);
+    self.waitingSemaphore = waitingSemaphore;
+    
+    dispatch_async(self.gettingBooksTask, ^{
+        UIImage *imageToUpload = [self.photoPreparer prepareImageForRecognition:photo];
+        NSData *imgData = UIImageJPEGRepresentation(imageToUpload, IMG_JPEG_QUALITY);
+        NSLog(@"Image preprocessing completed. Sending %d kb", (int)(imgData.length / 1024));
+        
+        IRRecognitionResponse *response = [self.reviewsFetcher getResponseForJPEGRepresentation:imgData];
+        NSLog(@"Response received: %d; confidence = %f", response.success, response.confidence);
+        
+        self.recognitionResponse = response;
+        dispatch_semaphore_signal(waitingSemaphore);
+    });
+}
 
-    return response.books;
+- (NSArray *)waitAndGetBooks
+{
+    if (!self.waitingSemaphore) {
+        return nil;
+    }
+    
+    dispatch_semaphore_wait(self.waitingSemaphore, DISPATCH_TIME_FOREVER);
+    return self.recognitionResponse.books;
 }
 
 - (void)addBookToViewed:(IRBookDetails *)book

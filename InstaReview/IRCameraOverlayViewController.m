@@ -101,7 +101,7 @@
 
 - (IBAction)usePhotoButtonTapped
 {
-    [self.delegate photoCaptured:self.capturedImageView.image];
+    [self.delegate overlayViewControllerUsePhotoTapped];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
@@ -147,6 +147,8 @@
     
     // make image portrait if not
     image = [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationRight];
+    
+    [self.delegate overlayViewControllerPhotoCaptured:image];
     
     // confirm if photo is OK
     self.useRetakeView.frame = self.view.frame;

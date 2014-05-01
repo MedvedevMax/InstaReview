@@ -10,7 +10,8 @@
 
 @protocol IRCameraOverlayViewControllerDelegate <NSObject>
 
-- (void)photoCaptured:(UIImage*)image;
+- (void)overlayViewControllerPhotoCaptured:(UIImage *)image;
+- (void)overlayViewControllerUsePhotoTapped;
 
 @end
 

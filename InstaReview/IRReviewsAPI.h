@@ -13,7 +13,8 @@
 
 + (id)sharedInstance;
 
-- (NSArray*)getBooksForPhoto:(UIImage *)photo;
+- (void)beginGettingBooksForPhoto:(UIImage *)photo;
+- (NSArray*)waitAndGetBooks;
 
 - (void)addBookToViewed:(IRBookDetails *)book;
 - (void)removeBookFromViewed:(IRBookDetails *)book;
