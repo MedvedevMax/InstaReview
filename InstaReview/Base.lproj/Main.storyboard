@@ -16,11 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="uQd-jh-dxY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUq-NZ-PsV">
-                                <rect key="frame" x="39" y="448" width="245" height="57"/>
+                                <rect key="frame" x="39" y="442" width="245" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="6gU-FC-cus"/>
+                                    <constraint firstAttribute="height" constant="59" id="6gU-FC-cus"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
                                 <state key="normal" backgroundImage="SnapButton.png"/>
@@ -29,15 +33,15 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Book.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wvt-ta-9dq">
-                                <rect key="frame" x="53" y="137" width="216" height="209"/>
+                                <rect key="frame" x="66" y="134" width="190" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="209" id="GJN-DE-JBN"/>
-                                    <constraint firstAttribute="width" constant="216" id="QrY-Cm-e0O"/>
+                                    <constraint firstAttribute="height" constant="188" id="GJN-DE-JBN"/>
+                                    <constraint firstAttribute="width" constant="190" id="QrY-Cm-e0O"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сделайте снимок обложки, чтобы найти отзывы" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-WL-7WF">
-                                <rect key="frame" x="39" y="354" width="245" height="52"/>
+                                <rect key="frame" x="39" y="334" width="245" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="VRF-5n-VJe"/>
@@ -49,13 +53,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="QUq-NZ-PsV" secondAttribute="bottom" priority="999" constant="63" id="1pk-fG-zgy"/>
+                            <constraint firstItem="Khe-e7-a3a" firstAttribute="top" secondItem="QUq-NZ-PsV" secondAttribute="bottom" priority="999" constant="67" id="1pk-fG-zgy"/>
                             <constraint firstItem="QUq-NZ-PsV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ydW-WL-7WF" secondAttribute="bottom" constant="20" id="3S6-ca-nDj"/>
-                            <constraint firstAttribute="centerY" secondItem="Wvt-ta-9dq" secondAttribute="centerY" constant="42.5" id="6En-2U-ca3"/>
+                            <constraint firstAttribute="centerY" secondItem="Wvt-ta-9dq" secondAttribute="centerY" constant="56" id="6En-2U-ca3"/>
                             <constraint firstItem="Khe-e7-a3a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QUq-NZ-PsV" secondAttribute="bottom" constant="30" id="Hn2-eM-2ow"/>
                             <constraint firstItem="QUq-NZ-PsV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="39" id="PJW-cb-ODu"/>
                             <constraint firstAttribute="trailing" secondItem="ydW-WL-7WF" secondAttribute="trailing" constant="36" id="Ycq-zy-eWi"/>
-                            <constraint firstItem="ydW-WL-7WF" firstAttribute="top" secondItem="Wvt-ta-9dq" secondAttribute="bottom" constant="8" id="aFk-ra-G3k"/>
+                            <constraint firstItem="ydW-WL-7WF" firstAttribute="top" secondItem="Wvt-ta-9dq" secondAttribute="bottom" constant="12" id="aFk-ra-G3k"/>
                             <constraint firstItem="ydW-WL-7WF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="39" id="dOp-38-OKY"/>
                             <constraint firstAttribute="trailing" secondItem="QUq-NZ-PsV" secondAttribute="trailing" constant="36" id="e5O-cK-aj3"/>
                             <constraint firstAttribute="centerX" secondItem="Wvt-ta-9dq" secondAttribute="centerX" constant="-1" id="hOm-zW-tst"/>
@@ -415,9 +419,10 @@
     <resources>
         <image name="5stars-bw.png" width="129" height="24"/>
         <image name="5stars.png" width="129" height="24"/>
-        <image name="Book.png" width="215" height="209"/>
+        <image name="Bg.png" width="320" height="568"/>
+        <image name="Book.png" width="190" height="188"/>
         <image name="History.png" width="25" height="26"/>
-        <image name="SnapButton.png" width="245" height="57"/>
+        <image name="SnapButton.png" width="245" height="59"/>
         <image name="blankCover.png" width="200" height="297"/>
         <image name="thumb-up.png" width="44" height="50"/>
     </resources>
