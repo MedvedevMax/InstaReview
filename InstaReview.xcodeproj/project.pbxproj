@@ -16,6 +16,7 @@
 		A24E1E73190B980A00F905C3 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E1E70190B980A00F905C3 /* MZAppearance.m */; };
 		A24E1E74190B980A00F905C3 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E1E72190B980A00F905C3 /* NSInvocation+Copy.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
+		A25C8F301912F50C006FD81C /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = A25C8F2F1912F50C006FD81C /* UIView+Screenshot.m */; };
 		A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3818E4C35500E2BCC4 /* FXBlurView.m */; };
 		A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */; };
 		A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */; };
@@ -64,7 +65,6 @@
 		A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */; };
 		A2F511CB18E6290A001C6209 /* IRRecognitionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F511CA18E6290A001C6209 /* IRRecognitionResponse.m */; };
 		A2FB70F1190B0561007D8811 /* BlurryModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB70F0190B0561007D8811 /* BlurryModalSegue.m */; };
-		A2FB70F6190B060F007D8811 /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB70F3190B060F007D8811 /* UIImage+BlurredFrame.m */; };
 		A2FB70F7190B060F007D8811 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FB70F5190B060F007D8811 /* UIImage+ImageEffects.m */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +95,8 @@
 		A24E1E72190B980A00F905C3 /* NSInvocation+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Copy.m"; sourceTree = "<group>"; };
 		A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRBookDetailsViewController.h; sourceTree = "<group>"; };
 		A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetailsViewController.m; sourceTree = "<group>"; };
+		A25C8F2E1912F50C006FD81C /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
+		A25C8F2F1912F50C006FD81C /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
 		A275AB3718E4C35500E2BCC4 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		A275AB3818E4C35500E2BCC4 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		A275AB3C18E4D24800E2BCC4 /* IRViewFinderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewFinderView.h; sourceTree = "<group>"; };
@@ -165,8 +167,6 @@
 		A2F511CA18E6290A001C6209 /* IRRecognitionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRRecognitionResponse.m; sourceTree = "<group>"; };
 		A2FB70EF190B0561007D8811 /* BlurryModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurryModalSegue.h; sourceTree = "<group>"; };
 		A2FB70F0190B0561007D8811 /* BlurryModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurryModalSegue.m; sourceTree = "<group>"; };
-		A2FB70F2190B060F007D8811 /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
-		A2FB70F3190B060F007D8811 /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
 		A2FB70F4190B060F007D8811 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		A2FB70F5190B060F007D8811 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +208,15 @@
 				A21CDAC3190119C000F3ED2B /* BookCropper.cpp */,
 			);
 			name = ImageProcessing;
+			sourceTree = "<group>";
+		};
+		A25C8F2D1912F4E9006FD81C /* UIView+ */ = {
+			isa = PBXGroup;
+			children = (
+				A25C8F2E1912F50C006FD81C /* UIView+Screenshot.h */,
+				A25C8F2F1912F50C006FD81C /* UIView+Screenshot.m */,
+			);
+			name = "UIView+";
 			sourceTree = "<group>";
 		};
 		A275AB3618E4C35500E2BCC4 /* FXBlurView */ = {
@@ -363,6 +372,7 @@
 				A2FB70EE190B0561007D8811 /* BlurryModalSegue */,
 				A275AB3618E4C35500E2BCC4 /* FXBlurView */,
 				A2B310A918CA628000868DEA /* UIImage+ */,
+				A25C8F2D1912F4E9006FD81C /* UIView+ */,
 				A2F511C518E5A9FE001C6209 /* IRViewFinder */,
 			);
 			name = View;
@@ -443,8 +453,6 @@
 			children = (
 				A2FB70EF190B0561007D8811 /* BlurryModalSegue.h */,
 				A2FB70F0190B0561007D8811 /* BlurryModalSegue.m */,
-				A2FB70F2190B060F007D8811 /* UIImage+BlurredFrame.h */,
-				A2FB70F3190B060F007D8811 /* UIImage+BlurredFrame.m */,
 				A2FB70F4190B060F007D8811 /* UIImage+ImageEffects.h */,
 				A2FB70F5190B060F007D8811 /* UIImage+ImageEffects.m */,
 				A24E1E6F190B980A00F905C3 /* MZAppearance.h */,
@@ -577,10 +585,10 @@
 				A2FB70F1190B0561007D8811 /* BlurryModalSegue.m in Sources */,
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
 				A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */,
-				A2FB70F6190B060F007D8811 /* UIImage+BlurredFrame.m in Sources */,
 				A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */,
 				A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */,
 				A2C7CAF41900817100DCCF1E /* IRPersistencyManager.m in Sources */,
+				A25C8F301912F50C006FD81C /* UIView+Screenshot.m in Sources */,
 				A2FB70F7190B060F007D8811 /* UIImage+ImageEffects.m in Sources */,
 				A2E1A61418CA67A600CD1E28 /* IRBookReview.m in Sources */,
 				A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */,

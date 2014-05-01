@@ -13,13 +13,16 @@
 #import "IRChoosingBookViewController.h"
 #import "IRBookDetailsViewController.h"
 
+#import "UIView+Screenshot.h"
+#import "BlurryModalSegue/UIImage+ImageEffects.h"
+
 @interface IRMainViewController ()
 
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @property (weak, nonatomic) IBOutlet UIButton *snapButton;
 @property (nonatomic, strong) IRCameraOverlayViewController *overlayViewController;
-
+@property (nonatomic, strong) UIImageView *screenshotView;
 @end
 
 @implementation IRMainViewController
@@ -31,6 +34,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Bg.png"]];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
     
     // Hack to prevent titleView jumping
@@ -94,12 +98,30 @@
 
 - (void)overlayViewControllerUsePhotoTapped
 {
-    [self waitAndShowResults];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    // Taking screenshot of "overlay view"
+    [self.overlayViewController.view screenshotAsyncWithCompletion:^(UIImage *image) {
+        // Showing screenshot in the front of main view
+        self.screenshotView = [[UIImageView alloc] initWithFrame:self.view.frame];
+        self.screenshotView.image = image;
+
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+        [self.view addSubview:self.screenshotView];
+        
+        // Dismissing "Camera View"
+        [self dismissViewControllerAnimated:NO completion:^{
+            
+            // Showing loading view & waiting for result
+            [self waitAndShowResults];
+        }];
+    }];
 }
 
 - (void)waitAndShowResults
 {
+    // Showing "Loading View"
+    [self performSegueWithIdentifier:@"Show Loading" sender:self];
+    
+    // Waiting for books in separate thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         self.currentBooks = [[IRReviewsAPI sharedInstance] waitAndGetBooks];
@@ -113,6 +135,14 @@
 
 - (void)showCurrentBooksDetails
 {
+    // hiding "screenshot view"
+    [self.screenshotView removeFromSuperview];
+    [self.navigationController setNavigationBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    
+    // dismissing "Loading View"
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     if (self.currentBooks.count == 0) {
         [self performSegueWithIdentifier:@"Show Error" sender:self];
     }
@@ -122,6 +152,7 @@
     else {
         [self performSegueWithIdentifier:@"Ask To Specify Book" sender:self];
     }
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -149,6 +180,11 @@
         IROopsViewController *oopsVC = segue.destinationViewController;
         oopsVC.delegate = self;
         oopsVC.errorType = (self.currentBooks == nil) ? kOopsViewTypeNoNetwork : kOopsViewTypeNoBookFound;
+    }
+    else if ([segue.identifier isEqualToString:@"Show Loading"]) {
+        UIViewController *loadingVC = segue.destinationViewController;
+        UIImage *blurredImage = [self.screenshotView.image applyBlurWithRadius:40 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.1f] saturationDeltaFactor:1.0f maskImage:nil];
+        loadingVC.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
     }
 }
 

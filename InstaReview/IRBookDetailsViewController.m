@@ -155,7 +155,14 @@
                                fiveStarImage.size.width *
                                   (self.currentBook.rating.doubleValue / 5.0) * 2,
                               fiveStarImage.size.height * 2);
-    rating.image = [fiveStarImage croppedImage:cropFrame];
+    
+    if (cropFrame.size.width) {        
+        rating.image = [fiveStarImage croppedImage:cropFrame];
+    }
+    else {
+        rating.image = nil;
+    }
+    
     
     if (self.currentBook.coverImage) {
         // Do the transition a little later

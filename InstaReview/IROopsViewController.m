@@ -36,7 +36,9 @@
 - (IBAction)tryAgainTapped
 {
     [self.navigationController popViewControllerAnimated:YES];
-    [self.delegate tryAgainButtonTapped];
+
+    NSObject<IROopsViewControllerDelegate> *nsObjectTypedDelegate = self.delegate;
+    [nsObjectTypedDelegate performSelector:@selector(tryAgainButtonTapped) withObject:nil afterDelay:0.5];
 }
 
 @end
