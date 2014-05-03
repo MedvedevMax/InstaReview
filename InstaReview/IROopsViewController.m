@@ -33,6 +33,11 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Bg.png"]];
+}
+
 - (IBAction)tryAgainTapped
 {
     [self.navigationController popViewControllerAnimated:YES];

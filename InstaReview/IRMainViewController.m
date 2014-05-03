@@ -109,11 +109,15 @@
         // Showing screenshot in the front of main view
         
         self.screenshotView = [[UIImageView alloc] initWithFrame:self.view.frame];
-        UIImage *blurryImage = [image applyBlurWithRadius:30 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] saturationDeltaFactor:1.0f maskImage:nil];
+        UIImage *blurryImage = [image applyBlurWithRadius:30 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil];
         self.screenshotView.image = blurryImage;
 
-        float busyViewYPos = self.view.bounds.size.height * 0.5 - 30;
-        IRBusyView *activityView = [[IRBusyView alloc] initWithFrame:CGRectMake(70, busyViewYPos, 180, 60)];
+        #define ACTIVITY_VIEW_Y_POSITION 0.66
+        #define ACTIVITY_VIEW_WIDTH     190
+        #define ACTIVITY_VIEW_HEIGHT    65
+        
+        float busyViewYPos = self.view.bounds.size.height * ACTIVITY_VIEW_Y_POSITION - ACTIVITY_VIEW_HEIGHT / 2;
+        IRBusyView *activityView = [[IRBusyView alloc] initWithFrame:CGRectMake((320 - ACTIVITY_VIEW_WIDTH) / 2, busyViewYPos, ACTIVITY_VIEW_WIDTH, ACTIVITY_VIEW_HEIGHT)];
         activityView.color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient_orange.png"]];
         [self.screenshotView addSubview:activityView];
         
