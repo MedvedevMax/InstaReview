@@ -13,9 +13,9 @@
 		A2218312190116B800A73F2C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
 		A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
-		A246FD88191568B400CD6B57 /* gradient_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD86191568B400CD6B57 /* gradient_blue@2x.png */; };
-		A246FD89191568B400CD6B57 /* gradient_green_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD87191568B400CD6B57 /* gradient_green_blue@2x.png */; };
-		A246FD8D191571C700CD6B57 /* gradient_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD8C191571C700CD6B57 /* gradient_orange@2x.png */; };
+		A246FD8F1915744500CD6B57 /* gradient_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD8E1915744500CD6B57 /* gradient_blue@2x.png */; };
+		A246FD911915754100CD6B57 /* gradient_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD901915754100CD6B57 /* gradient_yellow@2x.png */; };
+		A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD981915784A00CD6B57 /* gradient_orange@2x.png */; };
 		A24E1E73190B980A00F905C3 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E1E70190B980A00F905C3 /* MZAppearance.m */; };
 		A24E1E74190B980A00F905C3 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E1E72190B980A00F905C3 /* NSInvocation+Copy.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
@@ -94,9 +94,9 @@
 		A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WhiteColorTransparent.m"; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
 		A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRReviewsAPI.m; sourceTree = "<group>"; };
-		A246FD86191568B400CD6B57 /* gradient_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient_blue@2x.png"; sourceTree = "<group>"; };
-		A246FD87191568B400CD6B57 /* gradient_green_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient_green_blue@2x.png"; sourceTree = "<group>"; };
-		A246FD8C191571C700CD6B57 /* gradient_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient_orange@2x.png"; sourceTree = "<group>"; };
+		A246FD8E1915744500CD6B57 /* gradient_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient_blue@2x.png"; sourceTree = "<group>"; };
+		A246FD901915754100CD6B57 /* gradient_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient_yellow@2x.png"; sourceTree = "<group>"; };
+		A246FD981915784A00CD6B57 /* gradient_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient_orange@2x.png"; sourceTree = "<group>"; };
 		A24E1E6F190B980A00F905C3 /* MZAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAppearance.h; sourceTree = "<group>"; };
 		A24E1E70190B980A00F905C3 /* MZAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAppearance.m; sourceTree = "<group>"; };
 		A24E1E71190B980A00F905C3 /* NSInvocation+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Copy.h"; sourceTree = "<group>"; };
@@ -327,9 +327,9 @@
 				A2C8192C190BD58000B55B01 /* CameraView */,
 				A2EBCA3A19070D600048EA40 /* ReviewsScreen */,
 				A21A6CF618CBD12900EA7776 /* blankCover.png */,
-				A246FD8C191571C700CD6B57 /* gradient_orange@2x.png */,
-				A246FD86191568B400CD6B57 /* gradient_blue@2x.png */,
-				A246FD87191568B400CD6B57 /* gradient_green_blue@2x.png */,
+				A246FD981915784A00CD6B57 /* gradient_orange@2x.png */,
+				A246FD8E1915744500CD6B57 /* gradient_blue@2x.png */,
+				A246FD901915754100CD6B57 /* gradient_yellow@2x.png */,
 				A276A88318C3D5FF006865F2 /* Images.xcassets */,
 			);
 			name = Resources;
@@ -570,9 +570,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A246FD8F1915744500CD6B57 /* gradient_blue@2x.png in Resources */,
 				A2C81933190BD59500B55B01 /* FlashButton-auto@2x.png in Resources */,
-				A246FD89191568B400CD6B57 /* gradient_green_blue@2x.png in Resources */,
-				A246FD88191568B400CD6B57 /* gradient_blue@2x.png in Resources */,
 				A276A88418C3D5FF006865F2 /* Images.xcassets in Resources */,
 				A2C81935190BD59500B55B01 /* FlashButton-on@2x.png in Resources */,
 				A2C7CAED1900640900DCCF1E /* thumb-neutral@2x.png in Resources */,
@@ -584,10 +583,11 @@
 				A2C81932190BD59500B55B01 /* CloseButton@2x.png in Resources */,
 				A285C7B7190A9B7700F1E5AD /* History@2x.png in Resources */,
 				A2C7CAEC1900640900DCCF1E /* thumb-down@2x.png in Resources */,
-				A246FD8D191571C700CD6B57 /* gradient_orange@2x.png in Resources */,
 				A28D73D618CC791E00B2965B /* 5stars@2x.png in Resources */,
+				A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */,
 				A21A6CF718CBD12900EA7776 /* blankCover.png in Resources */,
 				A285C7B9190A9B7700F1E5AD /* Title@2x.png in Resources */,
+				A246FD911915754100CD6B57 /* gradient_yellow@2x.png in Resources */,
 				A2D729741911A8E600E8289A /* Book@2x.png in Resources */,
 				A28D73D518CC791E00B2965B /* 5stars-bw@2x.png in Resources */,
 				A2877353190C33A100839F75 /* TakeButton@2x.png in Resources */,
