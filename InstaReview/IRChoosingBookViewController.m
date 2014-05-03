@@ -39,7 +39,7 @@
             self.view.backgroundColor = [UIColor whiteColor];
             break;
         case kChoosingBookViewControllerHistory:
-            self.navigationItem.title = NSLocalizedString(@"History", @"'history' navigation bar title");
+            self.navigationItem.title = NSLocalizedString(@"Recently viewed", @"'recents' navigation bar title");
             self.navigationItem.rightBarButtonItem = self.doneButton;
 
             self.view.backgroundColor = [UIColor clearColor];
