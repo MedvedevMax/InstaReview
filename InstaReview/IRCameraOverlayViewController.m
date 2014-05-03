@@ -37,8 +37,6 @@
 {
     [super viewDidLoad];
     self.view.frame = [[UIScreen mainScreen] bounds];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 #pragma mark - Main view

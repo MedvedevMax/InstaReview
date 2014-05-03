@@ -15,6 +15,8 @@
 
 #import "UIView+Screenshot.h"
 #import "BlurryModalSegue/UIImage+ImageEffects.h"
+#import "IRBusyView.h"
+#import "IRViewFinderView.h"
 
 @interface IRMainViewController ()
 
@@ -84,8 +86,7 @@
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     [[IRReviewsAPI sharedInstance] beginGettingBooksForPhoto:image];
     
-    [self waitAndShowResults];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self showLoadingViewAndWaitForResults];
 }
 
 #pragma mark - IRCameraOverlayViewControllerDelegate
@@ -98,17 +99,36 @@
 
 - (void)overlayViewControllerUsePhotoTapped
 {
-    // Taking screenshot of "overlay view"
-    [self.overlayViewController.view screenshotAsyncWithCompletion:^(UIImage *image) {
-        // Showing screenshot in the front of main view
-        self.screenshotView = [[UIImageView alloc] initWithFrame:self.view.frame];
-        self.screenshotView.image = image;
+    [self showLoadingViewAndWaitForResults];
+}
 
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
-        [self.view addSubview:self.screenshotView];
+- (void)showLoadingViewAndWaitForResults
+{
+    // Taking screenshot of current view
+    [self.view screenshotAsyncWithCompletion:^(UIImage *image) {
+        // Showing screenshot in the front of main view
+        
+        self.screenshotView = [[UIImageView alloc] initWithFrame:self.view.frame];
+        UIImage *blurryImage = [image applyBlurWithRadius:30 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5f] saturationDeltaFactor:1.0f maskImage:nil];
+        self.screenshotView.image = blurryImage;
+
+        float busyViewYPos = self.view.bounds.size.height * 0.5 - 30;
+        IRBusyView *activityView = [[IRBusyView alloc] initWithFrame:CGRectMake(70, busyViewYPos, 180, 60)];
+        activityView.color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient_orange.png"]];
+        [self.screenshotView addSubview:activityView];
         
         // Dismissing "Camera View"
-        [self dismissViewControllerAnimated:NO completion:^{
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+            // Showing blured screenshot
+            [UIView transitionWithView:self.view
+                              duration:0.3f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                [self.view addSubview:self.screenshotView];
+                            } completion:^(BOOL finished) {
+                                [activityView startAnimation];
+                            }];
             
             // Showing loading view & waiting for result
             [self waitAndShowResults];
@@ -118,9 +138,6 @@
 
 - (void)waitAndShowResults
 {
-    // Showing "Loading View"
-    [self performSegueWithIdentifier:@"Show Loading" sender:self];
-    
     // Waiting for books in separate thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -135,13 +152,13 @@
 
 - (void)showCurrentBooksDetails
 {
-    // hiding "screenshot view"
-    [self.screenshotView removeFromSuperview];
-    [self.navigationController setNavigationBarHidden:NO];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    
-    // dismissing "Loading View"
-    [self dismissViewControllerAnimated:YES completion:nil];
+    // Hiding blured screenshot
+    [UIView transitionWithView:self.view
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [self.screenshotView removeFromSuperview];
+                    } completion:nil];
     
     if (self.currentBooks.count == 0) {
         [self performSegueWithIdentifier:@"Show Error" sender:self];
@@ -152,7 +169,6 @@
     else {
         [self performSegueWithIdentifier:@"Ask To Specify Book" sender:self];
     }
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -180,11 +196,6 @@
         IROopsViewController *oopsVC = segue.destinationViewController;
         oopsVC.delegate = self;
         oopsVC.errorType = (self.currentBooks == nil) ? kOopsViewTypeNoNetwork : kOopsViewTypeNoBookFound;
-    }
-    else if ([segue.identifier isEqualToString:@"Show Loading"]) {
-        UIViewController *loadingVC = segue.destinationViewController;
-        UIImage *blurredImage = [self.screenshotView.image applyBlurWithRadius:40 tintColor:[[UIColor blackColor] colorWithAlphaComponent:0.1f] saturationDeltaFactor:1.0f maskImage:nil];
-        loadingVC.view.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
     }
 }
 

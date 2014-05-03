@@ -73,44 +73,11 @@
                         <segue destination="zZZ-32-Ipv" kind="push" identifier="Ask To Specify Book" id="yFv-b0-aKK"/>
                         <segue destination="3rV-Ow-eQ9" kind="push" identifier="Show Book Details" id="RSt-4o-L0H"/>
                         <segue destination="zh3-e8-nxw" kind="push" identifier="Show Error" id="tuh-qV-KGk"/>
-                        <segue destination="XQp-yi-2Y7" kind="modal" identifier="Show Loading" modalTransitionStyle="crossDissolve" id="mHe-QT-VzL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="433" y="305"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="bJG-3N-7JV">
-            <objects>
-                <viewController id="XQp-yi-2Y7" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oe3-ha-WjI"/>
-                        <viewControllerLayoutGuide type="bottom" id="Td6-se-7ib"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fie-05-a6h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WlQ-Zi-gYr">
-                                <rect key="frame" x="142" y="442" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please wait..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kt5-aL-wJs">
-                                <rect key="frame" x="20" y="386" width="280" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qKK-v9-gF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="973" y="872"/>
         </scene>
         <!--Oops View Controller - No network/No books-->
         <scene sceneID="QqZ-CU-8Z7">
@@ -461,6 +428,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="RSt-4o-L0H"/>
-        <segue reference="OUl-Xd-Pp6"/>
+        <segue reference="yFv-b0-aKK"/>
     </inferredMetricsTieBreakers>
 </document>
