@@ -91,6 +91,7 @@
 
 #pragma mark - IRCameraOverlayViewControllerDelegate
 
+
 - (void)overlayViewControllerPhotoCaptured:(UIImage *)image
 {
     self.currentBooks = nil;
@@ -112,7 +113,7 @@
         UIImage *blurryImage = [image applyBlurWithRadius:30 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil];
         self.screenshotView.image = blurryImage;
 
-        #define ACTIVITY_VIEW_Y_POSITION 0.66
+        #define ACTIVITY_VIEW_Y_POSITION 0.62
         #define ACTIVITY_VIEW_WIDTH     190
         #define ACTIVITY_VIEW_HEIGHT    65
         

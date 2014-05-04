@@ -9,8 +9,8 @@
 #include "BookCropper.h"
 #include <math.h>
 
-#define START_THREASHOLD 8
-#define END_THREASHOLD 30
+#define START_THREASHOLD 1
+#define END_THREASHOLD 8
 
 #define BEST_APPROX_AREA 0.65
 #define BEST_SCALE_FACTOR_X 6
@@ -79,30 +79,31 @@ cv::Mat BookCropper::getBookImage(const cv::Mat &src)
 
 void BookCropper::findSquares(const Mat& image, vector<vector<Point> >& squares, int threshold)
 {
-    Mat timg, gray0(image.size(), CV_8U), gray;
-    GaussianBlur(image, timg, Size(7, 7), 2.0, 2.0);
+    Mat blurred, hsl, gray0(image.size(), CV_8U), gray;
+    GaussianBlur(image, blurred, Size(7, 7), 2.0, 2.0);
     
     vector<vector<Point> > contours;
-    for( int c = 0; c < 3; c++ ) {
-        int ch[] = {c, 0};
-        mixChannels(&timg, 1, &gray0, 1, ch, 1);
-        
-        Canny(gray0, gray, threshold * 50, threshold * 100, 5);
-        dilate(gray, gray, Mat(), Point(-1,-1), 3);
-        
-        findContours(gray, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
-        
-        for (size_t i = 0; i < contours.size(); i++) {
-            if (fabs(contourArea(contours[i])) > 5000) {
-                convexHull(contours[i], contours[i]);
-                
-                vector<Point> approx;
-                approxPolyDP(Mat(contours[i]), approx, arcLength(Mat(contours[i]), true)*0.02, true);
-                
-                if (approx.size() == 4) {
-                    if (calcMaxCosine(approx) < 0.2) {
-                        squares.push_back(approx);
-                    }
+    cv::cvtColor(blurred, hsl, CV_RGB2Lab);
+    
+    cv::Mat hslChannels[3];
+    cv::split(hsl, hslChannels);
+    
+    gray0 = hslChannels[0];
+    Canny(gray0, gray, threshold * 50, threshold * 100, 5);
+    dilate(gray, gray, Mat(), Point(-1,-1), 3);
+    
+    findContours(gray, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+    
+    for (size_t i = 0; i < contours.size(); i++) {
+        if (fabs(contourArea(contours[i])) > 5000) {
+            convexHull(contours[i], contours[i]);
+            
+            vector<Point> approx;
+            approxPolyDP(Mat(contours[i]), approx, arcLength(Mat(contours[i]), true)*0.02, true);
+            
+            if (approx.size() == 4) {
+                if (calcMaxCosine(approx) < 0.2) {
+                    squares.push_back(approx);
                 }
             }
         }

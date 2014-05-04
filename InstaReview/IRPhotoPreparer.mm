@@ -16,7 +16,7 @@
 - (UIImage*)prepareImageForRecognition:(UIImage *)sourceImage
 {
     UIImage *resizedImage = [sourceImage resizedImage:CGSizeMake(480, 640)
-                                 interpolationQuality:kCGInterpolationMedium];
+                                 interpolationQuality:kCGInterpolationLow];
     cv::Mat source = [IRPhotoPreparer cvMatFromUIImage:resizedImage];
     BookCropper cropper;
     cv::Mat croppedImage = cropper.getBookImage(source);
