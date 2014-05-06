@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSArray *currentBooks;
 
 @property (weak, nonatomic) IBOutlet UIButton *snapButton;
+
 @property (nonatomic, strong) IRCameraOverlayViewController *overlayViewController;
 @property (nonatomic, strong) UIImageView *screenshotView;
 @end
@@ -79,6 +80,11 @@
                                             withAnimation:UIStatusBarAnimationNone];
 }
 
+- (void)allocateImagePicker
+{
+    
+}
+
 #pragma mark - imagePickerController
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -105,39 +111,39 @@
 
 - (void)showLoadingViewAndWaitForResults
 {
-    // Taking screenshot of current view
-    [self.view screenshotAsyncWithCompletion:^(UIImage *image) {
-        // Showing screenshot in the front of main view
-        
-        self.screenshotView = [[UIImageView alloc] initWithFrame:self.view.frame];
-        UIImage *blurryImage = [image applyBlurWithRadius:30 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4f] saturationDeltaFactor:1.0f maskImage:nil];
-        self.screenshotView.image = blurryImage;
+    UIImage *screenshot = [self.view screenshot];
+    
+    // Showing screenshot in the front of main view
+    self.screenshotView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    UIImage *blurryImage = [screenshot applyBlurWithRadius:30
+                                                 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4f]
+                                     saturationDeltaFactor:1.0f
+                                                 maskImage:nil];
+    self.screenshotView.image = blurryImage;
 
-        #define ACTIVITY_VIEW_Y_POSITION 0.62
-        #define ACTIVITY_VIEW_WIDTH     190
-        #define ACTIVITY_VIEW_HEIGHT    65
+    #define ACTIVITY_VIEW_Y_POSITION 0.62
+    #define ACTIVITY_VIEW_WIDTH     190
+    #define ACTIVITY_VIEW_HEIGHT    65
+    
+    float busyViewYPos = self.view.bounds.size.height * ACTIVITY_VIEW_Y_POSITION - ACTIVITY_VIEW_HEIGHT / 2;
+    IRBusyView *activityView = [[IRBusyView alloc] initWithFrame:CGRectMake((320 - ACTIVITY_VIEW_WIDTH) / 2, busyViewYPos, ACTIVITY_VIEW_WIDTH, ACTIVITY_VIEW_HEIGHT)];
+    activityView.color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient_orange.png"]];
+    [self.screenshotView addSubview:activityView];
+    
+    // Dismissing "Camera View"
+    [self dismissViewControllerAnimated:YES completion:^{
+        // Showing blured screenshot
+        [UIView transitionWithView:self.view
+                          duration:0.3f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            [self.view addSubview:self.screenshotView];
+                        } completion:^(BOOL finished) {
+                            [activityView startAnimation];
+                        }];
         
-        float busyViewYPos = self.view.bounds.size.height * ACTIVITY_VIEW_Y_POSITION - ACTIVITY_VIEW_HEIGHT / 2;
-        IRBusyView *activityView = [[IRBusyView alloc] initWithFrame:CGRectMake((320 - ACTIVITY_VIEW_WIDTH) / 2, busyViewYPos, ACTIVITY_VIEW_WIDTH, ACTIVITY_VIEW_HEIGHT)];
-        activityView.color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient_orange.png"]];
-        [self.screenshotView addSubview:activityView];
-        
-        // Dismissing "Camera View"
-        [self dismissViewControllerAnimated:YES completion:^{
-            
-            // Showing blured screenshot
-            [UIView transitionWithView:self.view
-                              duration:0.3f
-                               options:UIViewAnimationOptionTransitionCrossDissolve
-                            animations:^{
-                                [self.view addSubview:self.screenshotView];
-                            } completion:^(BOOL finished) {
-                                [activityView startAnimation];
-                            }];
-            
-            // Showing loading view & waiting for result
-            [self waitAndShowResults];
-        }];
+        // Showing loading view & waiting for result
+        [self waitAndShowResults];
     }];
 }
 
@@ -145,7 +151,6 @@
 {
     // Waiting for books in separate thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
         self.currentBooks = [[IRReviewsAPI sharedInstance] waitAndGetBooks];
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self showCurrentBooksDetails];

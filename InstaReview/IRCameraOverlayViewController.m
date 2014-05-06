@@ -101,6 +101,7 @@
 
 - (IBAction)usePhotoButtonTapped
 {
+    [self.useRetakeView removeFromSuperview];
     [self.delegate overlayViewControllerUsePhotoTapped];
 }
 

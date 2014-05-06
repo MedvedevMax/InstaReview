@@ -63,6 +63,9 @@
         NSLog(@"Response received: %d; confidence = %f", response.success, response.confidence);
         
         self.recognitionResponse = response;
+        
+//        [NSThread sleepForTimeInterval:1.0];
+//        self.recognitionResponse = nil;
         dispatch_semaphore_signal(waitingSemaphore);
     });
 }
