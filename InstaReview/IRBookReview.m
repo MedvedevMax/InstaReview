@@ -1,4 +1,4 @@
-//
+
 //  IRBookReview.m
 //  InstaReview
 //
@@ -16,7 +16,13 @@
     if (self) {
         self.reviewer = [self emptyStringOrValue:dic[@"reviewer"]];
 
-        self.date = [NSDate dateWithTimeIntervalSince1970:[[self zeroStringOrValue:dic[@"date"]] doubleValue]];
+        double dateInterval = [[self zeroStringOrValue:dic[@"date"]] doubleValue];
+        if (dateInterval > 0) {
+            self.date = [NSDate dateWithTimeIntervalSince1970:dateInterval];
+        }
+        else {
+            self.date = nil;
+        }
         self.title = [self emptyStringOrValue:dic[@"title"]];
         self.text = [self emptyStringOrValue:dic[@"text"]];
         

@@ -24,10 +24,10 @@
 #define kTableViewTagRatingCount            105
 
 #define kTableViewReviewTagTitle            100
-#define kTableViewReviewTagDate             101
+#define kTableViewReviewTagReviewer         101
 #define kTableViewReviewTagThumbImage       102
 #define kTableViewReviewTagText             103
-#define kTableViewReviewTagReviewer         104
+#define kTableViewReviewTagDate             104
 
 @interface IRBookDetailsViewController ()
 
@@ -185,12 +185,37 @@
     UILabel *text = (UILabel*)[cell viewWithTag:kTableViewReviewTagText];
     UILabel *reviewer = (UILabel*)[cell viewWithTag:kTableViewReviewTagReviewer];
     
-    title.text = review.title;
-    date.text = [NSDateFormatter localizedStringFromDate:review.date
-                                               dateStyle:NSDateFormatterLongStyle
-                                               timeStyle:NSDateFormatterNoStyle];
-    
     int rating = [review.rate intValue];
+    NSString *titleText = review.title;
+    
+    if (titleText.length == 0) {
+        if (rating <= 1) {
+            titleText = NSLocalizedString(@"Awful", @"Rating =1 comment");
+        }
+        else if (rating == 2) {
+            titleText = NSLocalizedString(@"Very bad", @"Rating = 2 comment");
+        }
+        else if (rating == 3) {
+            titleText = NSLocalizedString(@"Bad", @"Rating = 3 comment");
+        }
+        else if (rating == 4) {
+            titleText = NSLocalizedString(@"Good", @"Rating = 4 comment");
+        }
+        else if (rating == 5) {
+            titleText = NSLocalizedString(@"Awesome", @"Rating = 5 comment");
+        }
+    }
+    
+    title.text = titleText;
+    
+    if (review.date) {
+        date.text = [NSDateFormatter localizedStringFromDate:review.date
+                                                   dateStyle:NSDateFormatterLongStyle
+                                                   timeStyle:NSDateFormatterNoStyle];
+    } else {
+        date.text = NSLocalizedString(@"Date unknown", @"Unknown review date");
+    }
+    
     if (rating > 3) {
         thumbImage.image = [UIImage imageNamed:@"thumb-up.png"];
     }
