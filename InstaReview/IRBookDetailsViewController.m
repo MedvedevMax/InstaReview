@@ -21,7 +21,6 @@
 #define kTableViewTagAuthor                 102
 #define kTableViewTagYear                   103
 #define kTableViewTagRating                 104
-#define kTableViewTagRatingCount            105
 
 #define kTableViewReviewTagTitle            100
 #define kTableViewReviewTagReviewer         101
@@ -143,12 +142,10 @@
     UILabel *author = (UILabel*)[cell viewWithTag:kTableViewTagAuthor];
     UILabel *year = (UILabel*)[cell viewWithTag:kTableViewTagYear];
     UIImageView *rating = (UIImageView*)[cell viewWithTag:kTableViewTagRating];
-    UILabel *ratingCount = (UILabel*)[cell viewWithTag:kTableViewTagRatingCount];
     
     title.text = self.currentBook.name;
     author.text = self.currentBook.author;
     year.text = [NSString stringWithFormat:@"%@", self.currentBook.year];
-    ratingCount.text = [NSString stringWithFormat:@"(%@)", self.currentBook.ratingCount];
 
     UIImage *fiveStarImage = [UIImage imageNamed:@"5stars.png"];
     CGRect cropFrame = CGRectMake(0, 0,
