@@ -19,10 +19,13 @@
 #define kTableViewBookDetailsSection        0
 #define kTableViewBookReviewsSection        1
 
+#define kTableViewTagBackgroundView         110
 #define kTableViewTagBackgroundImage        100
 #define kTableViewTagCoverImage             101
 #define kTableViewTagTitleLabel             102
 #define kTableViewTagAuthorLabel            103
+
+#define kTableViewTagRatingImage            100
 
 #define kTableViewReviewTagTitle            100
 #define kTableViewReviewTagReviewer         101
@@ -33,7 +36,7 @@
 @interface IRBookDetailsViewController ()
 
 @property (nonatomic, retain) UIImage *originalCoverImage;
-@property (nonatomic, retain) UIImage *blankCoverImage;
+@property (nonatomic, retain, readonly) UIImage *blankCoverImage;
 
 @property (nonatomic, retain) UIImage *blurredBackgroundImage;
 @property (nonatomic, retain) UIImage *circleCoverImage;
@@ -56,6 +59,8 @@
     
     [[IRReviewsAPI sharedInstance] downloadCoverForBook:self.currentBook];
     [[IRReviewsAPI sharedInstance] addBookToViewed:self.currentBook];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - Observing book cover image
@@ -115,25 +120,54 @@
     return 0;
 }
 
+#pragma mark - Cells
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = NULL;
     
     switch (indexPath.section) {
         case kTableViewBookDetailsSection:
+        {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Book Info" forIndexPath:indexPath];
             [self assignCurrentBookToCell:cell];
+        }
             break;
             
         case kTableViewBookReviewsSection:
+        {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Review" forIndexPath:indexPath];
 
             IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
             [self assignReview:review toCell:cell];
+        }
             break;
     }
     return cell;
 }
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    switch (indexPath.section) {
+//        case kTableViewBookDetailsSection:
+//            break;
+//            
+//        case kTableViewBookReviewsSection:
+//        {
+//            IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
+//            
+//            UILabel *text = (UILabel*)[cell viewWithTag:kTableViewReviewTagText];
+//            UILabel *date = (UILabel*)[cell viewWithTag:kTableViewReviewTagDate];
+//            
+//            text.frame = CGRectMake(text.frame.origin.x, text.frame.origin.y, text.frame.size.width, [self calulateReviewTextHeight:review.text]);
+//            
+//            date.frame = CGRectMake(date.frame.origin.x,
+//                                    text.frame.origin.y + text.frame.size.width,
+//                                    date.frame.size.width, date.frame.size.height);
+//        }
+//            break;
+//    }
+//}
 
 - (void)assignCurrentBookToCell:(UITableViewCell *)cell
 {
@@ -175,14 +209,14 @@
         // Do the transition a little later
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView transitionWithView:backgroundImageView
-                              duration:0.3
+                              duration:0.8f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
                                 backgroundImageView.image = self.blurredBackgroundImage;
                             } completion:nil];
             
             [UIView transitionWithView:coverImageView
-                              duration:0.3
+                              duration:0.8f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
                                 coverImageView.image = self.circleCoverImage;
@@ -192,6 +226,14 @@
     else {
         backgroundImageView.image = self.blurredBackgroundImage;
         coverImageView.image = self.circleCoverImage;
+    }
+    
+    UIView *backgroundView = (UIView*)[cell viewWithTag:kTableViewTagBackgroundView];
+    if (!backgroundView.layer.shadowOpacity) {
+        backgroundView.layer.shadowColor = [[UIColor blackColor] CGColor];
+        backgroundView.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
+        backgroundView.layer.shadowOpacity = 0.1f;
+        backgroundView.layer.shadowRadius = 5.0f;
     }
 }
 
@@ -223,16 +265,7 @@
             titleText = NSLocalizedString(@"Awesome", @"Rating = 5 comment");
         }
     }
-    
     title.text = titleText;
-    
-    if (review.date) {
-        date.text = [NSDateFormatter localizedStringFromDate:review.date
-                                                   dateStyle:NSDateFormatterLongStyle
-                                                   timeStyle:NSDateFormatterNoStyle];
-    } else {
-        date.text = NSLocalizedString(@"Date unknown", @"Unknown review date");
-    }
     
     if (rating > 3) {
         thumbImage.image = [UIImage imageNamed:@"thumb-up.png"];
@@ -243,8 +276,19 @@
     else {
         thumbImage.image = [UIImage imageNamed:@"thumb-neutral.png"];
     }
+    
     text.text = review.text;
     reviewer.text = review.reviewer;
+    
+    if (review.date) {
+        date.hidden = NO;
+        date.text = [NSDateFormatter localizedStringFromDate:review.date
+                                                   dateStyle:NSDateFormatterLongStyle
+                                                   timeStyle:NSDateFormatterNoStyle];
+        text.text = [text.text stringByAppendingString:@"\n\n"];
+    } else {
+        date.hidden = YES;
+    }
 }
 
 - (UIImage*)getBlurredBackgroundForCover:(UIImage *)coverImage withSize:(CGSize)size
@@ -295,66 +339,113 @@
     return resultImage;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    #define REVIEW_CELL_HEIGHT_WITHOUT_TEXT 97
-    
-    #define TEXT_MARGIN 20
-    
-    CGSize constraintSize = CGSizeMake(290.0f, MAXFLOAT);
+#pragma mark - Headers & Footers
 
-    NSDictionary *reviewTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
-    NSDictionary *titleTextAttributes = nil;
-    
-    UITableViewCell *cell = nil;
-    UILabel *titleLabel = nil;
-    NSString *text = nil;
-    
-    CGFloat height = 0;
-    
-    switch (indexPath.section) {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
         case kTableViewBookDetailsSection:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"Book Info"];
-            titleLabel = (UILabel*)[cell viewWithTag:kTableViewTagTitleLabel];
-            titleTextAttributes = @{NSFontAttributeName:titleLabel.font};
-            
-            text = self.currentBook.name;
-            height = cell.bounds.size.height - titleLabel.frame.size.height;
-            height += [text boundingRectWithSize:constraintSize
-                                         options:NSLineBreakByWordWrapping |NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:titleTextAttributes context:nil].size.height;
-            break;
+            return nil;
             
         case kTableViewBookReviewsSection:
-            text = [[self.currentBook.reviews objectAtIndex:indexPath.row] text];
-
-            height = REVIEW_CELL_HEIGHT_WITHOUT_TEXT;
-            height += [text boundingRectWithSize:constraintSize
-                                         options:NSLineBreakByWordWrapping |NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:reviewTextAttributes context:nil].size.height;
-            height += TEXT_MARGIN;
+        {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Rating Cell"];
+            UIImageView *ratingImageView = (UIImageView*)[cell viewWithTag:kTableViewTagRatingImage];
+            
+            if (!ratingImageView.image) {
+                UIImage *fiveStarImage = [UIImage imageNamed:@"Stars.png"];
+                CGRect cropFrame = CGRectMake(0, 0,
+                                              fiveStarImage.size.width *
+                                              (self.currentBook.rating.doubleValue / 5.0) * 2,
+                                              fiveStarImage.size.height * 2);
+                ratingImageView.image = [fiveStarImage croppedImage:cropFrame];
+            }
+            return cell;
+        }
+            
+        default:
             break;
     }
     
-    return height;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    #define RATING_CELL_HEIGHT  42
+    
     switch (section) {
         case kTableViewBookDetailsSection:
             return CGFLOAT_MIN;
+            
+        case kTableViewBookReviewsSection:
+            return RATING_CELL_HEIGHT;
             
         default:
             break;
     }
     return UITableViewAutomaticDimension;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
+#pragma mark - Cell Heights
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    #define TEXT_MARGIN 20
+    
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGFloat height = 0;
+    
+    switch (indexPath.section) {
+        case kTableViewBookDetailsSection:
+        {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Book Info"];
+            UILabel *titleLabel = (UILabel*)[cell viewWithTag:kTableViewTagTitleLabel];
+            NSDictionary *titleTextAttributes = @{NSFontAttributeName:titleLabel.font};
+            
+            NSString *text = self.currentBook.name;
+            height = cell.bounds.size.height - titleLabel.frame.size.height;
+            height += [text boundingRectWithSize:constraintSize
+                                         options:NSLineBreakByWordWrapping |NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:titleTextAttributes context:nil].size.height;
+        }
+            break;
+            
+        case kTableViewBookReviewsSection:
+        {
+            IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
+            NSString *reviewText = [review text];
+            
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Review"];
+            UILabel *textLabel = (UILabel*)[cell viewWithTag:kTableViewReviewTagText];
+            UILabel *dateLabel = (UILabel*)[cell viewWithTag:kTableViewReviewTagDate];
+
+            NSDictionary *reviewTextAttributes = @{NSFontAttributeName:textLabel.font};
+            
+            height = cell.bounds.size.height - textLabel.frame.size.height;
+            height += [reviewText boundingRectWithSize:constraintSize
+                                               options:NSLineBreakByWordWrapping |NSStringDrawingUsesLineFragmentOrigin
+                                            attributes:reviewTextAttributes context:nil].size.height;
+            
+            if (review.date) {
+                height += dateLabel.frame.size.height;
+            }
+            height += TEXT_MARGIN;
+        }
+            break;
+    }
+    
+    return height;
+}
+
+#pragma mark - Setters & Getters
+
+@synthesize blankCoverImage = _blankCoverImage;
 
 - (UIImage *)blankCoverImage
 {

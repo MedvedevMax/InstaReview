@@ -65,7 +65,7 @@
     self.containerLayer.shadowOffset = CGSizeMake(0, 1);
     self.containerLayer.shadowOpacity = 0.5f;
     self.containerLayer.shadowRadius = 1;
-    
+        
     [self.layer addSublayer:self.containerLayer];
     [self.containerLayer setNeedsDisplay];
 }

@@ -17,7 +17,8 @@
 		A24E1E74190B980A00F905C3 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E1E72190B980A00F905C3 /* NSInvocation+Copy.m */; };
 		A255B8C218CB1ABB00EEC446 /* IRBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */; };
 		A25C8F301912F50C006FD81C /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = A25C8F2F1912F50C006FD81C /* UIView+Screenshot.m */; };
-		A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3818E4C35500E2BCC4 /* FXBlurView.m */; };
+		A2706390191BA80A00ED7114 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A270638F191BA80A00ED7114 /* Stars@2x.png */; };
+		A2706392191BAA9C00ED7114 /* RatingCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2706391191BAA9C00ED7114 /* RatingCell@2x.png */; };
 		A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */; };
 		A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */; };
 		A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB4518E4E62800E2BCC4 /* IRViewFinderLayer.m */; };
@@ -42,8 +43,6 @@
 		A285C7B7190A9B7700F1E5AD /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A285C7B3190A9B7700F1E5AD /* History@2x.png */; };
 		A285C7B9190A9B7700F1E5AD /* Title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A285C7B5190A9B7700F1E5AD /* Title@2x.png */; };
 		A2877353190C33A100839F75 /* TakeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2877352190C33A100839F75 /* TakeButton@2x.png */; };
-		A28D73D518CC791E00B2965B /* 5stars-bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */; };
-		A28D73D618CC791E00B2965B /* 5stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28D73D418CC791E00B2965B /* 5stars@2x.png */; };
 		A2A91722191ADDE700BB88CE /* BlurBgOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A91721191ADDE700BB88CE /* BlurBgOverlay@2x.png */; };
 		A2A91724191ADDF100BB88CE /* BookBgCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A91723191ADDF100BB88CE /* BookBgCircle@2x.png */; };
 		A2A91730191AF14600BB88CE /* UIImage+MaskImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A9172F191AF14600BB88CE /* UIImage+MaskImage.m */; };
@@ -106,8 +105,8 @@
 		A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRBookDetailsViewController.m; sourceTree = "<group>"; };
 		A25C8F2E1912F50C006FD81C /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
 		A25C8F2F1912F50C006FD81C /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
-		A275AB3718E4C35500E2BCC4 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
-		A275AB3818E4C35500E2BCC4 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		A270638F191BA80A00ED7114 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
+		A2706391191BAA9C00ED7114 /* RatingCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RatingCell@2x.png"; sourceTree = "<group>"; };
 		A275AB3C18E4D24800E2BCC4 /* IRViewFinderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRViewFinderView.h; sourceTree = "<group>"; };
 		A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRViewFinderView.m; sourceTree = "<group>"; };
 		A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -140,8 +139,6 @@
 		A285C7B3190A9B7700F1E5AD /* History@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "History@2x.png"; sourceTree = "<group>"; };
 		A285C7B5190A9B7700F1E5AD /* Title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title@2x.png"; sourceTree = "<group>"; };
 		A2877352190C33A100839F75 /* TakeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TakeButton@2x.png"; sourceTree = "<group>"; };
-		A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5stars-bw@2x.png"; sourceTree = "<group>"; };
-		A28D73D418CC791E00B2965B /* 5stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5stars@2x.png"; sourceTree = "<group>"; };
 		A2A91721191ADDE700BB88CE /* BlurBgOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BlurBgOverlay@2x.png"; sourceTree = "<group>"; };
 		A2A91723191ADDF100BB88CE /* BookBgCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BookBgCircle@2x.png"; sourceTree = "<group>"; };
 		A2A9172E191AF14600BB88CE /* UIImage+MaskImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MaskImage.h"; sourceTree = "<group>"; };
@@ -239,15 +236,6 @@
 				A25C8F2F1912F50C006FD81C /* UIView+Screenshot.m */,
 			);
 			name = "UIView+";
-			sourceTree = "<group>";
-		};
-		A275AB3618E4C35500E2BCC4 /* FXBlurView */ = {
-			isa = PBXGroup;
-			children = (
-				A275AB3718E4C35500E2BCC4 /* FXBlurView.h */,
-				A275AB3818E4C35500E2BCC4 /* FXBlurView.m */,
-			);
-			path = FXBlurView;
 			sourceTree = "<group>";
 		};
 		A276A85F18C3D5FE006865F2 = {
@@ -395,7 +383,6 @@
 				A2C81937190BD5B900B55B01 /* ImagePickerOverlayView */,
 				A2AAA2F219139D24006E8034 /* BusyView */,
 				A2FB70EE190B0561007D8811 /* BlurryModalSegue */,
-				A275AB3618E4C35500E2BCC4 /* FXBlurView */,
 				A2B310A918CA628000868DEA /* UIImage+ */,
 				A25C8F2D1912F4E9006FD81C /* UIView+ */,
 				A2F511C518E5A9FE001C6209 /* IRViewFinder */,
@@ -480,10 +467,10 @@
 				A2C7CAE91900640900DCCF1E /* thumb-down@2x.png */,
 				A2C7CAEA1900640900DCCF1E /* thumb-neutral@2x.png */,
 				A2C7CAEB1900640900DCCF1E /* thumb-up@2x.png */,
-				A28D73D318CC791E00B2965B /* 5stars-bw@2x.png */,
-				A28D73D418CC791E00B2965B /* 5stars@2x.png */,
 				A2A91721191ADDE700BB88CE /* BlurBgOverlay@2x.png */,
 				A2A91723191ADDF100BB88CE /* BookBgCircle@2x.png */,
+				A2706391191BAA9C00ED7114 /* RatingCell@2x.png */,
+				A270638F191BA80A00ED7114 /* Stars@2x.png */,
 			);
 			name = ReviewsScreen;
 			sourceTree = "<group>";
@@ -606,17 +593,17 @@
 				A2C81932190BD59500B55B01 /* CloseButton@2x.png in Resources */,
 				A285C7B7190A9B7700F1E5AD /* History@2x.png in Resources */,
 				A2C7CAEC1900640900DCCF1E /* thumb-down@2x.png in Resources */,
-				A28D73D618CC791E00B2965B /* 5stars@2x.png in Resources */,
 				A27FF67B1915969C003C7E2F /* TryAgainButton@2x.png in Resources */,
 				A27FF67819158DC2003C7E2F /* SadSmile@2x.png in Resources */,
 				A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */,
+				A2706392191BAA9C00ED7114 /* RatingCell@2x.png in Resources */,
 				A2A9173A191B0C0E00BB88CE /* blankCover.png in Resources */,
 				A2A91722191ADDE700BB88CE /* BlurBgOverlay@2x.png in Resources */,
 				A285C7B9190A9B7700F1E5AD /* Title@2x.png in Resources */,
 				A2D729741911A8E600E8289A /* Book@2x.png in Resources */,
-				A28D73D518CC791E00B2965B /* 5stars-bw@2x.png in Resources */,
 				A2877353190C33A100839F75 /* TakeButton@2x.png in Resources */,
 				A2A91724191ADDF100BB88CE /* BookBgCircle@2x.png in Resources */,
+				A2706390191BA80A00ED7114 /* Stars@2x.png in Resources */,
 				A276A87F18C3D5FF006865F2 /* Main.storyboard in Resources */,
 				A2D729721911A81D00E8289A /* Bg@2x.png in Resources */,
 			);
@@ -642,7 +629,6 @@
 				A276A87818C3D5FF006865F2 /* main.m in Sources */,
 				A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */,
 				A2A9173D191B159B00BB88CE /* UIImage+DrawImage.m in Sources */,
-				A275AB3918E4C35500E2BCC4 /* FXBlurView.m in Sources */,
 				A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */,
 				A2C7CAF41900817100DCCF1E /* IRPersistencyManager.m in Sources */,
 				A25C8F301912F50C006FD81C /* UIView+Screenshot.m in Sources */,
