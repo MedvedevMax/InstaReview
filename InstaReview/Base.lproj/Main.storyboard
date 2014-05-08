@@ -194,21 +194,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="34" id="q0L-La-LdU">
-                                            <rect key="frame" x="75" y="15" width="34" height="22"/>
+                                            <rect key="frame" x="78" y="15" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EUQ-PY-NCd">
-                                            <rect key="frame" x="75" y="37" width="43" height="15"/>
+                                            <rect key="frame" x="78" y="37" width="43" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="blankCover.png" id="W4v-Kp-6NT">
-                                            <rect key="frame" x="15" y="0.0" width="45" height="67"/>
+                                            <rect key="frame" x="15" y="0.0" width="48" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -248,68 +248,72 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Book Info" rowHeight="151" id="iaS-3R-47b">
-                                <rect key="frame" x="0.0" y="119" width="320" height="151"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Book Info" rowHeight="236" id="iaS-3R-47b">
+                                <rect key="frame" x="0.0" y="119" width="320" height="236"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iaS-3R-47b" id="Ptv-6l-VsZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blankCover.png" translatesAutoresizingMaskIntoConstraints="NO" id="H4J-G1-Xdy">
-                                            <rect key="frame" x="20" y="20" width="81" height="119"/>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxK-Uq-IXZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Профессиональное программирование на php" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" preferredMaxLayoutWidth="191" translatesAutoresizingMaskIntoConstraints="NO" id="KBa-dP-NSE">
-                                            <rect key="frame" x="109" y="12" width="191" height="50"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookBgCircle.png" translatesAutoresizingMaskIntoConstraints="NO" id="exV-du-aee">
+                                            <rect key="frame" x="73" y="9" width="174" height="174"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Стивен Кинг" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="12" preferredMaxLayoutWidth="191" translatesAutoresizingMaskIntoConstraints="NO" id="uh1-BS-6uG">
-                                            <rect key="frame" x="109" y="60" width="191" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="9ro-9P-pli">
-                                            <rect key="frame" x="109" y="95" width="37" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5stars-bw.png" translatesAutoresizingMaskIntoConstraints="NO" id="ift-SK-RBy">
-                                            <rect key="frame" x="109" y="116" width="129" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="174" id="SfI-09-tIt"/>
+                                                <constraint firstAttribute="height" constant="174" id="tg5-AH-oco"/>
+                                            </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5stars.png" translatesAutoresizingMaskIntoConstraints="NO" id="qJq-7y-U8Q">
-                                            <rect key="frame" x="109" y="116" width="129" height="25"/>
+                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vYe-vM-E0I">
+                                            <rect key="frame" x="73" y="9" width="174" height="174"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="174" id="LYf-er-Dnx"/>
+                                                <constraint firstAttribute="width" constant="174" id="o4I-KK-oBg"/>
+                                            </constraints>
                                         </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Book Description" textLabel="I5r-kc-RPa" rowHeight="44" style="IBUITableViewCellStyleDefault" id="aWk-K9-gdK">
-                                <rect key="frame" x="0.0" y="270" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aWk-K9-gdK" id="7I0-Ra-kLg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="I5r-kc-RPa">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the book title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gpP-M1-251">
+                                            <rect key="frame" x="20" y="192" width="280" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Author" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Zph-fZ-kzT">
+                                            <rect key="frame" x="20" y="210" width="280" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="CAe-9J-mlV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hxK-Uq-IXZ" firstAttribute="top" secondItem="Ptv-6l-VsZ" secondAttribute="top" id="42v-JW-hAo"/>
+                                        <constraint firstItem="gpP-M1-251" firstAttribute="leading" secondItem="Ptv-6l-VsZ" secondAttribute="leading" constant="20" id="6Ga-rB-E2w"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zph-fZ-kzT" secondAttribute="trailing" constant="20" id="AYY-Fs-XqR"/>
+                                        <constraint firstAttribute="trailing" secondItem="hxK-Uq-IXZ" secondAttribute="trailing" id="EkY-vd-L5Z"/>
+                                        <constraint firstAttribute="bottom" secondItem="Zph-fZ-kzT" secondAttribute="bottom" constant="4" id="Fz5-6m-OuG"/>
+                                        <constraint firstItem="Zph-fZ-kzT" firstAttribute="top" secondItem="gpP-M1-251" secondAttribute="bottom" constant="2" id="Xaz-jd-5qv"/>
+                                        <constraint firstItem="hxK-Uq-IXZ" firstAttribute="leading" secondItem="Ptv-6l-VsZ" secondAttribute="leading" id="XwN-Ih-Zia"/>
+                                        <constraint firstItem="Zph-fZ-kzT" firstAttribute="leading" secondItem="Ptv-6l-VsZ" secondAttribute="leading" constant="20" id="ZHL-Xf-mxT"/>
+                                        <constraint firstItem="gpP-M1-251" firstAttribute="top" secondItem="vYe-vM-E0I" secondAttribute="bottom" constant="9" id="cNa-5q-mmW"/>
+                                        <constraint firstAttribute="bottom" secondItem="hxK-Uq-IXZ" secondAttribute="bottom" id="ppT-k6-nPS"/>
+                                        <constraint firstAttribute="trailing" secondItem="gpP-M1-251" secondAttribute="trailing" constant="20" id="s9Y-1e-8he"/>
+                                        <constraint firstAttribute="centerX" secondItem="vYe-vM-E0I" secondAttribute="centerX" id="sCf-4i-2SC"/>
+                                        <constraint firstAttribute="centerX" secondItem="exV-du-aee" secondAttribute="centerX" id="wFI-bQ-EPa"/>
+                                        <constraint firstItem="exV-du-aee" firstAttribute="top" secondItem="Ptv-6l-VsZ" secondAttribute="top" constant="9" id="woZ-aV-pHY"/>
+                                        <constraint firstItem="vYe-vM-E0I" firstAttribute="top" secondItem="Ptv-6l-VsZ" secondAttribute="top" constant="9" id="yIf-Yq-sQd"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Review" rowHeight="143" id="rWV-He-Mxo">
-                                <rect key="frame" x="0.0" y="314" width="320" height="143"/>
+                                <rect key="frame" x="0.0" y="355" width="320" height="143"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWV-He-Mxo" id="ruO-S7-vR3">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="142"/>
@@ -407,14 +411,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5stars-bw.png" width="129" height="24"/>
-        <image name="5stars.png" width="129" height="24"/>
         <image name="Book.png" width="190" height="188"/>
+        <image name="BookBgCircle.png" width="174" height="174"/>
         <image name="History.png" width="25" height="26"/>
         <image name="SadSmile.png" width="96" height="161"/>
         <image name="SnapButton.png" width="245" height="59"/>
         <image name="TryAgainButton.png" width="206" height="59"/>
-        <image name="blankCover.png" width="200" height="297"/>
+        <image name="blankCover.png" width="200" height="280"/>
         <image name="thumb-up.png" width="44" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
