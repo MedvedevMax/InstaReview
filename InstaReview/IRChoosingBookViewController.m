@@ -13,6 +13,7 @@
 #import "IRReviewsAPI.h"
 
 #import "UIImage+Resize.h"
+#import "UIImage+WhiteColorTransparent.h"
 
 @interface IRChoosingBookViewController ()
 
@@ -101,19 +102,36 @@
     static NSString *CellIdentifier = @"Book Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    // Assigning background view
+    if (!cell.backgroundView) {
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f];
+        [cell setSelectedBackgroundView:bgColorView];
+    }
+    
+    // Assigning book info
     IRBookDetails *book = [self.books objectAtIndex:indexPath.row];
     cell.textLabel.text = book.name;
     cell.detailTextLabel.text = book.author;
     
-    if (book.coverImage) {
-        [UIView transitionWithView:cell.imageView
-                          duration:0.3
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^{
-            cell.imageView.image = [book.coverImage resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh];
-                                    } completion:nil];
+    if (cell.imageView.image == nil) {
+        if (book.coverImage) {
+            cell.imageView.image = [[book.coverImage resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh] makeWhiteColorTransparent];
+        }
+        else {
+            cell.imageView.image = [[UIImage imageNamed:@"blankCover.png"] resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh];
+        }
     }
-    
+    else {
+        if (book.coverImage && cell.imageView.image != book.coverImage) {
+            [UIView transitionWithView:cell.imageView
+                              duration:0.3
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                cell.imageView.image = [[book.coverImage resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh] makeWhiteColorTransparent];
+                            } completion:nil];
+        }
+    }
     return cell;
 }
 

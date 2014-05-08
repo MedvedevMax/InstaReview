@@ -396,8 +396,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    #define TEXT_MARGIN 20
-    
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
     CGFloat height = 0;
     
@@ -435,7 +433,6 @@
             if (review.date) {
                 height += dateLabel.frame.size.height;
             }
-            height += TEXT_MARGIN;
         }
             break;
     }
