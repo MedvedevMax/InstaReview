@@ -26,6 +26,7 @@
 
 @property (nonatomic, strong) IRCameraOverlayViewController *overlayViewController;
 @property (nonatomic, strong) UIImageView *screenshotView;
+@property (nonatomic, strong) IRBusyView *activityView;
 @end
 
 @implementation IRMainViewController
@@ -46,6 +47,13 @@
                                                                initWithFrame:CGRectMake(0, 0, 50, 1)]];
     leftBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (self.activityView) {
+        [self.activityView startAnimation];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,25 +134,25 @@
     #define ACTIVITY_VIEW_HEIGHT    65
     
     float busyViewYPos = self.view.bounds.size.height * ACTIVITY_VIEW_Y_POSITION - ACTIVITY_VIEW_HEIGHT / 2;
-    IRBusyView *activityView = [[IRBusyView alloc] initWithFrame:CGRectMake((320 - ACTIVITY_VIEW_WIDTH) / 2, busyViewYPos, ACTIVITY_VIEW_WIDTH, ACTIVITY_VIEW_HEIGHT)];
-    activityView.color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient_orange.png"]];
-    [self.screenshotView addSubview:activityView];
+    self.activityView = [[IRBusyView alloc] initWithFrame:CGRectMake((320 - ACTIVITY_VIEW_WIDTH) / 2, busyViewYPos, ACTIVITY_VIEW_WIDTH, ACTIVITY_VIEW_HEIGHT)];
+    self.activityView.color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient_orange.png"]];
+    [self.screenshotView addSubview:self.activityView];
+    
+    // Showing blured screenshot
+    [UIView transitionWithView:self.view
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [self.view addSubview:self.screenshotView];
+                    } completion:^(BOOL finished) {
+                        [self.activityView startAnimation];
+                    }];
+    
+    // Showing loading view & waiting for result
+    [self waitAndShowResults];
     
     // Dismissing "Camera View"
-    [self dismissViewControllerAnimated:YES completion:^{
-        // Showing blured screenshot
-        [UIView transitionWithView:self.view
-                          duration:0.3f
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^{
-                            [self.view addSubview:self.screenshotView];
-                        } completion:^(BOOL finished) {
-                            [activityView startAnimation];
-                        }];
-        
-        // Showing loading view & waiting for result
-        [self waitAndShowResults];
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)waitAndShowResults
@@ -168,6 +176,7 @@
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         [self.screenshotView removeFromSuperview];
+                        self.activityView = nil;
                     } completion:nil];
     
     if (self.currentBooks.count == 0) {

@@ -9,6 +9,7 @@
 #import "IRBookDetailsViewController.h"
 #import "IRBookReview.h"
 #import "IRReviewsAPI.h"
+#import "IRAppRatingController.h"
 
 #import "UIImage+Resize.h"
 #import "UIImage+ImageEffects.h"
@@ -61,6 +62,14 @@
     [[IRReviewsAPI sharedInstance] addBookToViewed:self.currentBook];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // Showing an advice to rate the app
+        [[IRAppRatingController sharedInstance] showAppRatingPromptIfNeeded];
+    });
 }
 
 #pragma mark - Observing book cover image
@@ -239,6 +248,8 @@
 
 - (void)assignReview:(IRBookReview *)review toCell:(UITableViewCell *)cell
 {
+    #define MAX_TITLE_TEXT_LENGTH 15
+    
     UILabel *title = (UILabel*)[cell viewWithTag:kTableViewReviewTagTitle];
     UILabel *date = (UILabel*)[cell viewWithTag:kTableViewReviewTagDate];
     UIImageView *thumbImage = (UIImageView*)[cell viewWithTag:kTableViewReviewTagThumbImage];
@@ -247,6 +258,12 @@
     
     int rating = [review.rate intValue];
     NSString *titleText = review.title;
+    NSString *reviewText = review.text;
+    
+    if (titleText.length > MAX_TITLE_TEXT_LENGTH) {
+        reviewText = [NSString stringWithFormat:@"%@.\n\n%@", titleText, reviewText];
+        titleText = nil;
+    }
     
     if (titleText.length == 0) {
         if (rating <= 1) {
@@ -268,16 +285,16 @@
     title.text = titleText;
     
     if (rating > 3) {
-        thumbImage.image = [UIImage imageNamed:@"thumb-up.png"];
+        thumbImage.image = [UIImage imageNamed:@"Good.png"];
     }
     else if (rating < 3) {
-        thumbImage.image = [UIImage imageNamed:@"thumb-down.png"];
+        thumbImage.image = [UIImage imageNamed:@"Awful.png"];
     }
     else {
-        thumbImage.image = [UIImage imageNamed:@"thumb-neutral.png"];
+        thumbImage.image = [UIImage imageNamed:@"Bad.png"];
     }
     
-    text.text = review.text;
+    text.text = reviewText;
     reviewer.text = review.reviewer;
     
     if (review.date) {
@@ -325,11 +342,10 @@
     UIImage *resultImage = [UIImage blankImageWithSize:CGSizeMake(SIZE_WIDTH, SIZE_HEIGHT) scale:SCALE];
     
     CGFloat coverHeight = coverImage.size.height * ((float)COVER_WIDTH / coverImage.size.width);
-    UIImage *resizedCroppedCover = [coverImage resizedImage:CGSizeMake(COVER_WIDTH, coverHeight)
+    UIImage *resizedCroppedCover = [[coverImage makeWhiteColorTransparent]
+                                    resizedImage:CGSizeMake(COVER_WIDTH, coverHeight)
                                        interpolationQuality:kCGInterpolationHigh];
     resizedCroppedCover = [resizedCroppedCover croppedImage:CGRectMake(0, 0, COVER_WIDTH, resultImage.size.height - TOP_POSITION_IN_TEMPLATE)];
-    
-    resizedCroppedCover = [resizedCroppedCover makeWhiteColorTransparent];
     
     CGFloat imageLeftPos = resultImage.size.width / 2 - resizedCroppedCover.size.width / 2;
     resultImage = [resultImage drawImage:resizedCroppedCover
@@ -387,11 +403,6 @@
     return UITableViewAutomaticDimension;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return CGFLOAT_MIN;
-}
-
 #pragma mark - Cell Heights
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -418,6 +429,9 @@
         {
             IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
             NSString *reviewText = [review text];
+            if (review.title.length > MAX_TITLE_TEXT_LENGTH) {
+                reviewText = [[review.title stringByAppendingString:@".\n\n"] stringByAppendingString:reviewText];
+            }
             
             UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Review"];
             UILabel *textLabel = (UILabel*)[cell viewWithTag:kTableViewReviewTagText];

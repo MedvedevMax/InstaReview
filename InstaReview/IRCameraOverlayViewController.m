@@ -12,6 +12,7 @@
 
 @interface IRCameraOverlayViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *flashButton;
 @property (weak, nonatomic) IBOutlet UILabel *flashModeLabel;
 @property (nonatomic) UIImagePickerControllerCameraFlashMode cameraFlashMode;
 
@@ -46,12 +47,12 @@
     [self.imagePickerController takePicture];
 }
 
-- (IBAction)flashModeButtonTapped:(UIButton *)sender
+- (IBAction)flashModeButtonTapped
 {
     #define TEXT_TRANSITION_DURATION 0.5f
     
     if (self.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto) {
-        [sender setImage:[UIImage imageNamed:@"FlashButton-on.png"] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageNamed:@"FlashButton-on.png"] forState:UIControlStateNormal];
 
         self.imagePickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
         self.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
@@ -64,7 +65,7 @@
     }
     
     else if (self.cameraFlashMode == UIImagePickerControllerCameraFlashModeOn) {
-        [sender setImage:[UIImage imageNamed:@"FlashButton-off.png"] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageNamed:@"FlashButton-off.png"] forState:UIControlStateNormal];
         
         self.imagePickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
         self.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
@@ -78,7 +79,7 @@
     
     else if (self.cameraFlashMode == UIImagePickerControllerCameraFlashModeOff)
     {
-        [sender setImage:[UIImage imageNamed:@"FlashButton-auto.png"] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageNamed:@"FlashButton-auto.png"] forState:UIControlStateNormal];
 
         self.imagePickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
         self.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
@@ -89,6 +90,11 @@
                             self.flashModeLabel.text = NSLocalizedString(@"auto", @"flash mode auto");
                         } completion:nil];
     }
+}
+
+- (IBAction)flashLabelTapped:(id)sender
+{
+    [self flashModeButtonTapped];
 }
 
 - (IBAction)dismissButtonTapped

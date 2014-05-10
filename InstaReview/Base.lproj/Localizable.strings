@@ -1,0 +1,48 @@
+/* flash mode auto */
+"auto" = "auto";
+
+/* Rating = 5 comment */
+"Awesome" = "Awesome";
+
+/* Rating =1 comment */
+"Awful" = "Awful";
+
+/* Rating = 3 comment */
+"Bad" = "Bad";
+
+/* 'did you mean' navigation bar title */
+"Did you mean..." = "Did you mean...";
+
+/* Rating = 4 comment */
+"Good" = "Good";
+
+/* 'no books' error */
+"No books" = "No books";
+
+/* 'no network' error */
+"No network" = "No network";
+
+/* flash mode off */
+"off" = "off";
+
+/* flash mode on */
+"on" = "on";
+
+/* 'recents' navigation bar title */
+"Recently viewed" = "Recently viewed";
+
+/* 'no network' explaration */
+"The network seems to be unavailable now" = "The network seems to be unavailable now";
+
+/* 'no books' explaration */
+"This book wasn't found. Maybe you should try again?" = "This book wasn't found. Maybe you should try again?";
+
+/* Rating = 2 comment */
+"Very bad" = "Very bad";
+
+/* App Rating */
+"Rate InstaReview" = "Rate InstaReview";
+"RateMyApp" = "Are you enjoying InstaReview? Please take a moment to rate your experience. Thanks so much!";
+"Rate it now!" = "Rate it now!";
+"Maybe later" = "Maybe later";
+"No, thanks" = "No, thanks";

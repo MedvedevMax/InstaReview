@@ -1,0 +1,12 @@
+
+/* Class = "IBUILabel"; text = "flash:"; ObjectID = "9OZ-mV-9zC"; */
+"9OZ-mV-9zC.text" = "flash:";
+
+/* Class = "IBUILabel"; text = "auto"; ObjectID = "Sqr-9w-aSq"; */
+"Sqr-9w-aSq.text" = "auto";
+
+/* Class = "IBUIButton"; normalTitle = "Retake"; ObjectID = "dUd-GQ-hTs"; */
+"dUd-GQ-hTs.normalTitle" = "Retake";
+
+/* Class = "IBUIButton"; normalTitle = "Use Photo"; ObjectID = "qRi-rQ-T25"; */
+"qRi-rQ-T25.normalTitle" = "Use Photo";

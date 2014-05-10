@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IRCameraOverlayViewController">
             <connections>
                 <outlet property="capturedImageView" destination="VXE-sy-JDE" id="nKh-B5-iFh"/>
+                <outlet property="flashButton" destination="VqU-Zy-Hbc" id="Mrt-HY-VAK"/>
                 <outlet property="flashModeLabel" destination="Sqr-9w-aSq" id="7gd-XV-TTY"/>
                 <outlet property="useRetakeView" destination="8dz-2U-juN" id="FL4-Xw-9eJ"/>
                 <outlet property="view" destination="xOB-dF-Xqn" id="UMv-nP-TBY"/>
@@ -29,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flash:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OZ-mV-9zC">
+                        <label opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flash:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OZ-mV-9zC">
                             <rect key="frame" x="47" y="33" width="110" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -39,8 +40,11 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="bZS-0z-enA" appends="YES" id="LLu-pY-z9h"/>
+                            </connections>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-9w-aSq">
+                        <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-9w-aSq">
                             <rect key="frame" x="165" y="33" width="110" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -50,6 +54,9 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="bZS-0z-enA" appends="YES" id="tSI-CU-iW7"/>
+                            </connections>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,7 +93,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="flashModeButtonTapped:" destination="-1" eventType="touchUpInside" id="vk7-Lm-qbM"/>
+                        <action selector="flashModeButtonTapped" destination="-1" eventType="touchUpInside" id="1eQ-03-OO4"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-ph-Hnn">
@@ -190,6 +197,11 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
+        <tapGestureRecognizer id="bZS-0z-enA">
+            <connections>
+                <action selector="flashLabelTapped:" destination="-1" id="Nfg-qA-DA0"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="CloseButton.png" width="30" height="30"/>

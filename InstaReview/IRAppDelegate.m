@@ -7,6 +7,7 @@
 //
 
 #import "IRAppDelegate.h"
+#import "IRAppRatingController.h"
 
 #import "IRReviewsAPI.h"
 #import "IRMainViewController.h"
@@ -41,7 +42,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSInteger appLaunchAmounts = [[IRAppRatingController sharedInstance] appLaunchAmount];
+    [[IRAppRatingController sharedInstance] setAppLaunchAmount:(appLaunchAmounts + 1)];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
