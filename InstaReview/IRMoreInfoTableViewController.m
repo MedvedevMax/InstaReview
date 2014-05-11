@@ -35,12 +35,30 @@
     
     self.navigationItem.title = self.currentBook.name;
     
-    self.descriptionLabel.text = self.currentBook.description;
+    if (self.currentBook.description) {
+        self.descriptionLabel.text = self.currentBook.description;
+    }
+    else {
+        self.descriptionLabel.text = NSLocalizedString(@"No description available.", @"''No description' comment");
+    }
     self.priceLabel.text = self.currentBook.price;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return (self.currentBook.price.length > 0) ? 2 : 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }
+    else if (section == 1) {
+        return (self.currentBook.url.length > 0) ? 2 : 1;
+    }
     
-    self.descriptionCell.hidden = self.currentBook.description.length == 0;
-    self.priceCell.hidden = self.currentBook.price.length == 0;
-    self.buyButtonCell.hidden = self.currentBook.url.length == 0;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,15 +84,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    switch (section) {
-        case 0:
-            break;
-            
-        case 1:
-            break;
-            
-        default:
-            break;
+    if (section == 0) {
+        return 45;
     }
     
     return UITableViewAutomaticDimension;

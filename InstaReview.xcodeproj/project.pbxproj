@@ -343,6 +343,7 @@
 		A276A8A018C3D6F0006865F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A2683703191D956600B626BC /* Localizable.strings */,
 				A2EBCA2D19070D510048EA40 /* MainScreen */,
 				A2C8192C190BD58000B55B01 /* CameraView */,
 				A2EBCA3A19070D600048EA40 /* ReviewsScreen */,
@@ -350,7 +351,6 @@
 				A2A91739191B0C0E00BB88CE /* blankCover.png */,
 				A246FD981915784A00CD6B57 /* gradient_orange@2x.png */,
 				A276A88318C3D5FF006865F2 /* Images.xcassets */,
-				A2683703191D956600B626BC /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
