@@ -43,6 +43,8 @@
 @property (nonatomic, retain) UIImage *blurredBackgroundImage;
 @property (nonatomic, retain) UIImage *circleCoverImage;
 
+@property (weak, nonatomic) IBOutlet UILabel *noReviewsLabel;
+
 @end
 
 @implementation IRBookDetailsViewController
@@ -63,6 +65,7 @@
     [[IRReviewsAPI sharedInstance] addBookToViewed:self.currentBook];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.noReviewsLabel.hidden = self.currentBook.reviews.count > 0;
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -155,29 +158,6 @@
     }
     return cell;
 }
-
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    switch (indexPath.section) {
-//        case kTableViewBookDetailsSection:
-//            break;
-//            
-//        case kTableViewBookReviewsSection:
-//        {
-//            IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
-//            
-//            UILabel *text = (UILabel*)[cell viewWithTag:kTableViewReviewTagText];
-//            UILabel *date = (UILabel*)[cell viewWithTag:kTableViewReviewTagDate];
-//            
-//            text.frame = CGRectMake(text.frame.origin.x, text.frame.origin.y, text.frame.size.width, [self calulateReviewTextHeight:review.text]);
-//            
-//            date.frame = CGRectMake(date.frame.origin.x,
-//                                    text.frame.origin.y + text.frame.size.width,
-//                                    date.frame.size.width, date.frame.size.height);
-//        }
-//            break;
-//    }
-//}
 
 - (void)assignCurrentBookToCell:(UITableViewCell *)cell
 {
@@ -402,6 +382,36 @@
             break;
     }
     return UITableViewAutomaticDimension;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (self.currentBook.reviews.count == 0 && section == 0) {    // when no books
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor clearColor];
+        
+        return view;
+    }
+    
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == 0) {             // when no books
+        if (self.currentBook.reviews.count == 0) {
+            CGFloat topHeight = [self tableView:tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            topHeight += 64;    // navigation bar height
+            topHeight += 48;    // fix
+            
+            CGFloat centerY = (self.view.frame.size.height - topHeight) / 2;
+            centerY -= self.noReviewsLabel.frame.size.height / 2;
+            
+            return centerY;
+        }
+    }
+    
+    return 0;
 }
 
 #pragma mark - Cell Heights
