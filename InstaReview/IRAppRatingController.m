@@ -79,7 +79,7 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DoNotShowAppRatingPrompt"];
 }
 
-- (int)appLaunchAmount
+- (long)appLaunchAmount
 {
     if (!_appLaunchAmount) {
         _appLaunchAmount = [[NSUserDefaults standardUserDefaults] integerForKey:@"LaunchAmounts"];
@@ -88,7 +88,7 @@
     return _appLaunchAmount;
 }
 
-- (void)setAppLaunchAmount:(int)appLaunchAmount
+- (void)setAppLaunchAmount:(long)appLaunchAmount
 {
     _appLaunchAmount = appLaunchAmount;
     [[NSUserDefaults standardUserDefaults] setInteger:appLaunchAmount forKey:@"LaunchAmounts"];

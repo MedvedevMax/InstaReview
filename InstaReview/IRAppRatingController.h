@@ -12,7 +12,7 @@
 
 + (id)sharedInstance;
 
-@property (nonatomic) int appLaunchAmount;
+@property (nonatomic) long appLaunchAmount;
 - (void)showAppRatingPromptIfNeeded;
 
 @end

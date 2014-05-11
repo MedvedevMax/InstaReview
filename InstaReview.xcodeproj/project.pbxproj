@@ -10,6 +10,7 @@
 		A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A212878718FDD2840001473B /* IRPhotoPreparer.mm */; };
 		A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A21CDAC3190119C000F3ED2B /* BookCropper.cpp */; };
 		A2218312190116B800A73F2C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
+		A22B20F0191EE7FA00B13C9B /* IRMoreInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */; };
 		A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD981915784A00CD6B57 /* gradient_orange@2x.png */; };
@@ -92,6 +93,8 @@
 		A212878718FDD2840001473B /* IRPhotoPreparer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IRPhotoPreparer.mm; sourceTree = "<group>"; };
 		A21CDAC2190119C000F3ED2B /* BookCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCropper.h; sourceTree = "<group>"; };
 		A21CDAC3190119C000F3ED2B /* BookCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookCropper.cpp; sourceTree = "<group>"; };
+		A22B20EE191EE7FA00B13C9B /* IRMoreInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMoreInfoTableViewController.h; sourceTree = "<group>"; };
+		A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRMoreInfoTableViewController.m; sourceTree = "<group>"; };
 		A2364A441901D73400BFFC63 /* UIImage+WhiteColorTransparent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WhiteColorTransparent.h"; sourceTree = "<group>"; };
 		A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WhiteColorTransparent.m"; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				A2E1A61F18CA780A00CD1E28 /* IRChoosingBookViewController.m */,
 				A255B8C018CB1ABB00EEC446 /* IRBookDetailsViewController.h */,
 				A255B8C118CB1ABB00EEC446 /* IRBookDetailsViewController.m */,
+				A22B20EE191EE7FA00B13C9B /* IRMoreInfoTableViewController.h */,
+				A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */,
 				A2E1A62118CA7EE300CD1E28 /* IRBooksContainerDelegate.h */,
 				A2C7CAEF190071F700DCCF1E /* IROopsViewController.h */,
 				A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */,
@@ -671,6 +676,7 @@
 				A276A8AC18C3EDB0006865F2 /* IRHTTPClient.m in Sources */,
 				A2E1A62018CA780A00CD1E28 /* IRChoosingBookViewController.m in Sources */,
 				A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */,
+				A22B20F0191EE7FA00B13C9B /* IRMoreInfoTableViewController.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
 				A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */,
 				A2A91730191AF14600BB88CE /* UIImage+MaskImage.m in Sources */,

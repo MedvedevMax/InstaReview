@@ -30,6 +30,9 @@
         
         self.year = @([[self zeroStringOrValue:dic[@"year"]] intValue]);
         
+        self.price = [self emptyStringOrValue:dic[@"price"]];
+        self.url = [self emptyStringOrValue:dic[@"url"]];
+        
         self.coverUrl = [self emptyStringOrValue:dic[@"coverUrl"]];
         self.coverImage = nil;
         
@@ -67,6 +70,8 @@
         self.rating = [aDecoder decodeObjectForKey:@"rating"];
         self.ratingCount = [aDecoder decodeObjectForKey:@"ratingCount"];
         self.year = [aDecoder decodeObjectForKey:@"year"];
+        self.price = [aDecoder decodeObjectForKey:@"price"];
+        self.url = [aDecoder decodeObjectForKey:@"url"];
         self.coverUrl = [aDecoder decodeObjectForKey:@"coverUrl"];
         self.coverImage = [aDecoder decodeObjectForKey:@"coverImage"];
         self.reviews = [aDecoder decodeObjectForKey:@"reviews"];
@@ -85,6 +90,8 @@
     [aCoder encodeObject:self.rating forKey:@"rating"];
     [aCoder encodeObject:self.ratingCount forKey:@"ratingCount"];
     [aCoder encodeObject:self.year forKey:@"year"];
+    [aCoder encodeObject:self.price forKey:@"price"];
+    [aCoder encodeObject:self.url forKey:@"url"];
     [aCoder encodeObject:self.coverUrl forKey:@"coverUrl"];
     [aCoder encodeObject:self.coverImage forKey:@"coverImage"];
     [aCoder encodeObject:self.reviews forKey:@"reviews"];

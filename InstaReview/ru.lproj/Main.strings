@@ -2,11 +2,18 @@
 /* Class = "IBUINavigationItem"; title = "Reviews"; ObjectID = "CWN-Zn-hgu"; */
 "CWN-Zn-hgu.title" = "Отзывы";
 
-/* Class = "IBUIBarButtonItem"; title = "Done"; ObjectID = "TFH-ht-Rk0"; */
-"TFH-ht-Rk0.title" = "Готово";
-
 /* Class = "IBUILabel"; text = "Oops"; ObjectID = "w2h-Im-e0G"; */
 "w2h-Im-e0G.text" = "Опаньки";
 
 /* Class = "IBUILabel"; text = "Snap a book cover to get reviews on it"; ObjectID = "ydW-WL-7WF"; */
 "ydW-WL-7WF.text" = "Сделайте снимок обложки, чтобы найти отзывы";
+
+"bbr-Kv-0EI.title" = "Еще";
+
+"XkL-eW-ick.headerTitle" = "Описание";
+
+"AfN-YN-jHE.headerTitle" = "Онлайн";
+
+"MLJ-jM-x5x.text" = "Цена";
+
+"02i-Vv-iKs.normalTitle" = "Купить Онлайн";

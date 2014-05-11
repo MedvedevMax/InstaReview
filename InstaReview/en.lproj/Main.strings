@@ -2,11 +2,18 @@
 /* Class = "IBUINavigationItem"; title = "Reviews"; ObjectID = "CWN-Zn-hgu"; */
 "CWN-Zn-hgu.title" = "Reviews";
 
-/* Class = "IBUIBarButtonItem"; title = "Done"; ObjectID = "TFH-ht-Rk0"; */
-"TFH-ht-Rk0.title" = "Done";
-
 /* Class = "IBUILabel"; text = "Oops"; ObjectID = "w2h-Im-e0G"; */
 "w2h-Im-e0G.text" = "Oops";
 
 /* Class = "IBUILabel"; text = "Snap a book cover to get reviews on it"; ObjectID = "ydW-WL-7WF"; */
 "ydW-WL-7WF.text" = "Snap a book cover to get reviews on it";
+
+"bbr-Kv-0EI.title" = "More";
+
+"XkL-eW-ick.headerTitle" = "Description";
+
+"AfN-YN-jHE.headerTitle" = "Online";
+
+"MLJ-jM-x5x.text" = "Price";
+
+"02i-Vv-iKs.normalTitle" = "Buy Online";

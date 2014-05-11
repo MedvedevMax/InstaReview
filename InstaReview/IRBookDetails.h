@@ -20,6 +20,9 @@
 @property (nonatomic, strong) NSNumber *ratingCount;
 @property (nonatomic, strong) NSNumber *year;
 
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *url;
+
 @property (nonatomic, strong) NSString *coverUrl;
 @property (nonatomic, strong) UIImage *coverImage;
 

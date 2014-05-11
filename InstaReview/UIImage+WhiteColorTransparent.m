@@ -13,22 +13,18 @@
 - (UIImage *)makeWhiteColorTransparent
 {
     CGImageRef rawImageRef = self.CGImage;
-    
-    const CGFloat colorMasking[6] = {234, 255, 234, 255, 234, 255};
-    
+    const CGFloat colorMasking[6] = {230, 255, 230, 255, 230, 255};
     UIGraphicsBeginImageContext(self.size);
-    CGImageRef maskedImageRef=CGImageCreateWithMaskingColors(rawImageRef, colorMasking);
-    {
-        //if in iphone
-        CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0.0, self.size.height);
-        CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
-    }
+    CGImageRef maskedImageRef = CGImageCreateWithMaskingColors(rawImageRef, colorMasking);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0.0, self.size.height);
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
     
     CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, self.size.width, self.size.height), maskedImageRef);
-    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     CGImageRelease(maskedImageRef);
     UIGraphicsEndImageContext();
-    return result;
+    
+    return newImage;
 }
 
 @end

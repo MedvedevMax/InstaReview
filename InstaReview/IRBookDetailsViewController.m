@@ -10,6 +10,7 @@
 #import "IRBookReview.h"
 #import "IRReviewsAPI.h"
 #import "IRAppRatingController.h"
+#import "IRMoreInfoTableViewController.h"
 
 #import "UIImage+Resize.h"
 #import "UIImage+ImageEffects.h"
@@ -452,6 +453,16 @@
     }
     
     return height;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"More Info"]) {
+        IRMoreInfoTableViewController *destination = segue.destinationViewController;
+        destination.currentBook = self.currentBook;
+    }
 }
 
 #pragma mark - Setters & Getters
