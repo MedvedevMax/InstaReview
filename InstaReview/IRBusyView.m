@@ -97,7 +97,6 @@
                                         cubicEaseOut,
                                         [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]
                                         ];
-    
     circleAnimation.values = @[@0, @1.0, @0.75, @0.75, @0, @0];
     circleAnimation.keyTimes = @[@0, @0.12, @0.22, @0.72, @0.8, @1.0];
     return circleAnimation;

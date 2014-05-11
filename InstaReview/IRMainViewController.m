@@ -88,11 +88,6 @@
                                             withAnimation:UIStatusBarAnimationNone];
 }
 
-- (void)allocateImagePicker
-{
-    
-}
-
 #pragma mark - imagePickerController
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -144,9 +139,7 @@
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         [self.view addSubview:self.screenshotView];
-                    } completion:^(BOOL finished) {
-                        [self.activityView startAnimation];
-                    }];
+                    } completion:nil];
     
     // Showing loading view & waiting for result
     [self waitAndShowResults];

@@ -23,7 +23,7 @@
         self.alternativeName = [self emptyStringOrValue:dic[@"altname"]];
         self.author = [self emptyStringOrValue:dic[@"author"]];
         
-        self.description = nil;[self emptyStringOrValue:dic[@"description"]];
+        self.description = [self emptyStringOrValue:dic[@"description"]];
 
         self.rating = @([[self zeroStringOrValue:dic[@"rating"]] floatValue]);
         self.ratingCount = @([[self zeroStringOrValue:dic[@"ratingCount"]] intValue]);
@@ -31,7 +31,7 @@
         self.year = @([[self zeroStringOrValue:dic[@"year"]] intValue]);
         
         self.price = [self emptyStringOrValue:dic[@"price"]];
-        self.url = nil;[self emptyStringOrValue:dic[@"url"]];
+        self.url = [self emptyStringOrValue:dic[@"url"]];
         
         self.coverUrl = [self emptyStringOrValue:dic[@"coverUrl"]];
         self.coverImage = nil;
