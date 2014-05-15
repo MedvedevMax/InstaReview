@@ -10,7 +10,7 @@
 
 @implementation IRAppRatingController
 
-#define APP_APPSTORE_URL @"http://instareview.me/appstore/"
+#define APP_APPSTORE_URL @"http://getinstareview.com/appstore/"
 
 @synthesize appLaunchAmount = _appLaunchAmount;
 

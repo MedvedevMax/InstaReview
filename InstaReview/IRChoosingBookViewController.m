@@ -18,6 +18,7 @@
 @interface IRChoosingBookViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (nonatomic, strong, readonly) UIImage *blankCoverImage;
 
 @end
 
@@ -105,7 +106,7 @@
     // Assigning background view
     if (!cell.backgroundView) {
         UIView *bgColorView = [[UIView alloc] init];
-        bgColorView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7f];
+        bgColorView.backgroundColor = [UIColor colorWithRed:0.97f green:0.97f blue:0.97f alpha:0.7f];
         [cell setSelectedBackgroundView:bgColorView];
     }
     
@@ -114,12 +115,12 @@
     cell.textLabel.text = book.name;
     cell.detailTextLabel.text = book.author;
     
-    if (cell.imageView.image == nil) {
+    if (cell.imageView.image == nil || cell.imageView.image != self.blankCoverImage) {
         if (book.coverImage) {
             cell.imageView.image = [[book.coverImage resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh] makeWhiteColorTransparent];
         }
         else {
-            cell.imageView.image = [[UIImage imageNamed:@"blankCover.png"] resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh];
+            cell.imageView.image = self.blankCoverImage;
         }
     }
     else {
@@ -178,6 +179,19 @@
         IRBookDetailsViewController *detailsVC = segue.destinationViewController;
         detailsVC.currentBook = [self.books objectAtIndex:[[self.tableView indexPathForCell:sender] row]];
     }
+}
+
+#pragma mark - Properties
+
+@synthesize blankCoverImage = _blankCoverImage;
+
+- (UIImage *)blankCoverImage
+{
+    if (!_blankCoverImage) {
+        _blankCoverImage = [[UIImage imageNamed:@"blankCover.png"] resizedImage:CGSizeMake(COVER_WIDTH, COVER_HEIGHT) interpolationQuality:kCGInterpolationHigh];
+    }
+    
+    return _blankCoverImage;
 }
 
 @end

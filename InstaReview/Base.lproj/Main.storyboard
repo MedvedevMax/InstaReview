@@ -413,7 +413,7 @@ No reviews on this book</string>
                                                 <constraint firstAttribute="height" constant="57" id="BuL-FQ-RGf"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64E-BY-6GH">
+                                        <view tag="110" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64E-BY-6GH">
                                             <rect key="frame" x="20" y="141" width="300" height="1"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>

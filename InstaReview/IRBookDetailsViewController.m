@@ -34,6 +34,7 @@
 #define kTableViewReviewTagThumbImage       102
 #define kTableViewReviewTagText             103
 #define kTableViewReviewTagDate             104
+#define kTableViewReviewTagSeparator        110
 
 @interface IRBookDetailsViewController ()
 
@@ -153,6 +154,9 @@
 
             IRBookReview *review = [self.currentBook.reviews objectAtIndex:indexPath.row];
             [self assignReview:review toCell:cell];
+            
+            UIView *separator = [cell viewWithTag:kTableViewReviewTagSeparator];
+            separator.hidden = indexPath.row == self.currentBook.reviews.count - 1;
         }
             break;
     }
