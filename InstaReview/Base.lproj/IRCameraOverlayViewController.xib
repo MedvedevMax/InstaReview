@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -18,58 +18,60 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-kk-mue">
-                    <rect key="frame" x="0.0" y="355" width="320" height="125"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookFocus.png" translatesAutoresizingMaskIntoConstraints="NO" id="QlN-6c-S9V">
+                    <rect key="frame" x="50" y="70" width="220" height="327"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="220" id="YdN-bf-VLU"/>
+                        <constraint firstAttribute="height" constant="327" id="aLu-9F-fOD"/>
+                    </constraints>
+                </imageView>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-kk-mue">
+                    <rect key="frame" x="0.0" y="362" width="320" height="118"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="125" id="t7J-4Z-Zf3"/>
+                        <constraint firstAttribute="height" constant="118" id="t7J-4Z-Zf3"/>
                     </constraints>
                 </view>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vih-20-Vzc">
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vih-20-Vzc">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flash:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OZ-mV-9zC">
-                            <rect key="frame" x="47" y="33" width="110" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="21" id="mDB-ij-7GM"/>
-                                <constraint firstAttribute="width" constant="110" id="ySt-hN-sHT"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="bZS-0z-enA" appends="YES" id="LLu-pY-z9h"/>
-                            </connections>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-9w-aSq">
-                            <rect key="frame" x="165" y="33" width="110" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="110" id="JxX-zx-0PP"/>
-                                <constraint firstAttribute="height" constant="21" id="nxc-kh-Pha"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="bZS-0z-enA" appends="YES" id="tSI-CU-iW7"/>
-                            </connections>
-                        </label>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Sqr-9w-aSq" firstAttribute="top" secondItem="Vih-20-Vzc" secondAttribute="top" constant="33" id="EB9-zv-oYf"/>
-                        <constraint firstItem="9OZ-mV-9zC" firstAttribute="leading" secondItem="Vih-20-Vzc" secondAttribute="leading" constant="47" id="I3J-oc-V5x"/>
                         <constraint firstAttribute="height" constant="69" id="V10-Se-5oL"/>
-                        <constraint firstAttribute="trailing" secondItem="Sqr-9w-aSq" secondAttribute="trailing" constant="45" id="j0s-1g-5mS"/>
-                        <constraint firstItem="9OZ-mV-9zC" firstAttribute="top" secondItem="Vih-20-Vzc" secondAttribute="top" constant="33" id="y1q-3E-9as"/>
                     </constraints>
                 </view>
+                <label opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flash:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OZ-mV-9zC">
+                    <rect key="frame" x="47" y="31" width="110" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6Di-dk-nla"/>
+                        <constraint firstAttribute="width" constant="110" id="pBI-O6-NVN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="bZS-0z-enA" appends="YES" id="jRg-E8-WpN"/>
+                    </connections>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-9w-aSq">
+                    <rect key="frame" x="165" y="31" width="110" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="QPq-gZ-j8K"/>
+                        <constraint firstAttribute="height" constant="21" id="a0F-g4-5gV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="bZS-0z-enA" appends="YES" id="x4Z-dz-Zn8"/>
+                    </connections>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-gM-yBJ">
-                    <rect key="frame" x="119" y="368" width="83" height="83"/>
+                    <rect key="frame" x="119" y="367" width="83" height="83"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="83" id="Cs5-jW-Aob"/>
@@ -83,7 +85,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-Zy-Hbc">
-                    <rect key="frame" x="33" y="404" width="46" height="46"/>
+                    <rect key="frame" x="33" y="405" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="5dx-0d-8cD"/>
@@ -97,7 +99,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-ph-Hnn">
-                    <rect key="frame" x="237" y="404" width="46" height="46"/>
+                    <rect key="frame" x="237" y="405" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="08V-Yy-89g"/>
@@ -113,14 +115,20 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Sqr-9w-aSq" secondAttribute="trailing" constant="45" id="0QI-7G-Obw"/>
                 <constraint firstAttribute="trailing" secondItem="Vih-20-Vzc" secondAttribute="trailing" id="3u8-uM-298"/>
+                <constraint firstAttribute="centerY" secondItem="QlN-6c-S9V" secondAttribute="centerY" constant="6.5" id="Fxs-zO-Oac"/>
                 <constraint firstItem="vU0-kk-mue" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="Khk-1Y-MpY"/>
-                <constraint firstAttribute="bottom" secondItem="VqU-Zy-Hbc" secondAttribute="bottom" constant="30" id="M0u-gr-sNy"/>
-                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="30" id="SKb-tw-zIW"/>
+                <constraint firstAttribute="bottom" secondItem="VqU-Zy-Hbc" secondAttribute="bottom" constant="29" id="M0u-gr-sNy"/>
+                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="29" id="SKb-tw-zIW"/>
+                <constraint firstItem="Sqr-9w-aSq" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" constant="31" id="Twh-AX-wvs"/>
                 <constraint firstAttribute="trailing" secondItem="vU0-kk-mue" secondAttribute="trailing" id="U5J-kT-rE6"/>
-                <constraint firstAttribute="bottom" secondItem="9GB-gM-yBJ" secondAttribute="bottom" constant="29" id="XAC-oM-JkZ"/>
+                <constraint firstAttribute="bottom" secondItem="9GB-gM-yBJ" secondAttribute="bottom" constant="30" id="XAC-oM-JkZ"/>
+                <constraint firstAttribute="centerX" secondItem="QlN-6c-S9V" secondAttribute="centerX" id="ZV0-eV-IJp"/>
+                <constraint firstItem="9OZ-mV-9zC" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" constant="31" id="dNk-RU-RcY"/>
                 <constraint firstAttribute="bottom" secondItem="vU0-kk-mue" secondAttribute="bottom" id="qeW-Cz-XZT"/>
                 <constraint firstItem="Vih-20-Vzc" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="rKC-31-ERY"/>
+                <constraint firstItem="9OZ-mV-9zC" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" constant="47" id="ryC-fp-6bc"/>
                 <constraint firstItem="Vih-20-Vzc" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" id="sz9-Sv-dgm"/>
                 <constraint firstAttribute="centerX" secondItem="9GB-gM-yBJ" secondAttribute="centerX" id="uaK-pa-tsS"/>
                 <constraint firstAttribute="trailing" secondItem="UXH-ph-Hnn" secondAttribute="trailing" constant="37" id="w0T-Bg-sR9"/>
@@ -199,11 +207,12 @@
         </view>
         <tapGestureRecognizer id="bZS-0z-enA">
             <connections>
-                <action selector="flashLabelTapped:" destination="-1" id="Nfg-qA-DA0"/>
+                <action selector="flashLabelTapped:" destination="-1" id="94j-RP-OKv"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="BookFocus.png" width="220" height="327"/>
         <image name="CloseButton.png" width="30" height="30"/>
         <image name="FlashButton-auto.png" width="46" height="46"/>
         <image name="TakeButton.png" width="83" height="83"/>

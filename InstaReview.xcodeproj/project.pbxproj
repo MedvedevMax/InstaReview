@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A212878718FDD2840001473B /* IRPhotoPreparer.mm */; };
-		A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A21CDAC3190119C000F3ED2B /* BookCropper.cpp */; };
+		A212878818FDD2840001473B /* IRPhotoPreparer.m in Sources */ = {isa = PBXBuildFile; fileRef = A212878718FDD2840001473B /* IRPhotoPreparer.m */; };
 		A2218312190116B800A73F2C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
+		A2223E73192A97FC0032BE00 /* BookFocus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2223E72192A97FC0032BE00 /* BookFocus@2x.png */; };
 		A22B20F0191EE7FA00B13C9B /* IRMoreInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */; };
 		A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
@@ -90,9 +90,8 @@
 /* Begin PBXFileReference section */
 		A212878018FDD20B0001473B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../opencv2.framework; sourceTree = "<group>"; };
 		A212878618FDD2840001473B /* IRPhotoPreparer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPhotoPreparer.h; sourceTree = "<group>"; };
-		A212878718FDD2840001473B /* IRPhotoPreparer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IRPhotoPreparer.mm; sourceTree = "<group>"; };
-		A21CDAC2190119C000F3ED2B /* BookCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCropper.h; sourceTree = "<group>"; };
-		A21CDAC3190119C000F3ED2B /* BookCropper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BookCropper.cpp; sourceTree = "<group>"; };
+		A212878718FDD2840001473B /* IRPhotoPreparer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPhotoPreparer.m; sourceTree = "<group>"; };
+		A2223E72192A97FC0032BE00 /* BookFocus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BookFocus@2x.png"; sourceTree = "<group>"; };
 		A22B20EE191EE7FA00B13C9B /* IRMoreInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMoreInfoTableViewController.h; sourceTree = "<group>"; };
 		A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRMoreInfoTableViewController.m; sourceTree = "<group>"; };
 		A2364A441901D73400BFFC63 /* UIImage+WhiteColorTransparent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WhiteColorTransparent.h"; sourceTree = "<group>"; };
@@ -236,9 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				A212878618FDD2840001473B /* IRPhotoPreparer.h */,
-				A212878718FDD2840001473B /* IRPhotoPreparer.mm */,
-				A21CDAC2190119C000F3ED2B /* BookCropper.h */,
-				A21CDAC3190119C000F3ED2B /* BookCropper.cpp */,
+				A212878718FDD2840001473B /* IRPhotoPreparer.m */,
 			);
 			name = ImageProcessing;
 			sourceTree = "<group>";
@@ -462,6 +459,7 @@
 				A2C8192E190BD59500B55B01 /* FlashButton-auto@2x.png */,
 				A2C8192F190BD59500B55B01 /* FlashButton-off@2x.png */,
 				A2C81930190BD59500B55B01 /* FlashButton-on@2x.png */,
+				A2223E72192A97FC0032BE00 /* BookFocus@2x.png */,
 			);
 			name = CameraView;
 			sourceTree = "<group>";
@@ -621,6 +619,7 @@
 				A2683701191D956600B626BC /* Localizable.strings in Resources */,
 				A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */,
 				A2706392191BAA9C00ED7114 /* RatingCell@2x.png in Resources */,
+				A2223E73192A97FC0032BE00 /* BookFocus@2x.png in Resources */,
 				A2A9173A191B0C0E00BB88CE /* blankCover.png in Resources */,
 				A2A91722191ADDE700BB88CE /* BlurBgOverlay@2x.png in Resources */,
 				A285C7B9190A9B7700F1E5AD /* Title@2x.png in Resources */,
@@ -678,9 +677,8 @@
 				A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */,
 				A22B20F0191EE7FA00B13C9B /* IRMoreInfoTableViewController.m in Sources */,
 				A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */,
-				A21CDAC4190119C000F3ED2B /* BookCropper.cpp in Sources */,
 				A2A91730191AF14600BB88CE /* UIImage+MaskImage.m in Sources */,
-				A212878818FDD2840001473B /* IRPhotoPreparer.mm in Sources */,
+				A212878818FDD2840001473B /* IRPhotoPreparer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
