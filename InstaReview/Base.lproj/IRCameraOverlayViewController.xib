@@ -71,7 +71,7 @@
                     </connections>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-gM-yBJ">
-                    <rect key="frame" x="119" y="367" width="83" height="83"/>
+                    <rect key="frame" x="119" y="377" width="83" height="83"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="83" id="Cs5-jW-Aob"/>
@@ -85,7 +85,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-Zy-Hbc">
-                    <rect key="frame" x="33" y="405" width="46" height="46"/>
+                    <rect key="frame" x="33" y="410" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="5dx-0d-8cD"/>
@@ -99,7 +99,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-ph-Hnn">
-                    <rect key="frame" x="237" y="405" width="46" height="46"/>
+                    <rect key="frame" x="237" y="410" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="08V-Yy-89g"/>
@@ -119,11 +119,11 @@
                 <constraint firstAttribute="trailing" secondItem="Vih-20-Vzc" secondAttribute="trailing" id="3u8-uM-298"/>
                 <constraint firstAttribute="centerY" secondItem="QlN-6c-S9V" secondAttribute="centerY" constant="6.5" id="Fxs-zO-Oac"/>
                 <constraint firstItem="vU0-kk-mue" firstAttribute="leading" secondItem="xOB-dF-Xqn" secondAttribute="leading" id="Khk-1Y-MpY"/>
-                <constraint firstAttribute="bottom" secondItem="VqU-Zy-Hbc" secondAttribute="bottom" constant="29" id="M0u-gr-sNy"/>
-                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="29" id="SKb-tw-zIW"/>
+                <constraint firstAttribute="bottom" secondItem="VqU-Zy-Hbc" secondAttribute="bottom" constant="24" id="M0u-gr-sNy"/>
+                <constraint firstAttribute="bottom" secondItem="UXH-ph-Hnn" secondAttribute="bottom" constant="24" id="SKb-tw-zIW"/>
                 <constraint firstItem="Sqr-9w-aSq" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" constant="31" id="Twh-AX-wvs"/>
                 <constraint firstAttribute="trailing" secondItem="vU0-kk-mue" secondAttribute="trailing" id="U5J-kT-rE6"/>
-                <constraint firstAttribute="bottom" secondItem="9GB-gM-yBJ" secondAttribute="bottom" constant="30" id="XAC-oM-JkZ"/>
+                <constraint firstAttribute="bottom" secondItem="9GB-gM-yBJ" secondAttribute="bottom" constant="20" id="XAC-oM-JkZ"/>
                 <constraint firstAttribute="centerX" secondItem="QlN-6c-S9V" secondAttribute="centerX" id="ZV0-eV-IJp"/>
                 <constraint firstItem="9OZ-mV-9zC" firstAttribute="top" secondItem="xOB-dF-Xqn" secondAttribute="top" constant="31" id="dNk-RU-RcY"/>
                 <constraint firstAttribute="bottom" secondItem="vU0-kk-mue" secondAttribute="bottom" id="qeW-Cz-XZT"/>

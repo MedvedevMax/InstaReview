@@ -20,12 +20,12 @@
     #define CUT_FRAME_WIDTH     220 / 320.0 - 0.05
     #define CUT_FRAME_HEIGHT    327 / 480.0 + 0.1
 
-    #define IMAGE_RESIZE_WIDTH  336
-    #define IMAGE_RESIZE_HEIGHT 448
+    #define IMAGE_RESIZE_WIDTH  252
+    #define IMAGE_RESIZE_HEIGHT 336
     
     UIImage *resizedImage = [sourceImage resizedImage:CGSizeMake(IMAGE_RESIZE_WIDTH,
                                                                  IMAGE_RESIZE_HEIGHT)
-                                 interpolationQuality:kCGInterpolationLow];
+                                 interpolationQuality:kCGInterpolationMedium];
     
     CGRect cropFrame = CGRectMake((CUT_FRAME_X - (CUT_FRAME_WIDTH) / 2) * IMAGE_RESIZE_WIDTH,
                                   (CUT_FRAME_Y - (CUT_FRAME_HEIGHT) / 2) * IMAGE_RESIZE_HEIGHT,
