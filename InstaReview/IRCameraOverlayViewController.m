@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIView *useRetakeView;
 @property (weak, nonatomic) IBOutlet UIImageView *capturedImageView;
 
+@property (strong, nonatomic) IBOutlet UIView *guideView;
 @end
 
 @implementation IRCameraOverlayViewController
@@ -38,6 +39,23 @@
 {
     [super viewDidLoad];
     self.view.frame = [[UIScreen mainScreen] bounds];
+    self.guideView.frame = [[UIScreen mainScreen] bounds];
+    
+    // Show guide first times
+    BOOL guideHasBeenShown = [[NSUserDefaults standardUserDefaults] boolForKey:@"guideShown"];
+    if (!guideHasBeenShown) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView transitionWithView:self.view
+                              duration:0.3f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                
+                                [self.view addSubview:self.guideView];
+                                
+                            } completion:nil];
+        });
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"guideShown"];
+    }
 }
 
 #pragma mark - Main view
@@ -123,6 +141,21 @@
                     } completion:nil];
 }
 
+#pragma mark - Guide View
+- (IBAction)dismissGuideTapped
+{
+    [UIView transitionWithView:self.view
+                      duration:0.3f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        
+                        [self.guideView removeFromSuperview];
+                        
+                    } completion:nil];
+}
+
+#pragma mark - Properties
+
 - (void)setImagePickerController:(UIImagePickerController *)imagePickerController
 {
     if (_imagePickerController) {
@@ -168,19 +201,6 @@
                         [self.view addSubview:self.useRetakeView];
                         
                     } completion:nil];
-}
-
-- (void)animateShootEffect
-{
-    UIView *whiteView = [[UIView alloc] initWithFrame:self.view.frame];
-    whiteView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:whiteView];
-    
-    [UIView animateWithDuration:0.5f animations:^{
-        whiteView.alpha = 0.0f;
-    } completion:^(BOOL finished) {
-        [whiteView removeFromSuperview];
-    }];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated

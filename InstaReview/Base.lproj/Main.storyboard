@@ -113,12 +113,12 @@
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SadSmile.png" translatesAutoresizingMaskIntoConstraints="NO" id="7D4-tH-l60">
-                                <rect key="frame" x="112" y="145" width="96" height="161"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SadSmile.png" translatesAutoresizingMaskIntoConstraints="NO" id="7D4-tH-l60">
+                                <rect key="frame" x="80" y="145" width="161" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="161" id="IIj-y4-RmG"/>
-                                    <constraint firstAttribute="width" constant="96" id="dnu-Af-C01"/>
+                                    <constraint firstAttribute="width" constant="161" id="dnu-Af-C01"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dId-3C-6Du">
@@ -152,6 +152,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="No network/No books" id="bWe-te-rcB"/>
                     <connections>
+                        <outlet property="errorExplanationImage" destination="7D4-tH-l60" id="LLq-qa-n9K"/>
                         <outlet property="errorExplanationLabel" destination="o70-3o-hHc" id="uhG-n7-LeH"/>
                     </connections>
                 </viewController>

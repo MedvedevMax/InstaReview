@@ -9,6 +9,7 @@
                 <outlet property="capturedImageView" destination="VXE-sy-JDE" id="nKh-B5-iFh"/>
                 <outlet property="flashButton" destination="VqU-Zy-Hbc" id="Mrt-HY-VAK"/>
                 <outlet property="flashModeLabel" destination="Sqr-9w-aSq" id="7gd-XV-TTY"/>
+                <outlet property="guideView" destination="TOt-Ej-iZS" id="nOx-0m-bzV"/>
                 <outlet property="useRetakeView" destination="8dz-2U-juN" id="FL4-Xw-9eJ"/>
                 <outlet property="view" destination="xOB-dF-Xqn" id="UMv-nP-TBY"/>
             </connections>
@@ -210,11 +211,58 @@
                 <action selector="flashLabelTapped:" destination="-1" id="94j-RP-OKv"/>
             </connections>
         </tapGestureRecognizer>
+        <view alpha="0.90000000000000002" contentMode="scaleToFill" id="TOt-Ej-iZS">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Info.png" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-S5-iOY">
+                    <rect key="frame" x="47" y="71" width="226" height="326"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="326" id="V7L-bz-mZF"/>
+                        <constraint firstAttribute="width" constant="226" id="gro-N0-lpW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Align these lines to your book" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="R3M-Af-CdI">
+                    <rect key="frame" x="125" y="171" width="140" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4s-gg-znc">
+                    <rect key="frame" x="114" y="418" width="93" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="93" id="MIp-eo-3oT"/>
+                        <constraint firstAttribute="height" constant="39" id="g4x-fH-kAc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Good" backgroundImage="ContourButton.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissGuideTapped" destination="-1" eventType="touchUpInside" id="YI5-p8-OcU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="h4s-gg-znc" secondAttribute="centerX" id="7lr-ow-eeY"/>
+                <constraint firstAttribute="bottom" secondItem="h4s-gg-znc" secondAttribute="bottom" constant="23" id="A5H-Qq-JoI"/>
+                <constraint firstAttribute="centerX" secondItem="XZ4-S5-iOY" secondAttribute="centerX" id="HJf-1m-dev"/>
+                <constraint firstAttribute="centerY" secondItem="XZ4-S5-iOY" secondAttribute="centerY" constant="6" id="kSl-Zr-12g"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
     </objects>
     <resources>
         <image name="BookFocus.png" width="220" height="327"/>
         <image name="CloseButton.png" width="30" height="30"/>
+        <image name="ContourButton.png" width="93" height="39"/>
         <image name="FlashButton-auto.png" width="46" height="46"/>
+        <image name="Info.png" width="227" height="327"/>
         <image name="TakeButton.png" width="83" height="83"/>
     </resources>
 </document>

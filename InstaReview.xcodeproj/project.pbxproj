@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A212878818FDD2840001473B /* IRPhotoPreparer.m in Sources */ = {isa = PBXBuildFile; fileRef = A212878718FDD2840001473B /* IRPhotoPreparer.m */; };
-		A2218312190116B800A73F2C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A212878018FDD20B0001473B /* opencv2.framework */; };
 		A2223E73192A97FC0032BE00 /* BookFocus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2223E72192A97FC0032BE00 /* BookFocus@2x.png */; };
 		A22B20F0191EE7FA00B13C9B /* IRMoreInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */; };
+		A22E63CF19445B21009C425B /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A22E63CE19445B21009C425B /* Info@2x.png */; };
+		A22E63D119445DAD009C425B /* ContourButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A22E63D019445DAD009C425B /* ContourButton@2x.png */; };
 		A2364A461901D73400BFFC63 /* UIImage+WhiteColorTransparent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */; };
 		A23BE78B18C3FB5100FD461D /* IRReviewsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BE78A18C3FB5100FD461D /* IRReviewsAPI.m */; };
 		A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A246FD981915784A00CD6B57 /* gradient_orange@2x.png */; };
@@ -27,7 +28,6 @@
 		A2706390191BA80A00ED7114 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A270638F191BA80A00ED7114 /* Stars@2x.png */; };
 		A2706392191BAA9C00ED7114 /* RatingCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2706391191BAA9C00ED7114 /* RatingCell@2x.png */; };
 		A275AB3E18E4D24800E2BCC4 /* IRViewFinderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB3D18E4D24800E2BCC4 /* IRViewFinderView.m */; };
-		A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A275AB3F18E4D8E600E2BCC4 /* CoreMotion.framework */; };
 		A275AB4618E4E62800E2BCC4 /* IRViewFinderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A275AB4518E4E62800E2BCC4 /* IRViewFinderLayer.m */; };
 		A276A86C18C3D5FF006865F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86B18C3D5FF006865F2 /* Foundation.framework */; };
 		A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276A86D18C3D5FF006865F2 /* CoreGraphics.framework */; };
@@ -60,6 +60,7 @@
 		A2B06FF718D8A3BA0004ACE1 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B06FF618D8A3BA0004ACE1 /* UIImage+Filters.m */; };
 		A2B310A818CA60FF00868DEA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B310A718CA60FF00868DEA /* UIImage+Resize.m */; };
 		A2C011DB190BFFF100262C83 /* IRCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C011D9190BFFF100262C83 /* IRCameraOverlayViewController.m */; };
+		A2C06AA41943A86C0059CA1E /* NoNetwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C06AA31943A86C0059CA1E /* NoNetwork@2x.png */; };
 		A2C7CAF1190071F700DCCF1E /* IROopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */; };
 		A2C7CAF41900817100DCCF1E /* IRPersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C7CAF31900817100DCCF1E /* IRPersistencyManager.m */; };
 		A2C81932190BD59500B55B01 /* CloseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C8192D190BD59500B55B01 /* CloseButton@2x.png */; };
@@ -94,6 +95,8 @@
 		A2223E72192A97FC0032BE00 /* BookFocus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BookFocus@2x.png"; sourceTree = "<group>"; };
 		A22B20EE191EE7FA00B13C9B /* IRMoreInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRMoreInfoTableViewController.h; sourceTree = "<group>"; };
 		A22B20EF191EE7FA00B13C9B /* IRMoreInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRMoreInfoTableViewController.m; sourceTree = "<group>"; };
+		A22E63CE19445B21009C425B /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
+		A22E63D019445DAD009C425B /* ContourButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ContourButton@2x.png"; sourceTree = "<group>"; };
 		A2364A441901D73400BFFC63 /* UIImage+WhiteColorTransparent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WhiteColorTransparent.h"; sourceTree = "<group>"; };
 		A2364A451901D73400BFFC63 /* UIImage+WhiteColorTransparent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WhiteColorTransparent.m"; sourceTree = "<group>"; };
 		A23BE78918C3FB5100FD461D /* IRReviewsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRReviewsAPI.h; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 		A2B310A718CA60FF00868DEA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		A2C011D8190BFFF100262C83 /* IRCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRCameraOverlayViewController.h; sourceTree = "<group>"; };
 		A2C011D9190BFFF100262C83 /* IRCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRCameraOverlayViewController.m; sourceTree = "<group>"; };
+		A2C06AA31943A86C0059CA1E /* NoNetwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NoNetwork@2x.png"; sourceTree = "<group>"; };
 		A2C7CAEF190071F700DCCF1E /* IROopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IROopsViewController.h; sourceTree = "<group>"; };
 		A2C7CAF0190071F700DCCF1E /* IROopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IROopsViewController.m; sourceTree = "<group>"; };
 		A2C7CAF21900817100DCCF1E /* IRPersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPersistencyManager.h; sourceTree = "<group>"; };
@@ -208,8 +212,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2218312190116B800A73F2C /* opencv2.framework in Frameworks */,
-				A275AB4018E4D8E600E2BCC4 /* CoreMotion.framework in Frameworks */,
 				A2B06FF318D8A38D0004ACE1 /* CoreImage.framework in Frameworks */,
 				A276A8A918C3E090006865F2 /* MobileCoreServices.framework in Frameworks */,
 				A276A86E18C3D5FF006865F2 /* CoreGraphics.framework in Frameworks */,
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				A27FF67619158DC2003C7E2F /* SadSmile@2x.png */,
+				A2C06AA31943A86C0059CA1E /* NoNetwork@2x.png */,
 				A26836EE191D91E400B626BC /* TryAgainButton@2x.png */,
 			);
 			name = OopsView;
@@ -460,6 +463,8 @@
 				A2C8192F190BD59500B55B01 /* FlashButton-off@2x.png */,
 				A2C81930190BD59500B55B01 /* FlashButton-on@2x.png */,
 				A2223E72192A97FC0032BE00 /* BookFocus@2x.png */,
+				A22E63CE19445B21009C425B /* Info@2x.png */,
+				A22E63D019445DAD009C425B /* ContourButton@2x.png */,
 			);
 			name = CameraView;
 			sourceTree = "<group>";
@@ -607,6 +612,8 @@
 			files = (
 				A2C81933190BD59500B55B01 /* FlashButton-auto@2x.png in Resources */,
 				A276A88418C3D5FF006865F2 /* Images.xcassets in Resources */,
+				A22E63D119445DAD009C425B /* ContourButton@2x.png in Resources */,
+				A2C06AA41943A86C0059CA1E /* NoNetwork@2x.png in Resources */,
 				A2C81935190BD59500B55B01 /* FlashButton-on@2x.png in Resources */,
 				A2C81934190BD59500B55B01 /* FlashButton-off@2x.png in Resources */,
 				A28E87BC191D9B1A00C162AB /* IRCameraOverlayViewController.xib in Resources */,
@@ -620,6 +627,7 @@
 				A246FD991915784A00CD6B57 /* gradient_orange@2x.png in Resources */,
 				A2706392191BAA9C00ED7114 /* RatingCell@2x.png in Resources */,
 				A2223E73192A97FC0032BE00 /* BookFocus@2x.png in Resources */,
+				A22E63CF19445B21009C425B /* Info@2x.png in Resources */,
 				A2A9173A191B0C0E00BB88CE /* blankCover.png in Resources */,
 				A2A91722191ADDE700BB88CE /* BlurBgOverlay@2x.png in Resources */,
 				A285C7B9190A9B7700F1E5AD /* Title@2x.png in Resources */,
