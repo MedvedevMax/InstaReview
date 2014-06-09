@@ -43,7 +43,7 @@
     
     // Show guide first times
     BOOL guideHasBeenShown = [[NSUserDefaults standardUserDefaults] boolForKey:@"guideShown"];
-    if (!guideHasBeenShown) {
+    if (guideHasBeenShown) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [UIView transitionWithView:self.view
                               duration:0.3f

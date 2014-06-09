@@ -223,9 +223,13 @@
                         <constraint firstAttribute="width" constant="226" id="gro-N0-lpW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Align these lines to your book" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="R3M-Af-CdI">
-                    <rect key="frame" x="125" y="171" width="140" height="49"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Align these lines to your book" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="dDF-o9-wlk">
+                    <rect key="frame" x="133" y="161" width="140" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="IBN-7x-FKx"/>
+                        <constraint firstAttribute="height" constant="49" id="P5x-9k-kEm"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -250,9 +254,11 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="h4s-gg-znc" secondAttribute="centerX" id="7lr-ow-eeY"/>
+                <constraint firstItem="dDF-o9-wlk" firstAttribute="leading" secondItem="TOt-Ej-iZS" secondAttribute="leading" constant="133" id="8nL-oE-JP8"/>
                 <constraint firstAttribute="bottom" secondItem="h4s-gg-znc" secondAttribute="bottom" constant="23" id="A5H-Qq-JoI"/>
                 <constraint firstAttribute="centerX" secondItem="XZ4-S5-iOY" secondAttribute="centerX" id="HJf-1m-dev"/>
                 <constraint firstAttribute="centerY" secondItem="XZ4-S5-iOY" secondAttribute="centerY" constant="6" id="kSl-Zr-12g"/>
+                <constraint firstAttribute="centerY" secondItem="dDF-o9-wlk" secondAttribute="centerY" constant="54.5" id="uKw-PQ-F66"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
