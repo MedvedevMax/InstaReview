@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IRCameraOverlayViewController">
@@ -21,7 +22,6 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookFocus.png" translatesAutoresizingMaskIntoConstraints="NO" id="QlN-6c-S9V">
                     <rect key="frame" x="50" y="70" width="220" height="327"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="220" id="YdN-bf-VLU"/>
                         <constraint firstAttribute="height" constant="327" id="aLu-9F-fOD"/>
@@ -29,7 +29,6 @@
                 </imageView>
                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-kk-mue">
                     <rect key="frame" x="0.0" y="362" width="320" height="118"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="118" id="t7J-4Z-Zf3"/>
@@ -37,7 +36,6 @@
                 </view>
                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vih-20-Vzc">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="69" id="V10-Se-5oL"/>
@@ -45,7 +43,6 @@
                 </view>
                 <label opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flash:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OZ-mV-9zC">
                     <rect key="frame" x="47" y="31" width="110" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="6Di-dk-nla"/>
                         <constraint firstAttribute="width" constant="110" id="pBI-O6-NVN"/>
@@ -59,7 +56,6 @@
                 </label>
                 <label opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqr-9w-aSq">
                     <rect key="frame" x="165" y="31" width="110" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="QPq-gZ-j8K"/>
                         <constraint firstAttribute="height" constant="21" id="a0F-g4-5gV"/>
@@ -73,7 +69,6 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-gM-yBJ">
                     <rect key="frame" x="119" y="377" width="83" height="83"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="83" id="Cs5-jW-Aob"/>
                         <constraint firstAttribute="width" constant="83" id="WjR-6B-0cd"/>
@@ -87,7 +82,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-Zy-Hbc">
                     <rect key="frame" x="33" y="410" width="46" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="5dx-0d-8cD"/>
                         <constraint firstAttribute="height" constant="46" id="sO6-H8-MCi"/>
@@ -101,7 +95,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-ph-Hnn">
                     <rect key="frame" x="237" y="410" width="46" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="08V-Yy-89g"/>
                         <constraint firstAttribute="width" constant="46" id="AEn-fI-Aic"/>
@@ -144,15 +137,12 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VXE-sy-JDE">
                     <rect key="frame" x="0.0" y="0.0" width="321" height="480"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view alpha="0.80000000000000016" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAj-2r-bvg">
                     <rect key="frame" x="0.0" y="407" width="321" height="73"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-rQ-T25">
                             <rect key="frame" x="162" y="16" width="156" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="GcV-FA-nOv"/>
                                 <constraint firstAttribute="width" constant="156" id="f8A-Lz-sjR"/>
@@ -168,7 +158,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-GQ-hTs">
                             <rect key="frame" x="2" y="16" width="156" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="43" id="jWp-Hv-TzX"/>
                                 <constraint firstAttribute="width" constant="156" id="tcX-uE-E7l"/>
@@ -217,7 +206,6 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Info.png" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-S5-iOY">
                     <rect key="frame" x="47" y="71" width="226" height="326"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="326" id="V7L-bz-mZF"/>
                         <constraint firstAttribute="width" constant="226" id="gro-N0-lpW"/>
@@ -225,7 +213,6 @@
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Align these lines to your book" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="dDF-o9-wlk">
                     <rect key="frame" x="133" y="161" width="140" height="49"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="IBN-7x-FKx"/>
                         <constraint firstAttribute="height" constant="49" id="P5x-9k-kEm"/>
@@ -236,7 +223,6 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4s-gg-znc">
                     <rect key="frame" x="114" y="418" width="93" height="39"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="93" id="MIp-eo-3oT"/>
                         <constraint firstAttribute="height" constant="39" id="g4x-fH-kAc"/>
@@ -260,6 +246,7 @@
                 <constraint firstAttribute="centerY" secondItem="XZ4-S5-iOY" secondAttribute="centerY" constant="6" id="kSl-Zr-12g"/>
                 <constraint firstAttribute="centerY" secondItem="dDF-o9-wlk" secondAttribute="centerY" constant="54.5" id="uKw-PQ-F66"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
